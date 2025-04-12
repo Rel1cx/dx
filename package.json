@@ -32,9 +32,9 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@eslint-react/ast": "^1.45.2",
-    "@eslint-react/eff": "^1.45.2",
-    "@eslint-react/kit": "^1.45.2",
+    "@eslint-react/ast": "^1.45.4",
+    "@eslint-react/eff": "^1.45.4",
+    "@eslint-react/kit": "^1.45.4",
     "@typescript-eslint/scope-manager": "^8.29.1",
     "@typescript-eslint/type-utils": "^8.29.1",
     "@typescript-eslint/types": "^8.29.1",
