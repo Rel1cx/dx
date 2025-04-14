@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-function",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "private": false,
   "description": "(WIP) The ESLint plugin for function-related rules.",
   "license": "MIT",
@@ -32,9 +32,9 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@eslint-react/ast": "^1.45.4",
-    "@eslint-react/eff": "^1.45.4",
-    "@eslint-react/kit": "^1.45.4",
+    "@eslint-react/ast": "^1.47.1",
+    "@eslint-react/eff": "^1.47.1",
+    "@eslint-react/kit": "^1.47.1",
     "@typescript-eslint/scope-manager": "^8.29.1",
     "@typescript-eslint/type-utils": "^8.29.1",
     "@typescript-eslint/types": "^8.29.1",
