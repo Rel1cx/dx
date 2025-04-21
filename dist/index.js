@@ -9,7 +9,7 @@ import { AST_NODE_TYPES } from '@typescript-eslint/types';
 
 // package.json
 var name = "eslint-plugin-function";
-var version = "0.0.18";
+var version = "0.0.20";
 function getDocsUrl() {
   return "TODO: add docs for local ESLint rules";
 }
@@ -205,7 +205,7 @@ function create3(context, [opts]) {
   }
   return {
     [":function"](node) {
-      const functionName = AST.getFunctionIdentifier(node)?.name;
+      const functionName = AST.getFunctionId(node)?.name;
       const isMatched = functionName != null && pattern.test(functionName);
       functionEntries.push({ functionName, functionNode: node, isMatched });
     },
@@ -231,7 +231,7 @@ function create3(context, [opts]) {
       const { functionName, functionNode, isMatched = false } = functionEntries.at(-1) ?? {};
       if (functionName == null || functionNode == null || !isMatched) return;
       handleReturnExpression(context, node.argument, (expr, data) => {
-        const functionName2 = AST.getFunctionIdentifier(functionNode)?.name;
+        const functionName2 = AST.getFunctionId(functionNode)?.name;
         if (functionName2 == null) return;
         context.report({
           messageId: "functionReturnBoolean",

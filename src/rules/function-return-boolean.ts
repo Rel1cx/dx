@@ -91,7 +91,7 @@ export function create(context: RuleContext<MessageID, Options>, [opts]: Options
 
   return {
     [":function"](node: AST.TSESTreeFunction) {
-      const functionName = AST.getFunctionIdentifier(node)?.name;
+      const functionName = AST.getFunctionId(node)?.name;
       const isMatched = functionName != null && pattern.test(functionName);
       functionEntries.push({ functionName, functionNode: node, isMatched });
     },
@@ -117,7 +117,7 @@ export function create(context: RuleContext<MessageID, Options>, [opts]: Options
       const { functionName, functionNode, isMatched = false } = functionEntries.at(-1) ?? {};
       if (functionName == null || functionNode == null || !isMatched) return;
       handleReturnExpression(context, node.argument, (expr, data) => {
-        const functionName = AST.getFunctionIdentifier(functionNode)?.name;
+        const functionName = AST.getFunctionId(functionNode)?.name;
         if (functionName == null) return;
         context.report({
           messageId: "functionReturnBoolean",
