@@ -1,11 +1,11 @@
 import { ESLintUtils } from '@typescript-eslint/utils';
-import { unionConstituents, isTypeFlagSet, isTrueLiteralType, isFalseLiteralType } from 'ts-api-utils';
-import { match, isMatching, P } from 'ts-pattern';
-import ts from 'typescript';
 import * as AST from '@eslint-react/ast';
+import * as ER from '@eslint-react/core';
 import '@eslint-react/eff';
+import { RegExp } from '@eslint-react/kit';
 import { getConstrainedTypeAtLocation } from '@typescript-eslint/type-utils';
 import { AST_NODE_TYPES } from '@typescript-eslint/types';
+import { unionConstituents } from 'ts-api-utils';
 
 // package.json
 var name = "eslint-plugin-function";
@@ -14,94 +14,6 @@ function getDocsUrl() {
   return "TODO: add docs for local ESLint rules";
 }
 var createRule = ESLintUtils.RuleCreator(getDocsUrl);
-var tsHelpers = {
-  isAnyType: (type) => isTypeFlagSet(type, ts.TypeFlags.TypeParameter | ts.TypeFlags.Any),
-  isBigIntType: (type) => isTypeFlagSet(type, ts.TypeFlags.BigIntLike),
-  isBooleanType: (type) => isTypeFlagSet(type, ts.TypeFlags.BooleanLike),
-  isEnumType: (type) => isTypeFlagSet(type, ts.TypeFlags.EnumLike),
-  isFalsyBigIntType: (type) => type.isLiteral() && isMatching({ value: { base10Value: "0" } }, type),
-  isFalsyNumberType: (type) => type.isNumberLiteral() && type.value === 0,
-  isFalsyStringType: (type) => type.isStringLiteral() && type.value === "",
-  isNeverType: (type) => isTypeFlagSet(type, ts.TypeFlags.Never),
-  isNullishType: (type) => isTypeFlagSet(
-    type,
-    ts.TypeFlags.Null | ts.TypeFlags.Undefined | ts.TypeFlags.VoidLike
-  ),
-  isNumberType: (type) => isTypeFlagSet(type, ts.TypeFlags.NumberLike),
-  isObjectType: (type) => !isTypeFlagSet(
-    type,
-    ts.TypeFlags.Null | ts.TypeFlags.Undefined | ts.TypeFlags.VoidLike | ts.TypeFlags.BooleanLike | ts.TypeFlags.StringLike | ts.TypeFlags.NumberLike | ts.TypeFlags.BigIntLike | ts.TypeFlags.TypeParameter | ts.TypeFlags.Any | ts.TypeFlags.Unknown | ts.TypeFlags.Never
-  ),
-  isStringType: (type) => isTypeFlagSet(type, ts.TypeFlags.StringLike),
-  isTruthyBigIntType: (type) => type.isLiteral() && isMatching({ value: { base10Value: P.not("0") } }, type),
-  isTruthyNumberType: (type) => type.isNumberLiteral() && type.value !== 0,
-  isTruthyStringType: (type) => type.isStringLiteral() && type.value !== "",
-  isUnknownType: (type) => isTypeFlagSet(type, ts.TypeFlags.Unknown)
-};
-
-// src/utils/inspect-variant-types.ts
-function inspectVariantTypes(types) {
-  const variantTypes = /* @__PURE__ */ new Set();
-  if (types.some(tsHelpers.isUnknownType)) {
-    variantTypes.add("unknown");
-    return variantTypes;
-  }
-  if (types.some(tsHelpers.isNullishType)) {
-    variantTypes.add("nullish");
-  }
-  const booleans = types.filter(tsHelpers.isBooleanType);
-  switch (true) {
-    case (booleans.length === 1 && booleans[0] != null): {
-      const first = booleans[0];
-      if (isTrueLiteralType(first)) {
-        variantTypes.add("truthy boolean");
-      } else if (isFalseLiteralType(first)) {
-        variantTypes.add("falsy boolean");
-      }
-      break;
-    }
-    case booleans.length === 2: {
-      variantTypes.add("boolean");
-      break;
-    }
-  }
-  const strings = types.filter(tsHelpers.isStringType);
-  if (strings.length > 0) {
-    const evaluated = match(strings).when((types2) => types2.every(tsHelpers.isTruthyStringType), () => "truthy string").when((types2) => types2.every(tsHelpers.isFalsyStringType), () => "falsy string").otherwise(() => "string");
-    variantTypes.add(evaluated);
-  }
-  const bigints = types.filter(tsHelpers.isBigIntType);
-  if (bigints.length > 0) {
-    const evaluated = match(bigints).when((types2) => types2.every(tsHelpers.isTruthyBigIntType), () => "truthy bigint").when((types2) => types2.every(tsHelpers.isFalsyBigIntType), () => "falsy bigint").otherwise(() => "bigint");
-    variantTypes.add(evaluated);
-  }
-  const numbers = types.filter(tsHelpers.isNumberType);
-  if (numbers.length > 0) {
-    const evaluated = match(numbers).when((types2) => types2.every(tsHelpers.isTruthyNumberType), () => "truthy number").when((types2) => types2.every(tsHelpers.isFalsyNumberType), () => "falsy number").otherwise(() => "number");
-    variantTypes.add(evaluated);
-  }
-  if (types.some(tsHelpers.isEnumType)) {
-    variantTypes.add("enum");
-  }
-  if (types.some(tsHelpers.isObjectType)) {
-    variantTypes.add("object");
-  }
-  if (types.some(tsHelpers.isAnyType)) {
-    variantTypes.add("any");
-  }
-  if (types.some(tsHelpers.isNeverType)) {
-    variantTypes.add("never");
-  }
-  return variantTypes;
-}
-
-// src/utils/regexp.ts
-var RE_REGEXP_STR = /^\/(.+)\/([A-Za-z]*)$/u;
-function toRegExp(string) {
-  const [, pattern, flags = "u"] = RE_REGEXP_STR.exec(string) ?? [];
-  if (pattern) return new RegExp(pattern, flags);
-  return { test: (s) => s === string };
-}
 
 // src/rules/function-definition.ts
 var RULE_NAME = "function-definition";
@@ -189,7 +101,7 @@ var function_return_boolean_default = createRule({
 });
 function create3(context, [opts]) {
   const services = ESLintUtils.getParserServices(context, false);
-  const pattern = toRegExp(opts?.pattern ?? defaultPattern);
+  const pattern = RegExp.toRegExp(opts?.pattern ?? defaultPattern);
   const functionEntries = [];
   function handleReturnExpression(context2, returnExpression, onViolation) {
     if (returnExpression == null) {
@@ -197,7 +109,7 @@ function create3(context, [opts]) {
       return;
     }
     const returnType = getConstrainedTypeAtLocation(services, returnExpression);
-    const parts = [...inspectVariantTypes(unionConstituents(returnType))];
+    const parts = [...ER.getTypeVariants(unionConstituents(returnType))];
     if (parts.every((part) => allowedVariants.some((allowed) => part === allowed))) return;
     onViolation(returnExpression, {
       variants: [...parts].map((part) => `'${part}'`).join(", ")

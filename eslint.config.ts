@@ -64,7 +64,6 @@ export default tseslint.config(
         project: packagesTsConfigs,
         projectService: true,
         tsconfigRootDir: dirname,
-        // warnOnUnsupportedTypeScriptVersion: false,
       },
     },
   },
