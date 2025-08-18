@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-function",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "private": false,
   "description": "(WIP) The ESLint plugin for function-related rules.",
   "license": "MIT",
@@ -28,7 +28,6 @@
     "lint:es": "eslint . --max-warnings 10",
     "lint:publish": "publint",
     "lint:ts": "tsc --noEmit",
-    "publish": "pnpm run format:package-json && pnpm run lint",
     "test": "vitest"
   },
   "dependencies": {

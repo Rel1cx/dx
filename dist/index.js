@@ -9,7 +9,7 @@ import { unionConstituents } from "ts-api-utils";
 
 //#region package.json
 var name = "eslint-plugin-function";
-var version = "0.0.23";
+var version = "0.0.24";
 
 //#endregion
 //#region src/utils/create-rule.ts
