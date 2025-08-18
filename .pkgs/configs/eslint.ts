@@ -17,6 +17,7 @@ const templateIndentTags = [
   "ts",
   "tsx",
   "html",
+  "glsl",
   "dedent",
   "outdent",
 ];
@@ -64,13 +65,13 @@ export const typescript: ConfigArray = tseslint.config(
       "no-undef": "off",
       "prefer-object-has-own": "error",
 
-      // "no-restricted-syntax": [
-      //   "error",
-      //   {
-      //     message: "no optional",
-      //     selector: "TSPropertySignature[optional=true]",
-      //   },
-      // ],
+      "no-restricted-syntax": [
+        "error",
+        {
+          message: "no typescript named import",
+          selector: "ImportDeclaration[source.value='typescript'] ImportSpecifier",
+        },
+      ],
 
       "@typescript-eslint/ban-ts-comment": [
         "error",
@@ -106,10 +107,11 @@ export const typescript: ConfigArray = tseslint.config(
   {
     extends: [
       pluginDeMorgan.configs.recommended,
+
       pluginJsdoc.configs["flat/recommended-typescript-error"],
       pluginRegexp.configs["flat/recommended"],
       pluginPerfectionist.configs["recommended-natural"],
-    ],
+    ] as never[], // TODO: Fix type error in plugin configs
     files: GLOB_TS,
     plugins: {
       ["@stylistic"]: stylistic,
@@ -121,7 +123,7 @@ export const typescript: ConfigArray = tseslint.config(
 
       "@stylistic/arrow-parens": ["warn", "always"],
       "@stylistic/no-multi-spaces": ["warn"],
-      "@stylistic/operator-linebreak": ["warn", "before"],
+      "@stylistic/operator-linebreak": "off",
       "@stylistic/quote-props": ["error", "as-needed"],
 
       "perfectionist/sort-exports": "off",

@@ -9,7 +9,7 @@ import { unionConstituents } from 'ts-api-utils';
 
 // package.json
 var name = "eslint-plugin-function";
-var version = "0.0.22";
+var version = "0.0.23";
 function getDocsUrl() {
   return "TODO: add docs for local ESLint rules";
 }
