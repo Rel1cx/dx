@@ -18,7 +18,7 @@
     "package.json"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsdown",
     "build:pkgs": "pnpm -F \"./.pkgs/*\" run build",
     "format:check": "dprint check",
     "format:package-json": "pnpm m exec sort-package-json -q package.json && dprint fmt",
@@ -57,7 +57,7 @@
     "jiti": "^2.5.1",
     "publint": "^0.3.12",
     "skott": "^0.35.4",
-    "tsup": "^8.5.0",
+    "tsdown": "^0.14.1",
     "typescript-eslint": "^8.40.0",
     "vitest": "^3.2.4"
   },
@@ -73,11 +73,9 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "@swc/core",
-      "dprint",
-      "esbuild"
+      "dprint"
     ],
     "overrides": {
-      "esbuild": "^0.25.9",
       "ts-api-utils": "^2.1.0",
       "typescript": "^5.9.2"
     }
