@@ -1,10 +1,11 @@
 import { name, version } from "../package.json";
 
+import type { CompatiblePlugin } from "@eslint-react/kit";
 import functionDefinition from "./rules/function-definition";
 import functionName from "./rules/function-name";
 import functionReturnBoolean from "./rules/function-return-boolean";
 
-export default {
+const plugin: CompatiblePlugin = {
   meta: {
     name,
     version,
@@ -14,4 +15,6 @@ export default {
     "function-name": functionName,
     "function-return-boolean": functionReturnBoolean,
   },
-} as const;
+};
+
+export default plugin;

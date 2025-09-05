@@ -9,7 +9,7 @@ import { unionConstituents } from "ts-api-utils";
 
 //#region package.json
 var name = "eslint-plugin-function";
-var version = "0.0.24";
+var version = "0.0.25";
 
 //#endregion
 //#region src/utils/create-rule.ts
@@ -158,7 +158,7 @@ function create(context, [opts]) {
 
 //#endregion
 //#region src/index.ts
-var src_default = {
+const plugin = {
 	meta: {
 		name,
 		version
@@ -169,6 +169,7 @@ var src_default = {
 		"function-return-boolean": function_return_boolean_default
 	}
 };
+var src_default = plugin;
 
 //#endregion
 export { src_default as default };

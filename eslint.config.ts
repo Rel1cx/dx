@@ -1,7 +1,15 @@
 import url from "node:url";
 
 import markdown from "@eslint/markdown";
-import * as configs from "@local/configs/eslint";
+import {
+  disableTypeChecked,
+  GLOB_CONFIGS,
+  GLOB_MD,
+  GLOB_SCRIPTS,
+  GLOB_TESTS,
+  GLOB_TS,
+  strictTypeChecked,
+} from "@local/configs/eslint";
 import configFlatGitignore from "eslint-config-flat-gitignore";
 import pluginVitest from "eslint-plugin-vitest";
 import { globalIgnores } from "eslint/config";
@@ -9,17 +17,6 @@ import tseslint from "typescript-eslint";
 
 const dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
-const GLOB_TS = ["*.{ts,tsx,cts,mts}", "**/*.{ts,tsx,cts,mts}"];
-const GLOB_MD = ["*.md", "**/*.md"];
-const GLOB_TEST = [
-  "**/*.spec.{ts,tsx,cts,mts}",
-  "**/*.test.{ts,tsx,cts,mts}",
-  "**/spec.{ts,tsx,cts,mts}",
-  "**/test.{ts,tsx,cts,mts}",
-];
-
-const GLOB_CONFIG = ["*.config.{ts,tsx,cts,mts}", "**/*.config.{ts,tsx,cts,mts}"];
-const GLOB_SCRIPT = ["scripts/**/*.{ts,cts,mts}"];
 const GLOB_IGNORES = [
   ...configFlatGitignore().ignores,
   "apps",
@@ -55,7 +52,7 @@ export default tseslint.config(
   {
     extends: [
       ...tseslint.configs.strictTypeChecked,
-      configs.typescript,
+      strictTypeChecked,
     ],
     files: GLOB_TS,
     languageOptions: {
@@ -69,9 +66,9 @@ export default tseslint.config(
   },
   {
     extends: [
-      tseslint.configs.disableTypeChecked,
+      disableTypeChecked,
     ],
-    files: [...GLOB_SCRIPT, ...GLOB_CONFIG],
+    files: [...GLOB_SCRIPTS, ...GLOB_CONFIGS],
     languageOptions: {
       parserOptions: {
         project: false,
@@ -87,7 +84,7 @@ export default tseslint.config(
     extends: [
       pluginVitest.configs.recommended,
     ],
-    files: GLOB_TEST,
+    files: GLOB_TESTS,
     languageOptions: {
       globals: {
         ...pluginVitest.environments.env.globals,
