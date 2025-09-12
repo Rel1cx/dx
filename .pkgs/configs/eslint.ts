@@ -158,11 +158,10 @@ export const strictTypeChecked = defineConfig([
   {
     extends: [
       pluginDeMorgan.configs.recommended,
-
       pluginJsdoc.configs["flat/recommended-typescript-error"],
       pluginRegexp.configs["flat/recommended"],
       pluginPerfectionist.configs["recommended-natural"],
-    ] as never[], // TODO: Fix type error in plugin configs
+    ],
     files: GLOB_TS,
     plugins: {
       ["@stylistic"]: stylistic,

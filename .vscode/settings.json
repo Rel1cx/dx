@@ -8,10 +8,11 @@
   "[typescript]": {
     "editor.defaultFormatter": "dprint.dprint"
   },
+  "dprint.path": "./node_modules/.bin/dprint",
   "editor.codeActionsOnSave": {
-    "source.formatting": "explicit",
     "source.fixAll": "never",
     "source.fixAll.eslint": "explicit",
+    "source.formatting": "explicit",
     "source.organizeImports": "never"
   },
   "eslint.validate": [

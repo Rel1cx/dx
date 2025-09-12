@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-function",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "private": false,
   "description": "(WIP) The ESLint plugin for function-related rules.",
   "license": "MIT",
@@ -31,14 +31,14 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@eslint-react/ast": "^2.0.0-beta.66",
-    "@eslint-react/core": "^2.0.0-beta.66",
-    "@eslint-react/eff": "^2.0.0-beta.66",
-    "@eslint-react/kit": "^2.0.0-beta.66",
-    "@typescript-eslint/scope-manager": "^8.42.0",
-    "@typescript-eslint/type-utils": "^8.42.0",
-    "@typescript-eslint/types": "^8.42.0",
-    "@typescript-eslint/utils": "^8.42.0",
+    "@eslint-react/ast": "^2.0.0-beta.180",
+    "@eslint-react/core": "^2.0.0-beta.180",
+    "@eslint-react/eff": "^2.0.0-beta.180",
+    "@eslint-react/kit": "^2.0.0-beta.180",
+    "@typescript-eslint/scope-manager": "^8.43.0",
+    "@typescript-eslint/type-utils": "^8.43.0",
+    "@typescript-eslint/types": "^8.43.0",
+    "@typescript-eslint/utils": "^8.43.0",
     "string-ts": "^2.2.1",
     "ts-pattern": "^5.8.0"
   },
@@ -48,24 +48,25 @@
     "@tsconfig/node22": "^22.0.2",
     "@tsconfig/strictest": "^2.0.5",
     "@types/node": "^24.3.1",
-    "@typescript-eslint/rule-tester": "^8.42.0",
+    "@typescript-eslint/rule-tester": "^8.43.0",
     "dedent": "^1.7.0",
-    "eslint": "^9.34.0",
+    "dprint": "^0.50.1",
+    "eslint": "^9.35.0",
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-plugin-vitest": "^0.5.4",
     "jiti": "^2.5.1",
     "publint": "^0.3.12",
-    "skott": "^0.35.4",
-    "tsdown": "^0.14.2",
-    "typescript-eslint": "^8.42.0",
+    "skott": "^0.35.5",
+    "tsdown": "^0.15.0",
+    "typescript-eslint": "^8.43.0",
     "vitest": "^3.2.4"
   },
   "peerDependencies": {
-    "eslint": "^9.34.0",
+    "eslint": "^9.35.0",
     "ts-api-utils": "^2.1.0",
     "typescript": "^5.9.2"
   },
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@10.15.1",
   "engines": {
     "node": ">=20.10.0"
   },
