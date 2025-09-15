@@ -2,12 +2,12 @@ import url from "node:url";
 
 import markdown from "@eslint/markdown";
 import {
-  disableTypeChecked,
   GLOB_CONFIGS,
   GLOB_MD,
   GLOB_SCRIPTS,
   GLOB_TESTS,
   GLOB_TS,
+  disableTypeChecked,
   strictTypeChecked,
 } from "@local/configs/eslint";
 import configFlatGitignore from "eslint-config-flat-gitignore";
