@@ -1,7 +1,6 @@
 import * as AST from "@eslint-react/ast";
-import * as ER from "@eslint-react/core";
 import { type unit } from "@eslint-react/eff";
-import { RegExp as RE } from "@eslint-react/kit";
+import { toRegExp } from "@eslint-react/kit";
 import type { RuleContext, RuleFeature } from "@eslint-react/kit";
 import { getConstrainedTypeAtLocation } from "@typescript-eslint/type-utils";
 import { AST_NODE_TYPES as T, type TSESTree } from "@typescript-eslint/types";
@@ -10,7 +9,7 @@ import type { RuleListener } from "@typescript-eslint/utils/ts-eslint";
 import type { CamelCase } from "string-ts";
 import { unionConstituents } from "ts-api-utils";
 
-import { createRule } from "../utils";
+import { type TypeVariant, createRule, getTypeVariants } from "../utils";
 
 export const RULE_NAME = "function-return-boolean";
 
@@ -39,7 +38,7 @@ const allowedVariants = [
   "boolean",
   "falsy boolean",
   "truthy boolean",
-] as const satisfies ER.TypeVariant[];
+] as const satisfies TypeVariant[];
 
 export default createRule<Options, MessageID>({
   meta: {
@@ -69,7 +68,7 @@ export default createRule<Options, MessageID>({
 
 export function create(context: RuleContext<MessageID, Options>, [opts]: Options): RuleListener {
   const services = ESLintUtils.getParserServices(context, false);
-  const pattern = RE.toRegExp(opts?.pattern ?? defaultPattern);
+  const pattern = toRegExp(opts?.pattern ?? defaultPattern);
   const functionEntries: { functionName: unit | string; functionNode: AST.TSESTreeFunction; isMatched: boolean }[] = [];
 
   function handleReturnExpression(
@@ -82,7 +81,7 @@ export function create(context: RuleContext<MessageID, Options>, [opts]: Options
       return;
     }
     const returnType = getConstrainedTypeAtLocation(services, returnExpression);
-    const parts = [...ER.getTypeVariants(unionConstituents(returnType))];
+    const parts = [...getTypeVariants(unionConstituents(returnType))];
     if (parts.every((part) => allowedVariants.some((allowed) => part === allowed))) return;
     onViolation(returnExpression, {
       variants: [...parts]
