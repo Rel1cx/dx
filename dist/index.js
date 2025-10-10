@@ -10,7 +10,7 @@ import { AST_NODE_TYPES } from "@typescript-eslint/types";
 
 //#region package.json
 var name = "eslint-plugin-function";
-var version = "0.0.30";
+var version = "0.0.31";
 
 //#endregion
 //#region src/utils/create-rule.ts
@@ -184,8 +184,7 @@ function create(context, [opts]) {
 			onViolation(returnExpression, { variants: "nullish" });
 			return;
 		}
-		const returnType = getConstrainedTypeAtLocation(services, returnExpression);
-		const parts = [...getTypeVariants(unionConstituents(returnType))];
+		const parts = [...getTypeVariants(unionConstituents(getConstrainedTypeAtLocation(services, returnExpression)))];
 		if (parts.every((part) => allowedVariants.some((allowed) => part === allowed))) return;
 		onViolation(returnExpression, { variants: [...parts].map((part) => `'${part}'`).join(", ") });
 	}

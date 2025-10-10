@@ -31,39 +31,39 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@eslint-react/ast": "^2.0.2-beta.1",
-    "@eslint-react/eff": "^2.0.2-beta.1",
-    "@eslint-react/kit": "^2.0.2-beta.1",
-    "@typescript-eslint/scope-manager": "^8.44.1",
-    "@typescript-eslint/type-utils": "^8.44.1",
-    "@typescript-eslint/types": "^8.44.1",
-    "@typescript-eslint/utils": "^8.44.1",
+    "@eslint-react/ast": "^2.1.0-beta.5",
+    "@eslint-react/eff": "^2.1.0-beta.5",
+    "@eslint-react/kit": "^2.1.0-beta.5",
+    "@typescript-eslint/scope-manager": "^8.46.0",
+    "@typescript-eslint/type-utils": "^8.46.0",
+    "@typescript-eslint/types": "^8.46.0",
+    "@typescript-eslint/utils": "^8.46.0",
     "string-ts": "^2.2.1",
     "ts-pattern": "^5.8.0"
   },
   "devDependencies": {
-    "@eslint/markdown": "^7.3.0",
+    "@eslint/markdown": "^7.4.0",
     "@local/configs": "workspace:*",
     "@tsconfig/node22": "^22.0.2",
     "@tsconfig/strictest": "^2.0.6",
-    "@types/node": "^24.5.2",
-    "@typescript-eslint/rule-tester": "^8.44.1",
+    "@types/node": "^24.7.1",
+    "@typescript-eslint/rule-tester": "^8.46.0",
     "dedent": "^1.7.0",
     "dprint": "^0.50.2",
-    "eslint": "^9.36.0",
+    "eslint": "^9.37.0",
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-plugin-vitest": "^0.5.4",
-    "jiti": "^2.6.0",
-    "publint": "^0.3.13",
+    "jiti": "^2.6.1",
+    "publint": "^0.3.14",
     "skott": "^0.35.6",
-    "tsdown": "^0.15.5",
-    "typescript-eslint": "^8.44.1",
+    "tsdown": "^0.15.6",
+    "typescript-eslint": "^8.46.0",
     "vitest": "^3.2.4"
   },
   "peerDependencies": {
-    "eslint": "^9.36.0",
+    "eslint": "^9.37.0",
     "ts-api-utils": "^2.1.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@10.17.0",
   "engines": {
@@ -76,7 +76,7 @@
     ],
     "overrides": {
       "ts-api-utils": "^2.1.0",
-      "typescript": "^5.9.2"
+      "typescript": "^5.9.3"
     }
   }
 }
