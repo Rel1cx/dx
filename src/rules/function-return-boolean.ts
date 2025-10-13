@@ -1,7 +1,7 @@
 import * as AST from "@eslint-react/ast";
 import { type unit } from "@eslint-react/eff";
-import { toRegExp } from "@eslint-react/kit";
-import type { RuleContext, RuleFeature } from "@eslint-react/kit";
+import { toRegExp } from "@eslint-react/shared";
+import type { RuleContext, RuleFeature } from "@eslint-react/shared";
 import { getConstrainedTypeAtLocation } from "@typescript-eslint/type-utils";
 import { AST_NODE_TYPES as T, type TSESTree } from "@typescript-eslint/types";
 import { ESLintUtils } from "@typescript-eslint/utils";

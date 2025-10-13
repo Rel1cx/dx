@@ -31,9 +31,9 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@eslint-react/ast": "^2.1.0-beta.5",
-    "@eslint-react/eff": "^2.1.0-beta.5",
-    "@eslint-react/kit": "^2.1.0-beta.5",
+    "@eslint-react/ast": "^2.2.0",
+    "@eslint-react/eff": "^2.2.0",
+    "@eslint-react/shared": "^2.2.0",
     "@typescript-eslint/scope-manager": "^8.46.0",
     "@typescript-eslint/type-utils": "^8.46.0",
     "@typescript-eslint/types": "^8.46.0",
@@ -46,7 +46,7 @@
     "@local/configs": "workspace:*",
     "@tsconfig/node22": "^22.0.2",
     "@tsconfig/strictest": "^2.0.6",
-    "@types/node": "^24.7.1",
+    "@types/node": "^24.7.2",
     "@typescript-eslint/rule-tester": "^8.46.0",
     "dedent": "^1.7.0",
     "dprint": "^0.50.2",

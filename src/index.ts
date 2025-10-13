@@ -1,6 +1,6 @@
 import { name, version } from "../package.json";
 
-import type { CompatiblePlugin } from "@eslint-react/kit";
+import type { CompatiblePlugin } from "@eslint-react/shared";
 import functionDefinition from "./rules/function-definition";
 import functionName from "./rules/function-name";
 import functionReturnBoolean from "./rules/function-return-boolean";

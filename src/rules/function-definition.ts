@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import type { RuleContext, RuleFeature } from "@eslint-react/kit";
+import type { RuleContext, RuleFeature } from "@eslint-react/shared";
 import type { AST_NODE_TYPES as T, TSESTree } from "@typescript-eslint/types";
 import type { RuleListener } from "@typescript-eslint/utils/ts-eslint";
 
