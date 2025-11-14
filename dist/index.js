@@ -10,7 +10,7 @@ import { AST_NODE_TYPES } from "@typescript-eslint/types";
 
 //#region package.json
 var name = "eslint-plugin-function";
-var version = "0.0.33";
+var version = "0.0.34";
 
 //#endregion
 //#region src/utils/create-rule.ts
