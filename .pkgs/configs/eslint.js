@@ -1,7 +1,8 @@
 import js from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin";
 import pluginDeMorgan from "eslint-plugin-de-morgan";
-import pluginJsdoc from "eslint-plugin-jsdoc";
+import pluginFunction from "eslint-plugin-function";
+import { jsdoc } from "eslint-plugin-jsdoc";
 import pluginPerfectionist from "eslint-plugin-perfectionist";
 import pluginRegexp from "eslint-plugin-regexp";
 import pluginUnicorn from "eslint-plugin-unicorn";
@@ -103,8 +104,6 @@ export const strictTypeChecked = defineConfig([
             "no-else-return": "error",
             "no-fallthrough": ["error", { commentPattern: ".*intentional fallthrough.*" }],
             "no-implicit-coercion": ["error", { allow: ["!!"] }],
-            "no-mixed-operators": "warn",
-            "no-undef": "off",
             "prefer-object-has-own": "error",
             "no-restricted-syntax": [
                 "error",
@@ -146,18 +145,19 @@ export const strictTypeChecked = defineConfig([
     },
     {
         extends: [
+            jsdoc({ config: "flat/recommended-typescript-error" }),
             pluginDeMorgan.configs.recommended,
-            pluginJsdoc.configs["flat/recommended-typescript-error"],
-            pluginRegexp.configs["flat/recommended"],
             pluginPerfectionist.configs["recommended-natural"],
+            pluginRegexp.configs["flat/recommended"],
         ],
         files: GLOB_TS,
         plugins: {
             ["@stylistic"]: stylistic,
+            ["function"]: pluginFunction,
             ["unicorn"]: pluginUnicorn,
         },
         rules: {
-            // "function/function-return-boolean": ["error", { pattern: "/^(is|has|can|should)/" }],
+            "function/function-return-boolean": ["error", { pattern: "/^(is|has|can|should)/" }],
             "@stylistic/arrow-parens": ["warn", "always"],
             "@stylistic/no-multi-spaces": ["warn"],
             "@stylistic/operator-linebreak": "off",
@@ -212,3 +212,12 @@ export const disableTypeChecked = defineConfig([
         },
     },
 ]);
+/**
+ * Common ESLint JS rules to disable that are problematic when using TypeScript.
+ */
+export const disableProblematicEslintJsRules = {
+    rules: {
+        "no-dupe-args": "off",
+        "no-unused-vars": "off",
+    },
+};

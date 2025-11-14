@@ -3,8 +3,8 @@ import { isFalseLiteralType, isTrueLiteralType, isTypeFlagSet, unionConstituents
 import { P, isMatching, match } from "ts-pattern";
 import ts from "typescript";
 import * as AST from "@eslint-react/ast";
-import "@eslint-react/eff";
 import { toRegExp } from "@eslint-react/shared";
+import "@let/kit";
 import { getConstrainedTypeAtLocation } from "@typescript-eslint/type-utils";
 import { AST_NODE_TYPES } from "@typescript-eslint/types";
 

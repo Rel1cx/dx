@@ -7,12 +7,13 @@ import {
   GLOB_SCRIPTS,
   GLOB_TESTS,
   GLOB_TS,
+  disableProblematicEslintJsRules,
   disableTypeChecked,
   strictTypeChecked,
 } from "@local/configs/eslint";
 import configFlatGitignore from "eslint-config-flat-gitignore";
 import pluginVitest from "eslint-plugin-vitest";
-import { globalIgnores } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 const dirname = url.fileURLToPath(new URL(".", import.meta.url));
@@ -27,12 +28,7 @@ const GLOB_IGNORES = [
   "**/*.d.ts",
 ];
 
-const packagesTsConfigs = [
-  "packages/*/tsconfig.json",
-  "packages/*/*/tsconfig.json",
-];
-
-export default tseslint.config(
+export default defineConfig(
   globalIgnores(GLOB_IGNORES),
   {
     extends: [
@@ -58,7 +54,6 @@ export default tseslint.config(
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        project: packagesTsConfigs,
         projectService: true,
         tsconfigRootDir: dirname,
       },
@@ -90,7 +85,6 @@ export default tseslint.config(
         ...pluginVitest.environments.env.globals,
       },
       parserOptions: {
-        project: "tsconfig.json",
         projectService: true,
         tsconfigRootDir: dirname,
       },
@@ -102,4 +96,5 @@ export default tseslint.config(
       "@typescript-eslint/no-empty-function": ["error", { allow: ["arrowFunctions"] }],
     },
   },
+  disableProblematicEslintJsRules,
 );
