@@ -110,11 +110,11 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(eslint@9.39.1(jiti@2.6.1))
       eslint-plugin-function:
-        specifier: ^0.0.33
-        version: 0.0.33(eslint@9.39.1(jiti@2.6.1))(ts-api-utils@2.1.0(typescript@5.9.3))(typescript@5.9.3)
+        specifier: ^0.0.34
+        version: 0.0.34(eslint@9.39.1(jiti@2.6.1))(ts-api-utils@2.1.0(typescript@5.9.3))(typescript@5.9.3)
       eslint-plugin-function-rule:
-        specifier: ^0.0.15
-        version: 0.0.15(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
+        specifier: ^0.0.17
+        version: 0.0.17(@eslint/core@0.17.0)(eslint@9.39.1(jiti@2.6.1))
       eslint-plugin-jsdoc:
         specifier: ^61.2.1
         version: 61.2.1(eslint@9.39.1(jiti@2.6.1))
@@ -1312,17 +1312,17 @@ packages:
     peerDependencies:
       eslint: '>=8.0.0'
 
-  eslint-plugin-function-rule@0.0.15:
-    resolution: {integrity: sha512-kQ3wqmJpar9migQ/bCGJAmAQ4JPrmhLfr1g1n6YKYq3MyG5j8On5TQBxFMwuMf3QwsUkcCasc1NztOHuOfKO4w==}
+  eslint-plugin-function-rule@0.0.17:
+    resolution: {integrity: sha512-FjNtR6RJN/Mveiu/SFi6mnIf+V+tNjgVkIrsHhxneDuVwJzytkuqC5HpzC0bv3m0wz0fgf3NOxlFDbUlX9gVcQ==}
     peerDependencies:
+      '@eslint/core': ^1.0.0
       eslint: ^9.39.1
-      typescript: ^5.9.3
 
-  eslint-plugin-function@0.0.33:
-    resolution: {integrity: sha512-Y82nfIPBiMV/RAQqpKPuX+QpOh0leJTG6BKPkX6jN/VayzHWOdtRIBE5QOe/0z9OV+Z3Xj7WOpupNQOd7MDRRQ==}
+  eslint-plugin-function@0.0.34:
+    resolution: {integrity: sha512-8A7pc0WiDt9c6B7iamciNCSPVtgrckwEHtp0QKl5dRmhInB1TLnTdbmsLTzs6O6VfesLBhENQoqshQ3mleTatQ==}
     engines: {node: '>=20.10.0'}
     peerDependencies:
-      eslint: ^9.37.0
+      eslint: ^9.39.1
       ts-api-utils: ^2.1.0
       typescript: ^5.9.3
 
@@ -3564,17 +3564,16 @@ snapshots:
     dependencies:
       eslint: 9.39.1(jiti@2.6.1)
 
-  eslint-plugin-function-rule@0.0.15(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3):
+  eslint-plugin-function-rule@0.0.17(@eslint/core@0.17.0)(eslint@9.39.1(jiti@2.6.1)):
     dependencies:
       '@eslint/core': 0.17.0
       eslint: 9.39.1(jiti@2.6.1)
-      typescript: 5.9.3
 
-  eslint-plugin-function@0.0.33(eslint@9.39.1(jiti@2.6.1))(ts-api-utils@2.1.0(typescript@5.9.3))(typescript@5.9.3):
+  eslint-plugin-function@0.0.34(eslint@9.39.1(jiti@2.6.1))(ts-api-utils@2.1.0(typescript@5.9.3))(typescript@5.9.3):
     dependencies:
       '@eslint-react/ast': 2.3.5(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
-      '@eslint-react/eff': 2.3.5
       '@eslint-react/shared': 2.3.5(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
+      '@let/kit': '@jsr/let__kit@0.0.1'
       '@typescript-eslint/scope-manager': 8.46.4
       '@typescript-eslint/type-utils': 8.46.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/types': 8.46.4

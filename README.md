@@ -20,9 +20,10 @@ npm install --save-dev eslint-plugin-function
 // @ts-check
 import eslintJs from "@eslint/js";
 import pluginFunction from "eslint-plugin-function";
+import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 
-export default tseslint.config({
+export default defineConfig({
   files: ["**/*.ts", "**/*.tsx"],
   extends: [
     eslintJs.configs.recommended,
