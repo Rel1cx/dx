@@ -33,7 +33,7 @@
   "dependencies": {
     "@eslint-react/ast": "^2.3.5",
     "@eslint-react/shared": "^2.3.5",
-    "@let/kit": "jsr:^0.0.1",
+    "@let/eff": "jsr:^0.0.0",
     "@typescript-eslint/scope-manager": "^8.46.4",
     "@typescript-eslint/type-utils": "^8.46.4",
     "@typescript-eslint/types": "^8.46.4",
@@ -44,7 +44,7 @@
   "devDependencies": {
     "@eslint/markdown": "^7.5.1",
     "@local/configs": "workspace:*",
-    "@tsconfig/node22": "^22.0.3",
+    "@tsconfig/node22": "^22.0.4",
     "@tsconfig/strictest": "^2.0.8",
     "@types/node": "^24.10.1",
     "@typescript-eslint/rule-tester": "^8.46.4",

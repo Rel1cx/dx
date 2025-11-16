@@ -18,9 +18,9 @@ importers:
       '@eslint-react/shared':
         specifier: ^2.3.5
         version: 2.3.5(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
-      '@let/kit':
-        specifier: jsr:^0.0.1
-        version: '@jsr/let__kit@0.0.1'
+      '@let/eff':
+        specifier: jsr:^0.0.0
+        version: '@jsr/let__eff@0.0.0'
       '@typescript-eslint/scope-manager':
         specifier: ^8.46.4
         version: 8.46.4
@@ -53,8 +53,8 @@ importers:
         specifier: workspace:*
         version: link:.pkgs/configs
       '@tsconfig/node22':
-        specifier: ^22.0.3
-        version: 22.0.3
+        specifier: ^22.0.4
+        version: 22.0.4
       '@tsconfig/strictest':
         specifier: ^2.0.8
         version: 2.0.8
@@ -487,6 +487,9 @@ packages:
   '@jridgewell/trace-mapping@0.3.30':
     resolution: {integrity: sha512-GQ7Nw5G2lTu/BtHTKfXhKHok2WGetd4XYcVKGx00SjAk8GMwgJM3zr6zORiPGuOE+/vkc90KtTosSSvaCjKb2Q==}
 
+  '@jsr/let__eff@0.0.0':
+    resolution: {integrity: sha512-ZemOKK/5SB1o9b0OQ+4gi7rDHPwKBXZazC4urXGAIWHq1NUqaRFkYUvhOHcPttxe7/J3HpvDDzj61t6mxaUKMw==, tarball: https://npm.jsr.io/~/11/@jsr/let__eff/0.0.0.tgz}
+
   '@jsr/let__kit@0.0.1':
     resolution: {integrity: sha512-g3AgfUpujVEz7XsSXs96GlEv7aLrnr9HmnOcG1hO7uvsh0EEG6rQ0W9d+2Gzv6DF1TdDy13RvXDt4c8WOvyqZQ==, tarball: https://npm.jsr.io/~/11/@jsr/let__kit/0.0.1.tgz}
 
@@ -811,8 +814,8 @@ packages:
     peerDependencies:
       eslint: '>=9.0.0'
 
-  '@tsconfig/node22@22.0.3':
-    resolution: {integrity: sha512-9UTUkYWI58+MiZhwcQWx2TNZbzkGRss9SCyjrSYeqkMIDYq8jv2FSRknrLOjsRmcYFUsYj79m/bgQYSD/yiRxw==}
+  '@tsconfig/node22@22.0.4':
+    resolution: {integrity: sha512-GI0gtqW+8Bz9UMOsOO1z3w1ebspOkVjSyeJ18r96LW82OOZenpzWXti/+f/MgPy1hqXTIRXn8QpGIOYHgKkTnQ==}
 
   '@tsconfig/strictest@2.0.8':
     resolution: {integrity: sha512-XnQ7vNz5HRN0r88GYf1J9JJjqtZPiHt2woGJOo2dYqyHGGcd6OLGqSlBB6p1j9mpzja6Oe5BoPqWmeDx6X9rLw==}
@@ -2770,6 +2773,8 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
+  '@jsr/let__eff@0.0.0': {}
+
   '@jsr/let__kit@0.0.1': {}
 
   '@napi-rs/wasm-runtime@1.0.7':
@@ -2988,7 +2993,7 @@ snapshots:
       estraverse: 5.3.0
       picomatch: 4.0.3
 
-  '@tsconfig/node22@22.0.3': {}
+  '@tsconfig/node22@22.0.4': {}
 
   '@tsconfig/strictest@2.0.8': {}
 
