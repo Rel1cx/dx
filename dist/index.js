@@ -4,13 +4,13 @@ import { P, isMatching, match } from "ts-pattern";
 import ts from "typescript";
 import * as AST from "@eslint-react/ast";
 import { toRegExp } from "@eslint-react/shared";
-import "@let/kit";
+import "@let/eff";
 import { getConstrainedTypeAtLocation } from "@typescript-eslint/type-utils";
 import { AST_NODE_TYPES } from "@typescript-eslint/types";
 
 //#region package.json
 var name = "eslint-plugin-function";
-var version = "0.0.34";
+var version = "0.0.35";
 
 //#endregion
 //#region src/utils/create-rule.ts
