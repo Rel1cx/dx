@@ -1,2 +1,6 @@
 packages:
   - ".pkgs/*"
+  - "apps/*"
+  - "packages/*"
+  # - "packages/*/*"
+  - "examples/*"

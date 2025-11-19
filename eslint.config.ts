@@ -1,53 +1,36 @@
-import url from "node:url";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-import markdown from "@eslint/markdown";
 import {
   GLOB_CONFIGS,
-  GLOB_MD,
   GLOB_SCRIPTS,
   GLOB_TESTS,
   GLOB_TS,
+  buildIgnoreConfig,
   disableProblematicEslintJsRules,
   disableTypeChecked,
   strictTypeChecked,
 } from "@local/configs/eslint";
-import configFlatGitignore from "eslint-config-flat-gitignore";
+import { nullishComparison, templateExpression } from "@local/function-rules";
+import { functionRule } from "eslint-plugin-function-rule";
 import pluginVitest from "eslint-plugin-vitest";
-import { defineConfig, globalIgnores } from "eslint/config";
+import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 
-const dirname = url.fileURLToPath(new URL(".", import.meta.url));
-
-const GLOB_IGNORES = [
-  ...configFlatGitignore().ignores,
+const dirname = fileURLToPath(new URL(".", import.meta.url));
+const ignoreConfig = buildIgnoreConfig(path.join(dirname, ".gitignore"), [
   "apps",
   "docs",
   "test",
   "examples",
-  "**/*.js",
   "**/*.d.ts",
-];
+]);
 
 export default defineConfig(
-  globalIgnores(GLOB_IGNORES),
+  ...ignoreConfig,
   {
     extends: [
-      markdown.configs.recommended,
-    ],
-    files: GLOB_MD,
-    ignores: [
-      "**/README.md",
-      "packages/**/docs/**/*.md",
-    ],
-    language: "markdown/gfm",
-    rules: {
-      "markdown/no-html": "warn",
-      "markdown/no-missing-label-refs": "off",
-    },
-  },
-  {
-    extends: [
-      ...tseslint.configs.strictTypeChecked,
+      tseslint.configs.strictTypeChecked,
       strictTypeChecked,
     ],
     files: GLOB_TS,
@@ -57,6 +40,15 @@ export default defineConfig(
         projectService: true,
         tsconfigRootDir: dirname,
       },
+    },
+    plugins: {
+      "function-rule-1": functionRule(templateExpression()),
+      "function-rule-2": functionRule(nullishComparison()),
+    },
+    rules: {
+      "fast-import/no-unused-exports": "off",
+      "function-rule-1/function-rule": "warn",
+      "function-rule-2/function-rule": "error",
     },
   },
   {
@@ -71,7 +63,6 @@ export default defineConfig(
       },
     },
     rules: {
-      "function/function-return-boolean": "off",
       "no-console": "off",
     },
   },
@@ -84,16 +75,14 @@ export default defineConfig(
       globals: {
         ...pluginVitest.environments.env.globals,
       },
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: dirname,
-      },
     },
     plugins: {
       vitest: pluginVitest,
     },
     rules: {
       "@typescript-eslint/no-empty-function": ["error", { allow: ["arrowFunctions"] }],
+      "function-rule-1/function-rule": "off",
+      "function-rule-2/function-rule": "off",
     },
   },
   disableProblematicEslintJsRules,

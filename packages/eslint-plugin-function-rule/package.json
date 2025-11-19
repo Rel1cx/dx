@@ -1,0 +1,44 @@
+{
+  "name": "eslint-plugin-function-rule",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Rel1cx/dx",
+  "bugs": {
+    "url": "https://github.com/Rel1cx/dx/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rel1cx/dx.git"
+  },
+  "license": "MIT",
+  "author": "Rel1cx<rel1cx@proton.me>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "./package.json"
+  ],
+  "scripts": {
+    "build": "tsdown --dts-resolve",
+    "build:docs": "typedoc",
+    "lint:publish": "publint",
+    "lint:ts": "tsc --noEmit",
+    "publish": "pnpm run build && pnpm run lint:publish"
+  },
+  "peerDependencies": {
+    "@eslint/core": "^1.0.0",
+    "eslint": "^9.39.1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

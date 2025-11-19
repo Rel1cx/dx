@@ -1,4 +1,7 @@
 {
+  "[css]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
   "[json]": {
     "editor.defaultFormatter": "dprint.dprint"
   },
@@ -8,13 +11,19 @@
   "[typescript]": {
     "editor.defaultFormatter": "dprint.dprint"
   },
-  "dprint.path": "./node_modules/.bin/dprint",
+  "dprint.path": "node_modules/.bin/dprint",
   "editor.codeActionsOnSave": {
     "source.fixAll": "never",
     "source.fixAll.eslint": "explicit",
     "source.formatting": "explicit",
     "source.organizeImports": "never"
   },
+  "eslint.rules.customizations": [
+    {
+      "rule": "@eslint-react/debug/*",
+      "severity": "info"
+    }
+  ],
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -32,7 +41,8 @@
     }
   ],
   "files.exclude": {
-    "*.bundled_*.mjs": true
+    "*.bundled_*.mjs": true,
+    "**/.zed": true
   },
   "mdx.server.enable": true,
   "npm.packageManager": "pnpm",
