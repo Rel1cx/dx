@@ -1,4 +1,4 @@
-Monorepo for JavaScript and TypeScrip dx libraries.
+Monorepo for JavaScript and TypeScript dx libraries.
 
 ## Packages
 
