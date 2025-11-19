@@ -3,7 +3,7 @@ Monorepo for JavaScript and TypeScrip dx libraries.
 ## Packages
 
 - [`eff`](./packages/eff) - JavaScript and TypeScript utilities
-- [`eslint-plugin-function`](./packages/eslint-plugin-function) - (WIP) The ESLint plugin for function-related rules
+- [`eslint-plugin-function`](./packages/eslint-plugin-function) - (WIP) An ESLint plugin for function-related rules
 - [`eslint-plugin-function-rule`](./packages/eslint-plugin-function-rule) - An ESLint plugin to write custom rules with JavaScript functions
 
 ## License

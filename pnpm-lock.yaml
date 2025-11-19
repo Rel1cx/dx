@@ -9,7 +9,7 @@ importers:
   .:
     devDependencies:
       '@effect/platform':
-        specifier: ^0.93.2
+        specifier: ^0.93.3
         version: 0.93.3(effect@3.19.4)
       '@effect/platform-node':
         specifier: ^0.100.0

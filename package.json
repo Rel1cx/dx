@@ -31,7 +31,7 @@
     "update:version": "tsx ./scripts/update-version.ts"
   },
   "devDependencies": {
-    "@effect/platform": "^0.93.2",
+    "@effect/platform": "^0.93.3",
     "@effect/platform-node": "^0.100.0",
     "@eslint/compat": "^2.0.0",
     "@local/configs": "workspace:*",
