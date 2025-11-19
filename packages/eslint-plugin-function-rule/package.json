@@ -1,5 +1,6 @@
 {
   "name": "eslint-plugin-function-rule",
+  "description": "An ESLint plugin to write custom rules with JavaScript functions.",
   "version": "0.1.0",
   "homepage": "https://github.com/Rel1cx/dx",
   "bugs": {
