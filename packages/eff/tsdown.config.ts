@@ -1,9 +1,9 @@
 import { defineConfig } from "tsdown";
 
 export default defineConfig({
-  exports: true,
   clean: true,
   dts: true,
+  exports: true,
   fixedExtension: false,
   format: ["esm"],
   minify: false,
