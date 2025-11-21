@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@effect/platform": "^0.93.3",
-    "@effect/platform-node": "^0.101.0",
+    "@effect/platform-node": "^0.101.1",
     "@eslint/compat": "^2.0.0",
     "@local/configs": "workspace:*",
     "@local/function-rules": "workspace:*",
