@@ -1,6 +1,6 @@
 {
   "name": "dx",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Monorepo for JavaScript and TypeScript dx libraries.",
   "homepage": "https://github.com/Rel1cx/dx",
@@ -31,8 +31,8 @@
     "update:version": "tsx ./scripts/update-version.ts"
   },
   "devDependencies": {
-    "@effect/platform": "^0.93.3",
-    "@effect/platform-node": "^0.101.1",
+    "@effect/platform": "^0.93.5",
+    "@effect/platform-node": "^0.102.0",
     "@eslint/compat": "^2.0.0",
     "@local/configs": "workspace:*",
     "@local/function-rules": "workspace:*",
@@ -41,24 +41,24 @@
     "@types/node": "^24.10.1",
     "ansis": "^4.2.0",
     "dprint": "^0.50.2",
-    "effect": "^3.19.6",
+    "effect": "^3.19.8",
     "eslint": "^9.39.1",
     "eslint-plugin-function-rule": "workspace:*",
     "eslint-plugin-vitest": "^0.5.4",
     "jiti": "^2.6.1",
     "publint": "^0.3.15",
     "skott": "^0.35.6",
-    "sort-package-json": "^3.4.0",
+    "sort-package-json": "^3.5.0",
     "tinyglobby": "^0.2.15",
     "ts-pattern": "^5.9.0",
-    "tsdown": "^0.16.7",
+    "tsdown": "^0.17.0-beta.1",
     "typedoc": "^0.28.14",
     "typedoc-plugin-markdown": "^4.9.0",
     "typedoc-plugin-mdn-links": "^5.0.10",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.48.0"
   },
-  "packageManager": "pnpm@10.23.0",
+  "packageManager": "pnpm@10.24.0",
   "engines": {
     "node": ">=24.0.0"
   }
