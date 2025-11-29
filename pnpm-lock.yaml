@@ -17,6 +17,9 @@ importers:
       '@eslint/compat':
         specifier: ^2.0.0
         version: 2.0.0(eslint@9.39.1(jiti@2.6.1))
+      '@let/eff':
+        specifier: jsr:^0.1.1
+        version: '@jsr/let__eff@0.1.1'
       '@local/configs':
         specifier: workspace:*
         version: link:.pkgs/configs
@@ -162,8 +165,8 @@ importers:
         specifier: ^2.3.9
         version: 2.3.9(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@let/eff':
-        specifier: workspace:*
-        version: link:../eff
+        specifier: jsr:^0.1.1
+        version: '@jsr/let__eff@0.1.1'
       '@typescript-eslint/scope-manager':
         specifier: ^8.48.0
         version: 8.48.0
@@ -485,6 +488,9 @@ packages:
 
   '@jsr/let__eff@0.0.0':
     resolution: {integrity: sha512-ZemOKK/5SB1o9b0OQ+4gi7rDHPwKBXZazC4urXGAIWHq1NUqaRFkYUvhOHcPttxe7/J3HpvDDzj61t6mxaUKMw==, tarball: https://npm.jsr.io/~/11/@jsr/let__eff/0.0.0.tgz}
+
+  '@jsr/let__eff@0.1.1':
+    resolution: {integrity: sha512-Rv3tSuvhp54woNm2fY2gXT1YJmI8rmhXTpczGH+48BAE541bD5AoM/TIgtbq6jUgowTebGSUKPVrcT9IAgTNaQ==, tarball: https://npm.jsr.io/~/11/@jsr/let__eff/0.1.1.tgz}
 
   '@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3':
     resolution: {integrity: sha512-QZHtlVgbAdy2zAqNA9Gu1UpIuI8Xvsd1v8ic6B2pZmeFnFcMWiPLfWXh7TVw4eGEZ/C9TH281KwhVoeQUKbyjw==}
@@ -2475,6 +2481,8 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.5
 
   '@jsr/let__eff@0.0.0': {}
+
+  '@jsr/let__eff@0.1.1': {}
 
   '@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3':
     optional: true
