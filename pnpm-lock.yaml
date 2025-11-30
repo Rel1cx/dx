@@ -72,17 +72,17 @@ importers:
         specifier: ^5.9.0
         version: 5.9.0
       tsdown:
-        specifier: ^0.17.0-beta.1
-        version: 0.17.0-beta.1(publint@0.3.15)(typescript@5.9.3)
+        specifier: ^0.17.0-beta.3
+        version: 0.17.0-beta.3(publint@0.3.15)(typescript@5.9.3)
       typedoc:
-        specifier: ^0.28.14
-        version: 0.28.14(typescript@5.9.3)
+        specifier: ^0.28.15
+        version: 0.28.15(typescript@5.9.3)
       typedoc-plugin-markdown:
         specifier: ^4.9.0
-        version: 4.9.0(typedoc@0.28.14(typescript@5.9.3))
+        version: 4.9.0(typedoc@0.28.15(typescript@5.9.3))
       typedoc-plugin-mdn-links:
         specifier: ^5.0.10
-        version: 5.0.10(typedoc@0.28.14(typescript@5.9.3))
+        version: 5.0.10(typedoc@0.28.15(typescript@5.9.3))
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -105,11 +105,11 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(eslint@9.39.1(jiti@2.6.1))
       eslint-plugin-function:
-        specifier: ^0.0.35
-        version: 0.0.35(eslint@9.39.1(jiti@2.6.1))(ts-api-utils@2.1.0(typescript@5.9.3))(typescript@5.9.3)
+        specifier: ^0.1.2
+        version: 0.1.2(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       eslint-plugin-function-rule:
-        specifier: ^0.0.17
-        version: 0.0.17(@eslint/core@1.0.0)(eslint@9.39.1(jiti@2.6.1))
+        specifier: ^0.1.2
+        version: 0.1.2(@eslint/core@1.0.0)(eslint@9.39.1(jiti@2.6.1))
       eslint-plugin-jsdoc:
         specifier: ^61.4.1
         version: 61.4.1(eslint@9.39.1(jiti@2.6.1))
@@ -123,14 +123,14 @@ importers:
         specifier: ^62.0.0
         version: 62.0.0(eslint@9.39.1(jiti@2.6.1))
       typedoc:
-        specifier: ^0.28.14
-        version: 0.28.14(typescript@5.9.3)
+        specifier: ^0.28.15
+        version: 0.28.15(typescript@5.9.3)
       typedoc-plugin-markdown:
         specifier: ^4.9.0
-        version: 4.9.0(typedoc@0.28.14(typescript@5.9.3))
+        version: 4.9.0(typedoc@0.28.15(typescript@5.9.3))
       typedoc-plugin-mdn-links:
         specifier: ^5.0.10
-        version: 5.0.10(typedoc@0.28.14(typescript@5.9.3))
+        version: 5.0.10(typedoc@0.28.15(typescript@5.9.3))
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -151,8 +151,8 @@ importers:
         specifier: ^9.39.1
         version: 9.39.1(jiti@2.6.1)
       tsdown:
-        specifier: ^0.17.0-beta.1
-        version: 0.17.0-beta.1(publint@0.3.15)(typescript@5.9.3)
+        specifier: ^0.17.0-beta.3
+        version: 0.17.0-beta.3(publint@0.3.15)(typescript@5.9.3)
 
   packages/eff: {}
 
@@ -202,8 +202,8 @@ importers:
         specifier: ^9.39.1
         version: 9.39.1(jiti@2.6.1)
       tsdown:
-        specifier: ^0.17.0-beta.1
-        version: 0.17.0-beta.1(publint@0.3.15)(typescript@5.9.3)
+        specifier: ^0.17.0-beta.3
+        version: 0.17.0-beta.3(publint@0.3.15)(typescript@5.9.3)
 
   packages/eslint-plugin-function-rule:
     dependencies:
@@ -454,8 +454,8 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@gerrit0/mini-shiki@3.15.0':
-    resolution: {integrity: sha512-L5IHdZIDa4bG4yJaOzfasOH/o22MCesY0mx+n6VATbaiCtMeR59pdRqYk4bEiQkIHfxsHPNgdi7VJlZb2FhdMQ==}
+  '@gerrit0/mini-shiki@3.17.0':
+    resolution: {integrity: sha512-Bpf6WuFar20ZXL6qU6VpVl4bVQfyyYiX+6O4xrns4nkU3Mr8paeupDbS1HENpcLOYj7pN4Rkd/yCaPA0vQwKww==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -485,9 +485,6 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
-
-  '@jsr/let__eff@0.0.0':
-    resolution: {integrity: sha512-ZemOKK/5SB1o9b0OQ+4gi7rDHPwKBXZazC4urXGAIWHq1NUqaRFkYUvhOHcPttxe7/J3HpvDDzj61t6mxaUKMw==, tarball: https://npm.jsr.io/~/11/@jsr/let__eff/0.0.0.tgz}
 
   '@jsr/let__eff@0.1.1':
     resolution: {integrity: sha512-Rv3tSuvhp54woNm2fY2gXT1YJmI8rmhXTpczGH+48BAE541bD5AoM/TIgtbq6jUgowTebGSUKPVrcT9IAgTNaQ==, tarball: https://npm.jsr.io/~/11/@jsr/let__eff/0.1.1.tgz}
@@ -725,17 +722,17 @@ packages:
   '@rolldown/pluginutils@1.0.0-beta.52':
     resolution: {integrity: sha512-/L0htLJZbaZFL1g9OHOblTxbCYIGefErJjtYOwgl9ZqNx27P3L0SDfjhhHIss32gu5NWgnxuT2a2Hnnv6QGHKA==}
 
-  '@shikijs/engine-oniguruma@3.15.0':
-    resolution: {integrity: sha512-HnqFsV11skAHvOArMZdLBZZApRSYS4LSztk2K3016Y9VCyZISnlYUYsL2hzlS7tPqKHvNqmI5JSUJZprXloMvA==}
+  '@shikijs/engine-oniguruma@3.17.0':
+    resolution: {integrity: sha512-flSbHZAiOZDNTrEbULY8DLWavu/TyVu/E7RChpLB4WvKX4iHMfj80C6Hi3TjIWaQtHOW0KC6kzMcuB5TO1hZ8Q==}
 
-  '@shikijs/langs@3.15.0':
-    resolution: {integrity: sha512-WpRvEFvkVvO65uKYW4Rzxs+IG0gToyM8SARQMtGGsH4GDMNZrr60qdggXrFOsdfOVssG/QQGEl3FnJ3EZ+8w8A==}
+  '@shikijs/langs@3.17.0':
+    resolution: {integrity: sha512-icmur2n5Ojb+HAiQu6NEcIIJ8oWDFGGEpiqSCe43539Sabpx7Y829WR3QuUW2zjTM4l6V8Sazgb3rrHO2orEAw==}
 
-  '@shikijs/themes@3.15.0':
-    resolution: {integrity: sha512-8ow2zWb1IDvCKjYb0KiLNrK4offFdkfNVPXb1OZykpLCzRU6j+efkY+Y7VQjNlNFXonSw+4AOdGYtmqykDbRiQ==}
+  '@shikijs/themes@3.17.0':
+    resolution: {integrity: sha512-/xEizMHLBmMHwtx4JuOkRf3zwhWD2bmG5BRr0IPjpcWpaq4C3mYEuTk/USAEglN0qPrTwEHwKVpSu/y2jhferA==}
 
-  '@shikijs/types@3.15.0':
-    resolution: {integrity: sha512-BnP+y/EQnhihgHy4oIAN+6FFtmfTekwOLsQbRw9hOKwqgNy8Bdsjq8B05oAt/ZgvIWWFrshV71ytOrlPfYjIJw==}
+  '@shikijs/types@3.17.0':
+    resolution: {integrity: sha512-wjLVfutYWVUnxAjsWEob98xgyaGv0dTEnMZDruU5mRjVN7szcGOfgO+997W2yR6odp+1PtSBNeSITRRTfUzK/g==}
 
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
@@ -1121,10 +1118,6 @@ packages:
     resolution: {integrity: sha512-qE3Veg1YXzGHQhlA6jzebZN2qVf6NX+A7m7qlhCGG30dJixrAQhYOsJjsnBjJkCSmuOPpCk30145fr8FV0bzog==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  diff@8.0.2:
-    resolution: {integrity: sha512-sSuxWU5j5SR9QQji/o2qMvqRNYRDOcBTgsJ/DeCf4iSN4gW+gNMXM7wFIP+fdXZxoNiAnHUTGjCr+TSWXdRDKg==}
-    engines: {node: '>=0.3.1'}
-
   digraph-js@2.2.4:
     resolution: {integrity: sha512-K42PmnGfSO73gOUDwq/kM7DLZaCQJpEKImEuz/aiSbmzEwoEUWSfkDNGfYcIFVZuNgn3tCkyEvzXJOoluP3bSQ==}
     engines: {node: '>=16.0.0'}
@@ -1187,18 +1180,18 @@ packages:
     peerDependencies:
       eslint: '>=8.0.0'
 
-  eslint-plugin-function-rule@0.0.17:
-    resolution: {integrity: sha512-FjNtR6RJN/Mveiu/SFi6mnIf+V+tNjgVkIrsHhxneDuVwJzytkuqC5HpzC0bv3m0wz0fgf3NOxlFDbUlX9gVcQ==}
+  eslint-plugin-function-rule@0.1.2:
+    resolution: {integrity: sha512-rQeC2vRPWfLh5laIUsK8Fxl+W3GeFp7dvv/hOifMWi/y2zjWKjgutBG4UaBRpHpD2mHb3V4uX5DBJYrK7bqxaA==}
+    engines: {node: '>=20.0.0'}
     peerDependencies:
       '@eslint/core': ^1.0.0
       eslint: ^9.39.1
 
-  eslint-plugin-function@0.0.35:
-    resolution: {integrity: sha512-oqT5xxpYZ5V6oFEsUQdcoe9+lc6MIy1d5An/jJRM3ApJGOEK8/8rU9kRYO4BRwCGNwlq8g7mGrMKcFuomEYSTg==}
-    engines: {node: '>=20.10.0'}
+  eslint-plugin-function@0.1.2:
+    resolution: {integrity: sha512-g7kqAswg4DQjranuwauzCe2Fp/FvvPeSUsb7PdmhqKEeZV2fRmWY4XjnjI0EFTF3ybq7EzYhfxxBXVxOKqFppQ==}
+    engines: {node: '>=20.0.0'}
     peerDependencies:
       eslint: ^9.39.1
-      ts-api-utils: ^2.1.0
       typescript: ^5.9.3
 
   eslint-plugin-jsdoc@61.4.1:
@@ -2027,8 +2020,8 @@ packages:
   ts-pattern@5.9.0:
     resolution: {integrity: sha512-6s5V71mX8qBUmlgbrfL33xDUwO0fq48rxAu2LBE11WBeGdpCPOsXksQbZJHvHwhrd3QjUusd3mAOM5Gg0mFBLg==}
 
-  tsdown@0.17.0-beta.1:
-    resolution: {integrity: sha512-he4wrDTwAQ4fPfOdTeIHEbH3jBWbIauuPoSsNwpgHf6ZvFTJmkN2+E2fkaNrY579tzwqENccnVflM+d5yIjslQ==}
+  tsdown@0.17.0-beta.3:
+    resolution: {integrity: sha512-CpxDMqTTenC78YzTzABqBB17uXRQdy0njWjmYPABW2SnAnp/QKujz0NxMAaNZUGRdJSLFvXdlrHE4jSrBIbnWw==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
@@ -2070,8 +2063,8 @@ packages:
     peerDependencies:
       typedoc: 0.27.x || 0.28.x
 
-  typedoc@0.28.14:
-    resolution: {integrity: sha512-ftJYPvpVfQvFzpkoSfHLkJybdA/geDJ8BGQt/ZnkkhnBYoYW6lBgPQXu6vqLxO4X75dA55hX8Af847H5KXlEFA==}
+  typedoc@0.28.15:
+    resolution: {integrity: sha512-mw2/2vTL7MlT+BVo43lOsufkkd2CJO4zeOSuWQQsiXoV2VuEn7f6IZp2jsUDPmBMABpgR0R5jlcJ2OGEFYmkyg==}
     engines: {node: '>= 18', pnpm: '>= 10'}
     hasBin: true
     peerDependencies:
@@ -2447,12 +2440,12 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@gerrit0/mini-shiki@3.15.0':
+  '@gerrit0/mini-shiki@3.17.0':
     dependencies:
-      '@shikijs/engine-oniguruma': 3.15.0
-      '@shikijs/langs': 3.15.0
-      '@shikijs/themes': 3.15.0
-      '@shikijs/types': 3.15.0
+      '@shikijs/engine-oniguruma': 3.17.0
+      '@shikijs/langs': 3.17.0
+      '@shikijs/themes': 3.17.0
+      '@shikijs/types': 3.17.0
       '@shikijs/vscode-textmate': 10.0.2
 
   '@humanfs/core@0.19.1': {}
@@ -2479,8 +2472,6 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
-
-  '@jsr/let__eff@0.0.0': {}
 
   '@jsr/let__eff@0.1.1': {}
 
@@ -2641,20 +2632,20 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.0-beta.52': {}
 
-  '@shikijs/engine-oniguruma@3.15.0':
+  '@shikijs/engine-oniguruma@3.17.0':
     dependencies:
-      '@shikijs/types': 3.15.0
+      '@shikijs/types': 3.17.0
       '@shikijs/vscode-textmate': 10.0.2
 
-  '@shikijs/langs@3.15.0':
+  '@shikijs/langs@3.17.0':
     dependencies:
-      '@shikijs/types': 3.15.0
+      '@shikijs/types': 3.17.0
 
-  '@shikijs/themes@3.15.0':
+  '@shikijs/themes@3.17.0':
     dependencies:
-      '@shikijs/types': 3.15.0
+      '@shikijs/types': 3.17.0
 
-  '@shikijs/types@3.15.0':
+  '@shikijs/types@3.17.0':
     dependencies:
       '@shikijs/vscode-textmate': 10.0.2
       '@types/hast': 3.0.4
@@ -3099,8 +3090,6 @@ snapshots:
 
   detect-newline@4.0.1: {}
 
-  diff@8.0.2: {}
-
   digraph-js@2.2.4:
     dependencies:
       lodash.uniqwith: 4.5.0
@@ -3152,16 +3141,16 @@ snapshots:
     dependencies:
       eslint: 9.39.1(jiti@2.6.1)
 
-  eslint-plugin-function-rule@0.0.17(@eslint/core@1.0.0)(eslint@9.39.1(jiti@2.6.1)):
+  eslint-plugin-function-rule@0.1.2(@eslint/core@1.0.0)(eslint@9.39.1(jiti@2.6.1)):
     dependencies:
       '@eslint/core': 1.0.0
       eslint: 9.39.1(jiti@2.6.1)
 
-  eslint-plugin-function@0.0.35(eslint@9.39.1(jiti@2.6.1))(ts-api-utils@2.1.0(typescript@5.9.3))(typescript@5.9.3):
+  eslint-plugin-function@0.1.2(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3):
     dependencies:
       '@eslint-react/ast': 2.3.9(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@eslint-react/shared': 2.3.9(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
-      '@let/eff': '@jsr/let__eff@0.0.0'
+      '@let/eff': '@jsr/let__eff@0.1.1'
       '@typescript-eslint/scope-manager': 8.48.0
       '@typescript-eslint/type-utils': 8.48.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/types': 8.48.0
@@ -4000,11 +3989,10 @@ snapshots:
 
   ts-pattern@5.9.0: {}
 
-  tsdown@0.17.0-beta.1(publint@0.3.15)(typescript@5.9.3):
+  tsdown@0.17.0-beta.3(publint@0.3.15)(typescript@5.9.3):
     dependencies:
       ansis: 4.2.0
       cac: 6.7.14
-      diff: 8.0.2
       empathic: 2.0.0
       hookable: 5.5.3
       obug: 2.1.1
@@ -4033,17 +4021,17 @@ snapshots:
     dependencies:
       prelude-ls: 1.2.1
 
-  typedoc-plugin-markdown@4.9.0(typedoc@0.28.14(typescript@5.9.3)):
+  typedoc-plugin-markdown@4.9.0(typedoc@0.28.15(typescript@5.9.3)):
     dependencies:
-      typedoc: 0.28.14(typescript@5.9.3)
+      typedoc: 0.28.15(typescript@5.9.3)
 
-  typedoc-plugin-mdn-links@5.0.10(typedoc@0.28.14(typescript@5.9.3)):
+  typedoc-plugin-mdn-links@5.0.10(typedoc@0.28.15(typescript@5.9.3)):
     dependencies:
-      typedoc: 0.28.14(typescript@5.9.3)
+      typedoc: 0.28.15(typescript@5.9.3)
 
-  typedoc@0.28.14(typescript@5.9.3):
+  typedoc@0.28.15(typescript@5.9.3):
     dependencies:
-      '@gerrit0/mini-shiki': 3.15.0
+      '@gerrit0/mini-shiki': 3.17.0
       lunr: 2.3.9
       markdown-it: 14.1.0
       minimatch: 9.0.5
