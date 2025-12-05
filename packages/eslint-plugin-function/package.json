@@ -34,8 +34,8 @@
     "publish": "pnpm run build && pnpm run lint:publish"
   },
   "dependencies": {
-    "@eslint-react/ast": "^2.3.11",
-    "@eslint-react/shared": "^2.3.11",
+    "@eslint-react/ast": "^2.3.12",
+    "@eslint-react/shared": "^2.3.12",
     "@let/eff": "jsr:^0.1.2",
     "@typescript-eslint/scope-manager": "^8.48.1",
     "@typescript-eslint/type-utils": "^8.48.1",
