@@ -31,7 +31,7 @@
     "update:version": "tsx ./scripts/update-version.ts"
   },
   "devDependencies": {
-    "@effect/platform": "^0.93.6",
+    "@effect/platform": "^0.93.7",
     "@effect/platform-node": "^0.103.0",
     "@eslint/compat": "^2.0.0",
     "@let/eff": "jsr:^0.1.2",
@@ -39,7 +39,7 @@
     "@local/function-rules": "workspace:*",
     "@tsconfig/node22": "^22.0.5",
     "@tsconfig/strictest": "^2.0.8",
-    "@types/node": "^25.0.0",
+    "@types/node": "^25.0.1",
     "ansis": "^4.2.0",
     "dprint": "^0.50.2",
     "effect": "^3.19.11",
@@ -52,7 +52,7 @@
     "sort-package-json": "^3.5.1",
     "tinyglobby": "^0.2.15",
     "ts-pattern": "^5.9.0",
-    "tsdown": "^0.17.2",
+    "tsdown": "^0.17.3",
     "typedoc": "^0.28.15",
     "typedoc-plugin-markdown": "^4.9.0",
     "typedoc-plugin-mdn-links": "^5.0.10",
