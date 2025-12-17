@@ -75,18 +75,28 @@ const p11tOptions = {
     partitionByNewLine: true,
 };
 const p11tGroups = {
-    customGroups: {
-        id: ["^_$", "^id$", "^key$", "^self$"],
-        type: ["^type$", "^kind$"],
-        meta: [
-            "^name$",
-            "^meta$",
-            "^title$",
-            "^description$",
-        ],
-        alias: ["^alias$", "^as$"],
-        rules: ["^node$", "^messageId$"],
-    },
+    customGroups: [
+        {
+            elementNamePattern: "^(_$|id$|key$|self$)",
+            groupName: "id",
+        },
+        {
+            elementNamePattern: "^(type$|kind$)",
+            groupName: "type",
+        },
+        {
+            elementNamePattern: "^(name$|meta$|title$|description$)",
+            groupName: "meta",
+        },
+        {
+            elementNamePattern: "^(alias$|as$)",
+            groupName: "alias",
+        },
+        {
+            elementNamePattern: "^(node$|messageId$)",
+            groupName: "rules",
+        },
+    ],
     groups: ["id", "type", "meta", "alias", "rules", "unknown"],
 };
 export function buildIgnoreConfig(gitignore, extra) {
