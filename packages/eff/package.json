@@ -1,6 +1,6 @@
 {
   "name": "@let/eff",
-  "version": "0.1.3-beta.4",
+  "version": "0.1.3",
   "description": "JavaScript and TypeScript utilities.",
   "homepage": "https://github.com/Rel1cx/dx",
   "bugs": {
@@ -17,8 +17,6 @@
     ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
