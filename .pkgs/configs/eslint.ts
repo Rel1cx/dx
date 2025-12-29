@@ -8,7 +8,7 @@ import { jsdoc } from "eslint-plugin-jsdoc";
 import pluginPerfectionist from "eslint-plugin-perfectionist";
 import pluginRegexp from "eslint-plugin-regexp";
 import pluginUnicorn from "eslint-plugin-unicorn";
-import { defineConfig, globalIgnores } from "eslint/config";
+import { type Config, defineConfig, globalIgnores } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 export const GLOB_JS = ["**/*.{js,jsx,cjs,mjs}"];
@@ -111,7 +111,7 @@ const p11tGroups = {
 
 export function buildIgnoreConfig(gitignore: string, extra: string[]) {
   return [
-    includeIgnoreFile(gitignore, "Imported .gitignore patterns") as never,
+    includeIgnoreFile(gitignore, "Imported .gitignore patterns") as Config,
     globalIgnores([
       ...GLOB_IGNORES,
       ...extra,
@@ -180,7 +180,7 @@ export const strictTypeChecked: Linter.Config[] = defineConfig(
     extends: [
       jsdoc({ config: "flat/recommended-typescript-error" }),
       pluginDeMorgan.configs.recommended,
-      pluginPerfectionist.configs["recommended-natural"],
+      pluginPerfectionist.configs?.["recommended-natural"] ?? [],
       pluginRegexp.configs["flat/recommended"],
     ] as never,
     files: GLOB_TS,
@@ -197,6 +197,7 @@ export const strictTypeChecked: Linter.Config[] = defineConfig(
       "@stylistic/operator-linebreak": "off",
       "@stylistic/quote-props": ["error", "as-needed"],
 
+      "perfectionist/sort-array-includes": "off",
       "perfectionist/sort-exports": "off",
       "perfectionist/sort-imports": "off",
       "perfectionist/sort-interfaces": [

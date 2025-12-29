@@ -164,7 +164,7 @@ export const strictTypeChecked = defineConfig({
     extends: [
         jsdoc({ config: "flat/recommended-typescript-error" }),
         pluginDeMorgan.configs.recommended,
-        pluginPerfectionist.configs["recommended-natural"],
+        pluginPerfectionist.configs?.["recommended-natural"] ?? [],
         pluginRegexp.configs["flat/recommended"],
     ],
     files: GLOB_TS,
@@ -179,6 +179,7 @@ export const strictTypeChecked = defineConfig({
         "@stylistic/no-multi-spaces": ["warn"],
         "@stylistic/operator-linebreak": "off",
         "@stylistic/quote-props": ["error", "as-needed"],
+        "perfectionist/sort-array-includes": "off",
         "perfectionist/sort-exports": "off",
         "perfectionist/sort-imports": "off",
         "perfectionist/sort-interfaces": [
