@@ -28,7 +28,6 @@
     "lint:publish": "pnpm m run lint:publish",
     "lint:ts": "pnpm m run lint:ts",
     "prepare": "pnpm run build",
-    "test": "",
     "update:version": "tsx ./scripts/update-version.ts"
   },
   "devDependencies": {
