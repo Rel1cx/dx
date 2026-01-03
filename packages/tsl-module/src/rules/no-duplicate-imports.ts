@@ -42,7 +42,7 @@ export const messages = {
  */
 export const noDuplicateImports = defineRule(() => {
   return {
-    name: "module/no-duplicate-import",
+    name: "module/no-duplicate-imports",
     createData() {
       return [
         new Set<string>(), // for import
