@@ -6,7 +6,7 @@
 const noDuplicateImport: (options?: "off") => Rule<unknown>;
 ```
 
-Rule to disallow duplicate imports from the same module.
+Rule to disallow duplicate imports from the same module. Combine multiple import statements from the same module into a single statement.
 
 ## Parameters
 
@@ -17,6 +17,14 @@ Rule to disallow duplicate imports from the same module.
 ## Returns
 
 `Rule`\<`unknown`\>
+
+## Todo
+
+Consider handling side-effect imports (e.g., `import 'module';`) separately if needed.
+
+## Todo
+
+Add autofix to merge duplicate imports automatically.
 
 ## Examples
 

@@ -11,6 +11,9 @@ export const messages = {
 /**
  * Rule to disallow duplicate imports from the same module. Combine multiple import statements from the same module into a single statement.
  *
+ * @todo Consider handling side-effect imports (e.g., `import 'module';`) separately if needed.
+ * @todo Add autofix to merge duplicate imports automatically.
+ *
  * @example
  *
  * ```ts
