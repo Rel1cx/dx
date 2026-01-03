@@ -51,21 +51,21 @@ export const noDuplicateImport = defineRule(() => {
     visitor: {
       ImportDeclaration(ctx, node) {
         const importSource = node.moduleSpecifier.getText();
-        const importSet = ctx.data[
+        const seen = ctx.data[
           match<ts.ImportPhaseModifierSyntaxKind | unit, 0 | 1 | 2>(node.importClause?.phaseModifier)
             .with(P.nullish, () => 0)
             .with(ts.SyntaxKind.TypeKeyword, () => 1)
             .with(ts.SyntaxKind.DeferKeyword, () => 2)
             .otherwise(() => 0)
         ];
-        if (importSet.has(importSource)) {
+        if (seen.has(importSource)) {
           ctx.report({
             node: node.moduleSpecifier,
             message: messages.noDuplicateImport({ source: importSource }),
           });
           return;
         }
-        importSet.add(importSource);
+        seen.add(importSource);
       },
     },
   };
