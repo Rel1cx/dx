@@ -6,7 +6,7 @@ export const messages = {
 } as const;
 
 /**
- * Rule to disallow duplicate exports to the same module. Combine multiple export statements to the same module into a single statement.
+ * Rule to disallow duplicate exports from the same module. Combine multiple export statements to the same module into a single statement.
  *
  * @todo Add autofix to merge duplicate exports automatically.
  *
