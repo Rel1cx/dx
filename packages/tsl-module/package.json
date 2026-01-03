@@ -18,8 +18,7 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "dist",
-    "./package.json"
+    "dist"
   ],
   "scripts": {
     "build": "tsdown --dts-resolve",
