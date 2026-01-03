@@ -12,7 +12,7 @@
     "url": "git+https://github.com/Rel1cx/dx.git"
   },
   "license": "MIT",
-  "author": "Rel1cx<rel1cx@proton.me>",
+  "author": "Rel1cx<let@ik.me>",
   "type": "module",
   "scripts": {
     "build": "pnpm run build:pkgs && pnpm run build:packages",
@@ -28,6 +28,7 @@
     "lint:publish": "pnpm m run lint:publish",
     "lint:ts": "pnpm m run lint:ts",
     "prepare": "pnpm run build",
+    "test": "pnpm m run test",
     "update:version": "tsx ./scripts/update-version.ts"
   },
   "devDependencies": {
@@ -52,7 +53,7 @@
     "sort-package-json": "^3.6.0",
     "tinyglobby": "^0.2.15",
     "ts-pattern": "^5.9.0",
-    "tsdown": "^0.19.0-beta.1",
+    "tsdown": "^0.19.0-beta.2",
     "tsx": "^4.21.0",
     "typedoc": "^0.28.15",
     "typedoc-plugin-markdown": "^4.9.0",
@@ -63,5 +64,10 @@
   "packageManager": "pnpm@10.27.0",
   "engines": {
     "node": ">=24.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "^0.27.2"
+    }
   }
 }
