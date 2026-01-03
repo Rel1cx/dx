@@ -1,0 +1,52 @@
+{
+  "name": "tsl-module",
+  "version": "0.1.3",
+  "description": "A TSL plugin for JavaScript and TypeScript module syntax linting and transformations.",
+  "keywords": [
+    "tsl",
+    "tsl-module"
+  ],
+  "license": "MIT",
+  "author": "Rel1cx<let@ik.me>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown --dts-resolve",
+    "build:docs": "typedoc",
+    "lint:publish": "pnpm publint",
+    "lint:ts": "tsl",
+    "publish": "pnpm run build && pnpm run lint:publish",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@let/eff": "jsr:^0.1.2",
+    "ts-pattern": "^5.9.0"
+  },
+  "devDependencies": {
+    "@local/configs": "workspace:*",
+    "dedent": "^1.7.1",
+    "tsdown": "^0.19.0-beta.2",
+    "vitest": "^4.0.16"
+  },
+  "peerDependencies": {
+    "tsl": "^1.0.28",
+    "typescript": "^4.9.5 || ^5.4.5"
+  },
+  "engines": {
+    "bun": ">=1.2.18",
+    "node": ">=24.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

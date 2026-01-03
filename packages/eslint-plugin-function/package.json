@@ -12,7 +12,7 @@
     "url": "git+https://github.com/Rel1cx/dx.git"
   },
   "license": "MIT",
-  "author": "Rel1cx<rel1cx@proton.me>",
+  "author": "Rel1cx<let@ik.me>",
   "sideEffects": false,
   "type": "module",
   "exports": {
@@ -49,7 +49,7 @@
     "@typescript-eslint/rule-tester": "^8.51.0",
     "dedent": "^1.7.1",
     "eslint": "^9.39.2",
-    "tsdown": "^0.19.0-beta.1"
+    "tsdown": "^0.19.0-beta.2"
   },
   "peerDependencies": {
     "eslint": "^9.39.2",

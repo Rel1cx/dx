@@ -11,7 +11,7 @@
     "url": "git+https://github.com/Rel1cx/dx.git"
   },
   "license": "MIT",
-  "author": "Rel1cx<rel1cx@proton.me>",
+  "author": "Rel1cx<let@ik.me>",
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
