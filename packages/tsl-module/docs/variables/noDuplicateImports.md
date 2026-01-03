@@ -1,9 +1,9 @@
-[tsl-module](../README.md) / noDuplicateImport
+[tsl-module](../README.md) / noDuplicateImports
 
-# Variable: noDuplicateImport()
+# Variable: noDuplicateImports()
 
 ```ts
-const noDuplicateImport: (options?: "off") => Rule<unknown>;
+const noDuplicateImports: (options?: "off") => Rule<unknown>;
 ```
 
 Rule to disallow duplicate imports from the same module. Combine multiple import statements from the same module into a single statement.
@@ -17,10 +17,6 @@ Rule to disallow duplicate imports from the same module. Combine multiple import
 ## Returns
 
 `Rule`\<`unknown`\>
-
-## Todo
-
-Consider handling side-effect imports (e.g., `import 'module';`) separately if needed.
 
 ## Todo
 

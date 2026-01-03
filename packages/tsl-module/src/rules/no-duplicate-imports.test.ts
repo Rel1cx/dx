@@ -2,7 +2,7 @@ import tsx from "dedent";
 import { ruleTester } from "tsl/ruleTester";
 import { expect, test } from "vitest";
 
-import { messages, noDuplicateImport } from "./no-duplicate-import.js";
+import { messages, noDuplicateImports } from "./no-duplicate-imports";
 
 test("no-duplicate-import", () => {
   const ret = ruleTester({
@@ -15,7 +15,7 @@ test("no-duplicate-import", () => {
         errors: [
           {
             line: 2,
-            message: messages.noDuplicateImport({ source: "'module'" }),
+            message: messages.noDuplicateImports({ source: "'module'" }),
           },
         ],
       },
@@ -27,7 +27,7 @@ test("no-duplicate-import", () => {
         errors: [
           {
             line: 2,
-            message: messages.noDuplicateImport({ source: "'module'" }),
+            message: messages.noDuplicateImports({ source: "'module'" }),
           },
         ],
       },
@@ -39,12 +39,12 @@ test("no-duplicate-import", () => {
         errors: [
           {
             line: 2,
-            message: messages.noDuplicateImport({ source: "'module'" }),
+            message: messages.noDuplicateImports({ source: "'module'" }),
           },
         ],
       },
     ],
-    ruleFn: noDuplicateImport,
+    ruleFn: noDuplicateImports,
     tsx: true,
     valid: [
       tsx`

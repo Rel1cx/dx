@@ -1,1 +1,1 @@
-export { noDuplicateImport } from "./rules/no-duplicate-import";
+export { noDuplicateImports } from "./rules/no-duplicate-imports";

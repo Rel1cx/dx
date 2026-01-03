@@ -4,7 +4,7 @@ import { defineRule } from "tsl";
 import ts from "typescript";
 
 export const messages = {
-  noDuplicateImport: (p: { source: string }) =>
+  noDuplicateImports: (p: { source: string }) =>
     `Duplicate import from module ${p.source}. Combine into a single import statement.`,
 } as const;
 
@@ -40,7 +40,7 @@ export const messages = {
  * import type { B } from 'moduleA';
  * ```
  */
-export const noDuplicateImport = defineRule(() => {
+export const noDuplicateImports = defineRule(() => {
   return {
     name: "module/no-duplicate-import",
     createData() {
@@ -64,7 +64,7 @@ export const noDuplicateImport = defineRule(() => {
         if (seen.has(importSource)) {
           ctx.report({
             node,
-            message: messages.noDuplicateImport({ source: importSource }),
+            message: messages.noDuplicateImports({ source: importSource }),
           });
           return;
         }
