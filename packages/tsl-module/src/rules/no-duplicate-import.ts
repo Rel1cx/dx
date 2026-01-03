@@ -60,7 +60,7 @@ export const noDuplicateImport = defineRule(() => {
         ];
         if (seen.has(importSource)) {
           ctx.report({
-            node: node.moduleSpecifier,
+            node,
             message: messages.noDuplicateImport({ source: importSource }),
           });
           return;
