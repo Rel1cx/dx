@@ -2,11 +2,18 @@ import { match } from "ts-pattern";
 import { defineRule } from "tsl";
 import { SyntaxKind } from "typescript";
 
-//#region src/utils/ast.ts
-function getStartAndEnd(node) {
+//#region src/utils/fix.ts
+/**
+* Replaces the text of a node with new text.
+* @param node The node to replace.
+* @param newText The new text to insert.
+* @returns An object containing the start and end positions of the node and the new text.
+*/
+function replaceNodeText(node, newText) {
 	return {
 		start: node.getStart(),
-		end: node.getEnd()
+		end: node.getEnd(),
+		newText
 	};
 }
 
@@ -35,13 +42,7 @@ const consistentNullishComparison = defineRule(() => ({
 			node,
 			suggestions: [{
 				message: offendingChild === node.left ? `Replace with 'null ${newOperatorText} ${node.right.getText()}'.` : `Replace with '${node.left.getText()} ${newOperatorText} null'.`,
-				changes: [{
-					...getStartAndEnd(node.operatorToken),
-					newText: newOperatorText
-				}, {
-					...getStartAndEnd(offendingChild),
-					newText: "null"
-				}]
+				changes: [replaceNodeText(node.operatorToken, newOperatorText), replaceNodeText(offendingChild, "null")]
 			}]
 		});
 	} }
