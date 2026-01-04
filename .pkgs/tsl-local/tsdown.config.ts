@@ -3,14 +3,14 @@ import type { UserConfig } from "tsdown";
 export default {
   clean: true,
   dts: true,
-  entry: ["index.ts"],
-  external: ["eslint", "typescript"],
-  fixedExtension: false,
+  entry: ["src/index.ts"],
+  external: ["tsl", "typescript"],
   format: ["esm"],
   minify: false,
   outDir: "dist",
   platform: "node",
   sourcemap: false,
-  target: "node20",
+  target: "node24",
   treeshake: true,
+  fixedExtension: false,
 } satisfies UserConfig;

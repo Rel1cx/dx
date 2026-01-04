@@ -6,35 +6,15 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./eslint": {
-      "types": "./eslint.d.ts",
-      "import": "./eslint.js"
-    },
     "./tsconfig.base.json": "./tsconfig.base.json",
     "./typedoc.base.json": "./typedoc.base.json"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "lint:publish": "publint",
-    "lint:ts": "tsc --noEmit"
+    "lint:publish": "publint"
   },
   "dependencies": {
-    "@eslint/js": "^9.39.2",
-    "@stylistic/eslint-plugin": "^5.6.1",
-    "eslint-plugin-de-morgan": "^2.0.0",
-    "eslint-plugin-function": "^0.1.9",
-    "eslint-plugin-function-rule": "^0.1.9",
-    "eslint-plugin-jsdoc": "^61.5.0",
-    "eslint-plugin-perfectionist": "^5.2.0",
-    "eslint-plugin-regexp": "^2.10.0",
-    "eslint-plugin-unicorn": "^62.0.0",
-    "typescript-eslint": "^8.51.0"
-  },
-  "peerDependencies": {
-    "eslint": "^9.39.2",
-    "typedoc": "^0.28.15",
-    "typedoc-plugin-markdown": "^4.9.0",
-    "typedoc-plugin-mdn-links": "^5.0.10",
-    "typescript": "^5.9.3"
+    "@tsconfig/node24": "^24.0.3",
+    "@tsconfig/strictest": "^2.0.8",
+    "tsl": "^1.0.28"
   }
 }
