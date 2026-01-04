@@ -26,7 +26,7 @@
     "build": "tsdown",
     "build:docs": "typedoc",
     "lint:publish": "publint",
-    "lint:ts": "tsc --noEmit",
+    "lint:ts": "tsl",
     "publish": "pnpm run build && pnpm run lint:publish"
   }
 }

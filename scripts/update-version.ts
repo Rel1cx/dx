@@ -36,7 +36,7 @@ function processPackageJson(filename: string) {
       version: newVersion,
     };
     yield* fs.writeFileString(filename, `${JSON.stringify(packageJsonUpdated, null, 2)}\n`);
-    yield* Effect.log(`Updated ${filename} to version ${packageJsonUpdated.version}`);
+    yield* Effect.log(`Updated ${filename} to version ${newVersion}`);
     return true;
   });
 }
