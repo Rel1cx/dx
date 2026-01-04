@@ -35,6 +35,10 @@
     "lint:ts": "tsl",
     "publish": "pnpm run build && pnpm run lint:publish"
   },
+  "devDependencies": {
+    "@local/configs": "workspace:*",
+    "tsl": "^1.0.28"
+  },
   "peerDependencies": {
     "@eslint/core": "^1.0.0",
     "eslint": "^9.39.2"

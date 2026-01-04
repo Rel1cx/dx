@@ -114,7 +114,7 @@ importers:
         specifier: ^1.0.28
         version: 1.0.28(typescript@5.9.3)
       typescript:
-        specifier: ^4.9.5 || ^5.4.5
+        specifier: '*'
         version: 5.9.3
     devDependencies:
       '@local/configs':
@@ -130,7 +130,11 @@ importers:
         specifier: ^0.19.0-beta.2
         version: 0.19.0-beta.2(publint@0.3.16)(typescript@5.9.3)
 
-  packages/eff: {}
+  packages/eff:
+    devDependencies:
+      tsl:
+        specifier: ^1.0.28
+        version: 1.0.28(typescript@5.9.3)
 
   packages/eslint-plugin-function:
     dependencies:
@@ -165,7 +169,7 @@ importers:
         specifier: ^5.9.0
         version: 5.9.0
       typescript:
-        specifier: ^5.9.3
+        specifier: '*'
         version: 5.9.3
     devDependencies:
       '@typescript-eslint/rule-tester':
@@ -180,6 +184,9 @@ importers:
       tsdown:
         specifier: ^0.19.0-beta.2
         version: 0.19.0-beta.2(publint@0.3.16)(typescript@5.9.3)
+      tsl:
+        specifier: ^1.0.28
+        version: 1.0.28(typescript@5.9.3)
 
   packages/eslint-plugin-function-rule:
     dependencies:
@@ -189,6 +196,13 @@ importers:
       eslint:
         specifier: ^9.39.2
         version: 9.39.2(jiti@2.6.1)
+    devDependencies:
+      '@local/configs':
+        specifier: workspace:*
+        version: link:../../.pkgs/configs
+      tsl:
+        specifier: ^1.0.28
+        version: 1.0.28(typescript@5.9.3)
 
   packages/tsl-module:
     dependencies:
@@ -198,11 +212,8 @@ importers:
       ts-pattern:
         specifier: ^5.9.0
         version: 5.9.0
-      tsl:
-        specifier: ^1.0.28
-        version: 1.0.28(typescript@5.9.3)
       typescript:
-        specifier: ^4.9.5 || ^5.4.5
+        specifier: '*'
         version: 5.9.3
     devDependencies:
       '@local/configs':
@@ -214,6 +225,9 @@ importers:
       tsdown:
         specifier: ^0.19.0-beta.2
         version: 0.19.0-beta.2(publint@0.3.16)(typescript@5.9.3)
+      tsl:
+        specifier: ^1.0.28
+        version: 1.0.28(typescript@5.9.3)
       vitest:
         specifier: ^4.0.16
         version: 4.0.16(@types/node@25.0.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)

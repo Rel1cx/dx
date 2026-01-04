@@ -44,25 +44,7 @@
 //     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-// region Directives
-
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-unnecessary-type-parameters */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-function-type */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
-/* eslint-disable @typescript-eslint/unified-signatures */
-/* eslint-disable jsdoc/check-param-names */
-/* eslint-disable jsdoc/require-param-description */
-/* eslint-disable prefer-rest-params */
-
-// #endregion
+/* tsl-ignore local/consistentNullishComparison */
 
 // #region Helpers
 
@@ -144,7 +126,6 @@ export function isArray<T>(data: ArrayLike<unknown> | T): data is NarrowedTo<T, 
  * @returns The input type, narrowed to only objects.
  */
 export function isObject<T>(data: T | object): data is NarrowedTo<T, object> {
-  // eslint-disable-next-line function-rule-2/function-rule
   return typeof data === "object" && data !== null;
 }
 
@@ -1219,7 +1200,7 @@ export function flow(
  */
 export function getOrElse<K extends WeakKey, V>(map: WeakMap<K, V>, key: K, callback: () => V): V;
 export function getOrElse<K, V>(map: Map<K, V>, key: K, callback: () => V): V;
-export function getOrElse<K extends WeakKey, V>(map: Map<K, V> | WeakMap<K, V>, key: K, callback: () => V): V {
+export function getOrElse<K extends WeakKey, V>(map: WeakMap<K, V>, key: K, callback: () => V): V {
   if (map.has(key)) {
     return map.get(key)!;
   }
@@ -1235,7 +1216,7 @@ export function getOrElse<K extends WeakKey, V>(map: Map<K, V> | WeakMap<K, V>, 
  */
 export function getOrElseUpdate<K extends WeakKey, V>(map: WeakMap<K, V>, key: K, callback: () => V): V;
 export function getOrElseUpdate<K, V>(map: Map<K, V>, key: K, callback: () => V): V;
-export function getOrElseUpdate<K extends WeakKey, V>(map: Map<K, V> | WeakMap<K, V>, key: K, callback: () => V): V {
+export function getOrElseUpdate<K extends WeakKey, V>(map: WeakMap<K, V>, key: K, callback: () => V): V {
   if (map.has(key)) {
     return map.get(key)!;
   }

@@ -6,6 +6,7 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
+    "./tsl.config.ts": "./tsl.config.ts",
     "./tsconfig.base.json": "./tsconfig.base.json",
     "./typedoc.base.json": "./typedoc.base.json"
   },

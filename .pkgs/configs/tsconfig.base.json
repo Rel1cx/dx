@@ -5,16 +5,12 @@
   "compilerOptions": {
     "noEmit": true,
     "erasableSyntaxOnly": true,
-    "allowImportingTsExtensions": true,
     "types": [
       "tsl/patches"
     ],
     "plugins": [
       {
         "name": "tsl/plugin"
-      },
-      {
-        "name": "@effect/language-service"
       }
     ]
   }
