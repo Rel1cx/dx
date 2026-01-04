@@ -21,7 +21,10 @@
     "noUnusedParameters": false,
     "exactOptionalPropertyTypes": true,
     "composite": false,
-    "stripInternal": false
+    "stripInternal": false,
+    "types": [
+      "@types/node"
+    ]
   },
   "exclude": [
     "node_modules",
