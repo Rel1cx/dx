@@ -2,22 +2,6 @@ import { match } from "ts-pattern";
 import { defineRule } from "tsl";
 import { SyntaxKind } from "typescript";
 
-//#region src/utils/fix.ts
-/**
-* Replaces the text of a node with new text.
-* @param node The node to replace.
-* @param newText The new text to insert.
-* @returns An object containing the start and end positions of the node and the new text.
-*/
-function replaceNodeText(node, newText) {
-	return {
-		start: node.getStart(),
-		end: node.getEnd(),
-		newText
-	};
-}
-
-//#endregion
 //#region src/rules/consistent-nullish-comparison.ts
 /**
 * Rule to enforce the use of `== null` or `!= null` for nullish comparisons.
@@ -42,7 +26,13 @@ const consistentNullishComparison = defineRule(() => ({
 			node,
 			suggestions: [{
 				message: offendingChild === node.left ? `Replace with 'null ${newOperatorText} ${node.right.getText()}'.` : `Replace with '${node.left.getText()} ${newOperatorText} null'.`,
-				changes: [replaceNodeText(node.operatorToken, newOperatorText), replaceNodeText(offendingChild, "null")]
+				changes: [{
+					node: node.operatorToken,
+					newText: newOperatorText
+				}, {
+					node: offendingChild,
+					newText: "null"
+				}]
 			}]
 		});
 	} }
