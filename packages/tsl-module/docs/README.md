@@ -4,5 +4,5 @@
 
 | Variable | Description |
 | ------ | ------ |
-| [noDuplicateExports](variables/noDuplicateExports.md) | Rule to disallow duplicate exports from the same module. Combine multiple export statements from the same module into a single statement. |
-| [noDuplicateImports](variables/noDuplicateImports.md) | Rule to disallow duplicate imports from the same module. Combine multiple import statements from the same module into a single statement. |
+| [noDuplicateExports](variables/noDuplicateExports.md) | Rule to detect and merge duplicate `export from` statements from the same module. |
+| [noDuplicateImports](variables/noDuplicateImports.md) | Rule to detect and merge duplicate `import from` statements from the same module. |

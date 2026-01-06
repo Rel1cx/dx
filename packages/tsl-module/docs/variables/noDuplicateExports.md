@@ -6,7 +6,7 @@
 const noDuplicateExports: (options?: "off") => Rule<unknown>;
 ```
 
-Rule to disallow duplicate exports from the same module. Combine multiple export statements from the same module into a single statement.
+Rule to detect and merge duplicate `export from` statements from the same module.
 
 ## Parameters
 
