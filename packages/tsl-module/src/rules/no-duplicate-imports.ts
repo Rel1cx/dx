@@ -2,6 +2,7 @@ import { unit } from "@let/eff";
 import { P, match } from "ts-pattern";
 import { type AST, defineRule } from "tsl";
 import ts from "typescript";
+import { naturalCompare } from "../utils";
 
 export const messages = {
   noDuplicateImports: (p: { source: string }) => `Duplicate import from module ${p.source}.`,
@@ -135,7 +136,8 @@ function buildMergedImport(a: ImportInfo, b: ImportInfo): string {
     parts.push(`* as ${b.namespaceImport}`);
   }
   // Named imports
-  const namedImports = Array.from(new Set([...a.namedImports, ...b.namedImports]));
+  const namedImports = Array.from(new Set([...a.namedImports, ...b.namedImports])).toSorted(naturalCompare);
+  // Construct named imports part
   if (namedImports.length > 0) {
     parts.push(`{ ${namedImports.join(", ")} }`);
   }

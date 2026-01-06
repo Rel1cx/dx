@@ -1,6 +1,8 @@
 import { type AST, defineRule } from "tsl";
 import ts from "typescript";
 
+import { naturalCompare } from "../utils";
+
 export const messages = {
   noDuplicateExports: (p: { source: string }) => `Duplicate export from module ${p.source}.`,
 } as const;
@@ -75,7 +77,7 @@ function buildSuggestions(a: ReExportDeclaration, b: ReExportDeclaration) {
       && ts.isNamedExports(b.exportClause): {
       const aElements = a.exportClause.elements.map((el) => el.getText());
       const bElements = b.exportClause.elements.map((el) => el.getText());
-      const parts = Array.from(new Set([...aElements, ...bElements])).sort();
+      const parts = Array.from(new Set([...aElements, ...bElements])).toSorted(naturalCompare);
       return [
         {
           message: "Merge duplicate exports",
