@@ -6,7 +6,7 @@
 const noDuplicateImports: (options?: "off") => Rule<unknown>;
 ```
 
-Rule to disallow duplicate imports from the same module. Combine multiple import statements from the same module into a single statement.
+Rule to detect and merge duplicate `import from` statements from the same module.
 
 ## Parameters
 

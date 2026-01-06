@@ -16,6 +16,14 @@ test("no-duplicate-import", () => {
           {
             line: 2,
             message: messages.noDuplicateImports({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import { A, B } from 'module';\n
+                `,
+              },
+            ],
           },
         ],
       },
@@ -28,6 +36,14 @@ test("no-duplicate-import", () => {
           {
             line: 2,
             message: messages.noDuplicateImports({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import type { A, B } from 'module';\n
+                `,
+              },
+            ],
           },
         ],
       },
@@ -40,6 +56,49 @@ test("no-duplicate-import", () => {
           {
             line: 2,
             message: messages.noDuplicateImports({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import defer { foo } from 'module';\n
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        code: tsx`
+          import foo, { type bar, baz } from 'module';
+          import foo2, { type qux, quux } from 'module';
+          import foo3, { corge } from 'module';
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.noDuplicateImports({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import foo, { type bar, baz, type qux, quux } from 'module';\n
+                  import foo3, { corge } from 'module';
+                `,
+              },
+            ],
+          },
+          {
+            line: 3,
+            message: messages.noDuplicateImports({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import foo, { type bar, baz, corge } from 'module';
+                  import foo2, { type qux, quux } from 'module';\n
+                `,
+              },
+            ],
           },
         ],
       },

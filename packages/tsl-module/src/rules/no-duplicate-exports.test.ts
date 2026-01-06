@@ -16,6 +16,12 @@ test("no-duplicate-exports", () => {
           {
             line: 2,
             message: messages.noDuplicateExports({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate exports",
+                output: tsx`\nexport { A, B } from 'module';`,
+              },
+            ],
           },
         ],
       },
@@ -28,6 +34,12 @@ test("no-duplicate-exports", () => {
           {
             line: 2,
             message: messages.noDuplicateExports({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate exports",
+                output: tsx`\nexport type { A, B } from 'module';`,
+              },
+            ],
           },
         ],
       },
