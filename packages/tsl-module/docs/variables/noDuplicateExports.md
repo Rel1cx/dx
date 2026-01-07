@@ -18,7 +18,7 @@ Rule to detect and merge duplicate `export from` statements from the same module
 
 `Rule`\<`unknown`\>
 
-## Examples
+## Example
 
 ```ts
 // Incorrect
@@ -27,18 +27,6 @@ export { B } from 'module';
 ```
 
 ```ts
-// Incorrect
-export type { A } from 'module';
-export type { B } from 'module';
-```
-
-```ts
 // Correct
 export { A, B } from 'module';
-```
-
-```ts
-// Correct
-export { A } from 'moduleA';
-export type { B } from 'moduleA';
 ```

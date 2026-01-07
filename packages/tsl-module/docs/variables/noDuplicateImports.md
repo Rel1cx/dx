@@ -18,7 +18,7 @@ Rule to detect and merge duplicate `import from` statements from the same module
 
 `Rule`\<`unknown`\>
 
-## Examples
+## Example
 
 ```ts
 // Incorrect
@@ -27,18 +27,6 @@ import { B } from 'module';
 ```
 
 ```ts
-// Incorrect
-import type { A } from 'module';
-import type { B } from 'module';
-```
-
-```ts
 // Correct
 import { A, B } from 'module';
-```
-
-```ts
-// Correct
-import { A } from 'moduleA';
-import type { B } from 'moduleA';
 ```

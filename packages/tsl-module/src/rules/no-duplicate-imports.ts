@@ -30,22 +30,8 @@ interface ImportInfo {
  * ```
  *
  * ```ts
- * // Incorrect
- * import type { A } from 'module';
- * import type { B } from 'module';
- * ```
- *
- * @example
- *
- * ```ts
  * // Correct
  * import { A, B } from 'module';
- * ```
- *
- * ```ts
- * // Correct
- * import { A } from 'moduleA';
- * import type { B } from 'moduleA';
  * ```
  */
 export const noDuplicateImports = defineRule(() => {

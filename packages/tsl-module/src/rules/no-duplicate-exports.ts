@@ -23,22 +23,8 @@ function isReExportDeclaration(node: AST.ExportDeclaration): node is ReExportDec
  * ```
  *
  * ```ts
- * // Incorrect
- * export type { A } from 'module';
- * export type { B } from 'module';
- * ```
- *
- * @example
- *
- * ```ts
  * // Correct
  * export { A, B } from 'module';
- * ```
- *
- * ```ts
- * // Correct
- * export { A } from 'moduleA';
- * export type { B } from 'moduleA';
  * ```
  */
 export const noDuplicateExports = defineRule(() => {
