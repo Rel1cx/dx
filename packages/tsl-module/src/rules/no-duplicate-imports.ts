@@ -21,8 +21,6 @@ interface ImportInfo {
 /**
  * Rule to detect and merge duplicate `import from` statements from the same module.
  *
- * @todo Add autofix to merge duplicate imports automatically.
- *
  * @example
  *
  * ```ts

@@ -14,8 +14,6 @@ function isReExportDeclaration(node: AST.ExportDeclaration): node is ReExportDec
 /**
  * Rule to detect and merge duplicate `export from` statements from the same module.
  *
- * @todo Add autofix to merge duplicate exports automatically.
- *
  * @example
  *
  * ```ts

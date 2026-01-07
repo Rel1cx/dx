@@ -18,10 +18,6 @@ Rule to detect and merge duplicate `export from` statements from the same module
 
 `Rule`\<`unknown`\>
 
-## Todo
-
-Add autofix to merge duplicate exports automatically.
-
 ## Examples
 
 ```ts

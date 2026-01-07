@@ -18,10 +18,6 @@ Rule to detect and merge duplicate `import from` statements from the same module
 
 `Rule`\<`unknown`\>
 
-## Todo
-
-Add autofix to merge duplicate imports automatically.
-
 ## Examples
 
 ```ts

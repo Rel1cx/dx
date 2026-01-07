@@ -1,6 +1,6 @@
 {
   "name": "tsl-module",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A tsl plugin for JavaScript and TypeScript module syntax linting and transformations.",
   "keywords": [
     "tsl",
