@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-function",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": false,
   "description": "(WIP) An ESLint plugin for function-related rules.",
   "homepage": "https://github.com/Rel1cx/dx",
