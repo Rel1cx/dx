@@ -71,21 +71,23 @@ export const noDuplicateImports = defineRule(() => {
           ctx.report({
             node,
             message: messages.noDuplicateImports({ source: importInfo.source }),
-            suggestions: [
-              {
-                message: "Merge duplicate imports",
-                changes: [
-                  {
-                    node,
-                    newText: "",
-                  },
-                  {
-                    node: duplicateImport.node,
-                    newText: buildMergedImport(duplicateImport, importInfo),
-                  },
-                ],
-              },
-            ],
+            suggestions: importKind > 1
+              ? [] // no auto fix for two import defer statements
+              : [
+                {
+                  message: "Merge duplicate imports",
+                  changes: [
+                    {
+                      node,
+                      newText: "",
+                    },
+                    {
+                      node: duplicateImport.node,
+                      newText: buildMergedImport(duplicateImport, importInfo),
+                    },
+                  ],
+                },
+              ],
           });
           return;
         }

@@ -48,22 +48,16 @@ test("no-duplicate-import", () => {
         ],
       },
       {
+        // invalid import defer syntax, but for test purpose
         code: tsx`
-          import defer { foo } from 'module';
-          import defer { foo } from 'module';
+          import defer { foo1 } from 'module';
+          import defer { foo2 } from 'module';
         `,
         errors: [
           {
             line: 2,
             message: messages.noDuplicateImports({ source: "'module'" }),
-            suggestions: [
-              {
-                message: "Merge duplicate imports",
-                output: tsx`
-                  import defer { foo } from 'module';\n
-                `,
-              },
-            ],
+            suggestions: [],
           },
         ],
       },
@@ -102,6 +96,19 @@ test("no-duplicate-import", () => {
           },
         ],
       },
+      {
+        code: tsx`
+           import defer * as ns1 from "mod";
+           import defer * as ns2 from "mod";
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.noDuplicateImports({ source: '"mod"' }),
+            suggestions: [],
+          },
+        ],
+      },
     ],
     ruleFn: noDuplicateImports,
     tsx: true,
@@ -111,10 +118,14 @@ test("no-duplicate-import", () => {
         import { A } from 'module2';
         import { A } from 'module3';
       `,
+      // invalid import defer syntax, but for test purpose
       tsx`
         import { A } from 'module';
         import type { A } from 'module';
         import defer { A } from 'module';
+      `,
+      tsx`
+        import defer * as ns from "mod";
       `,
     ],
   });
