@@ -81,7 +81,7 @@ test("no-duplicate-import", () => {
               {
                 message: "Merge duplicate imports",
                 output: tsx`
-                  import foo, { baz, quux, type bar, type qux } from 'module';\n
+                  import foo, { type bar, baz, type qux, quux } from 'module';\n
                   import foo3, { corge } from 'module';
                 `,
               },
@@ -94,7 +94,7 @@ test("no-duplicate-import", () => {
               {
                 message: "Merge duplicate imports",
                 output: tsx`
-                  import foo, { baz, corge, type bar } from 'module';
+                  import foo, { type bar, baz, corge } from 'module';
                   import foo2, { type qux, quux } from 'module';\n
                 `,
               },
