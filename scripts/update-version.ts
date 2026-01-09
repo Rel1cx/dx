@@ -9,6 +9,7 @@ import { P, isMatching, match } from "ts-pattern";
 import { glob } from "./lib/glob";
 import { ignores } from "./lib/ignores";
 import { version } from "./lib/version";
+
 const GLOB_PACKAGE_JSON = [
   "package.json",
   "packages/*/package.json",
