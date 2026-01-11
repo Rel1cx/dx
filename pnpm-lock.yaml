@@ -68,6 +68,9 @@ importers:
       tsl-module:
         specifier: workspace:*
         version: link:packages/tsl-module
+      tsx:
+        specifier: latest
+        version: 4.21.0
       typedoc:
         specifier: ^0.28.15
         version: 0.28.15(typescript@5.9.3)
@@ -80,9 +83,6 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
-      unrun:
-        specifier: ^0.2.24
-        version: 0.2.24
 
   .pkgs/configs:
     dependencies:
@@ -4528,7 +4528,6 @@ snapshots:
       get-tsconfig: 4.13.0
     optionalDependencies:
       fsevents: 2.3.3
-    optional: true
 
   type-check@0.4.0:
     dependencies:
