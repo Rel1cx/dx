@@ -28,7 +28,7 @@
     "lint:ts": "pnpm m run lint:ts",
     "prepare": "pnpm run build",
     "test": "pnpm m run test",
-    "update:version": "tsx ./scripts/update-version.ts"
+    "update:version": "unrun ./scripts/update-version.ts"
   },
   "devDependencies": {
     "@effect/platform": "^0.94.1",
@@ -51,19 +51,14 @@
     "tsdown": "^0.19.0",
     "tsl": "^1.0.28",
     "tsl-module": "workspace:*",
-    "tsx": "^4.21.0",
     "typedoc": "^0.28.15",
     "typedoc-plugin-markdown": "^4.9.0",
     "typedoc-plugin-mdn-links": "^5.0.10",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "unrun": "^0.2.24"
   },
   "packageManager": "pnpm@10.28.0",
   "engines": {
     "node": ">=24.0.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "esbuild": "^0.27.2"
-    }
   }
 }
