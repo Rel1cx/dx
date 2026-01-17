@@ -3,20 +3,24 @@
 # Function: defineRuleListener()
 
 ```ts
-function defineRuleListener(ruleListener: RuleListener): RuleListener;
+function defineRuleListener<T>(visitor: T, ...visitors: T[]): T;
 ```
 
-Returns a copy of the given rule listener,
-but prepends an increasing number of spaces to each event key name for uniqueness.
+Defines a RuleListener by merging multiple visitor objects
+
+## Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` *extends* `RuleListener` |
 
 ## Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `ruleListener` | `RuleListener` | ESLint rule listener object (mapping event name to handler). |
+| `visitor` | `T` | The base visitor object |
+| ...`visitors` | `T`[] | Additional visitor objects to merge |
 
 ## Returns
 
-`RuleListener`
-
-New rule listener object with modified keys for uniqueness.
+`T`

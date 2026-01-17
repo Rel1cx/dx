@@ -190,9 +190,6 @@ importers:
 
   packages/eslint-plugin-function-rule:
     dependencies:
-      '@eslint/core':
-        specifier: ^1.0.0
-        version: 1.0.1
       eslint:
         specifier: ^9.39.2
         version: 9.39.2(jiti@2.6.1)

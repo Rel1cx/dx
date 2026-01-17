@@ -1,4 +1,3 @@
-import type { Plugin } from "@eslint/core";
 import type { Rule } from "eslint";
 
 /**
@@ -7,7 +6,7 @@ import type { Rule } from "eslint";
  * @param create The rule's listener create function.
  * @returns ESLint Plugin object with "function-rule".
  */
-export function functionRule(create: Rule.RuleModule["create"]): Plugin {
+export function functionRule(create: Rule.RuleModule["create"]) {
   return {
     rules: {
       "function-rule": {
@@ -15,26 +14,34 @@ export function functionRule(create: Rule.RuleModule["create"]): Plugin {
           fixable: "code",
           hasSuggestions: true,
         },
-        // @ts-expect-error - ESLint types are incorrect
         create,
       },
     },
   } as const;
 }
 
-let id = 1;
-
 /**
- * Returns a copy of the given rule listener,
- * but prepends an increasing number of spaces to each event key name for uniqueness.
- * @param ruleListener ESLint rule listener object (mapping event name to handler).
- * @returns New rule listener object with modified keys for uniqueness.
+ * Defines a RuleListener by merging multiple visitor objects
+ * @param visitor The base visitor object
+ * @param visitors Additional visitor objects to merge
+ * @returns
  */
-export function defineRuleListener(ruleListener: Rule.RuleListener): Rule.RuleListener {
-  const listener: Rule.RuleListener = {};
-  for (const key of Object.keys(ruleListener)) {
-    // Prepend spaces to key for uniqueness
-    listener[" ".repeat(id++) + key] = ruleListener[key];
+export function defineRuleListener<T extends Rule.RuleListener>(visitor: T, ...visitors: T[]) {
+  for (const v of visitors) {
+    for (const key in v) {
+      if (visitor[key] != null) {
+        const o = visitor[key];
+        // @ts-expect-error - no type check
+        visitor[key] = (...args) => {
+          // @ts-expect-error - no type check
+          o(...args);
+          // @ts-expect-error - no type check
+          v[key](...args);
+        };
+      } else {
+        visitor[key] = v[key];
+      }
+    }
   }
-  return listener;
+  return visitor;
 }

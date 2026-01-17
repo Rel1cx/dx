@@ -40,7 +40,6 @@
     "tsl": "^1.0.28"
   },
   "peerDependencies": {
-    "@eslint/core": "^1.0.0",
     "eslint": "^9.39.2"
   },
   "engines": {
