@@ -8,6 +8,7 @@ import { ESLintUtils } from "@typescript-eslint/utils";
 import type { RuleListener } from "@typescript-eslint/utils/ts-eslint";
 import type { CamelCase } from "string-ts";
 import { unionConstituents } from "ts-api-utils";
+import { match } from "ts-pattern";
 
 import { type TypeVariant, createRule, getTypeVariants } from "../utils";
 
@@ -69,7 +70,10 @@ export default createRule<Options, MessageID>({
 export function create(context: RuleContext<MessageID, Options>, [opts]: Options): RuleListener {
   const services = ESLintUtils.getParserServices(context, false);
   const pattern = toRegExp(opts?.pattern ?? defaultPattern);
-  const functionEntries: { functionName: unit | string; functionNode: AST.TSESTreeFunction; isMatched: boolean }[] = [];
+  const functionEntries: {
+    functionId: AST.FunctionID;
+    functionNode: AST.TSESTreeFunction;
+  }[] = [];
 
   function handleReturnExpression(
     context: RuleContext,
@@ -92,16 +96,21 @@ export function create(context: RuleContext<MessageID, Options>, [opts]: Options
 
   return {
     [":function"](node: AST.TSESTreeFunction) {
-      const functionName = AST.getFunctionId(node)?.name;
-      const isMatched = functionName != null && pattern.test(functionName);
-      functionEntries.push({ functionName, functionNode: node, isMatched });
+      const functionId = AST.getFunctionId(node);
+      functionEntries.push({ functionId, functionNode: node });
     },
     [":function:exit"]() {
       functionEntries.pop();
     },
     ["ArrowFunctionExpression"](node: TSESTree.ArrowFunctionExpression) {
-      const { functionName, isMatched = false } = functionEntries.at(-1) ?? {};
-      if (functionName == null || !isMatched) return;
+      const { functionId, functionNode } = functionEntries.at(-1) ?? {};
+      if (functionId == null || functionNode == null) return;
+      const functionName = match(functionId)
+        .with({ type: T.Identifier }, (id) => id.name)
+        .with({ type: T.MemberExpression, property: { type: T.Identifier } }, (me) => me.property.name)
+        .otherwise(() => null);
+      if (functionName == null) return;
+      if (!pattern.test(functionName)) return;
       if (node.body.type === T.BlockStatement) return;
       handleReturnExpression(context, node.body, (expr, data) => {
         context.report({
@@ -109,17 +118,21 @@ export function create(context: RuleContext<MessageID, Options>, [opts]: Options
           node: expr ?? node,
           data: {
             ...data,
-            functionName,
+            functionId,
           },
         });
       });
     },
     ["ReturnStatement"](node) {
-      const { functionName, functionNode, isMatched = false } = functionEntries.at(-1) ?? {};
-      if (functionName == null || functionNode == null || !isMatched) return;
+      const { functionId, functionNode } = functionEntries.at(-1) ?? {};
+      if (functionId == null || functionNode == null) return;
       handleReturnExpression(context, node.argument, (expr, data) => {
-        const functionName = AST.getFunctionId(functionNode)?.name;
+        const functionName = match(functionId)
+          .with({ type: T.Identifier }, (id) => id.name)
+          .with({ type: T.MemberExpression, property: { type: T.Identifier } }, (me) => me.property.name)
+          .otherwise(() => null);
         if (functionName == null) return;
+        if (!pattern.test(functionName)) return;
         context.report({
           messageId: "functionReturnBoolean",
           node: expr ?? node.argument ?? node,

@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-function",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "private": false,
   "description": "(WIP) An ESLint plugin for function-related rules.",
   "homepage": "https://github.com/Rel1cx/dx",
@@ -34,23 +34,23 @@
     "publish": "pnpm run build && pnpm run lint:publish"
   },
   "dependencies": {
-    "@eslint-react/ast": "^2.5.5",
-    "@eslint-react/shared": "^2.5.5",
+    "@eslint-react/ast": "^2.7.1",
+    "@eslint-react/shared": "^2.7.1",
     "@let/eff": "jsr:^0.1.2",
-    "@typescript-eslint/scope-manager": "^8.52.0",
-    "@typescript-eslint/type-utils": "^8.52.0",
-    "@typescript-eslint/types": "^8.52.0",
-    "@typescript-eslint/utils": "^8.52.0",
+    "@typescript-eslint/scope-manager": "^8.53.0",
+    "@typescript-eslint/type-utils": "^8.53.0",
+    "@typescript-eslint/types": "^8.53.0",
+    "@typescript-eslint/utils": "^8.53.0",
     "string-ts": "^2.3.1",
     "ts-api-utils": "^2.4.0",
     "ts-pattern": "^5.9.0"
   },
   "devDependencies": {
-    "@types/node": "^25.0.6",
-    "@typescript-eslint/rule-tester": "^8.52.0",
+    "@types/node": "^25.0.9",
+    "@typescript-eslint/rule-tester": "^8.53.0",
     "dedent": "^1.7.1",
     "eslint": "^9.39.2",
-    "tsdown": "^0.19.0",
+    "tsdown": "^0.20.0-beta.3",
     "tsl": "^1.0.28"
   },
   "peerDependencies": {

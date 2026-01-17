@@ -15,6 +15,7 @@ export function functionRule(create: Rule.RuleModule["create"]): Plugin {
           fixable: "code",
           hasSuggestions: true,
         },
+        // @ts-expect-error - ESLint types are incorrect
         create,
       },
     },
