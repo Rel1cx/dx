@@ -26,7 +26,7 @@ export function functionRule(create: Rule.RuleModule["create"]) {
  * @param visitors Additional visitor objects to merge
  * @returns
  */
-export function defineRuleListener<T extends Rule.RuleListener>(visitor: T, ...visitors: T[]) {
+export function defineRuleListener(visitor: Rule.RuleListener, ...visitors: Rule.RuleListener[]): Rule.RuleListener {
   for (const v of visitors) {
     for (const key in v) {
       if (visitor[key] != null) {
@@ -36,7 +36,7 @@ export function defineRuleListener<T extends Rule.RuleListener>(visitor: T, ...v
           // @ts-expect-error - no type check
           o(...args);
           // @ts-expect-error - no type check
-          v[key](...args);
+          v[key]?.(...args);
         };
       } else {
         visitor[key] = v[key];
