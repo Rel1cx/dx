@@ -118,7 +118,7 @@ export function create(context: RuleContext<MessageID, Options>, [opts]: Options
           node: expr ?? node,
           data: {
             ...data,
-            functionId,
+            functionName,
           },
         });
       });
