@@ -78,8 +78,8 @@ importers:
         specifier: ^4.9.0
         version: 4.9.0(typedoc@0.28.16(typescript@5.9.3))
       typedoc-plugin-mdn-links:
-        specifier: ^5.0.10
-        version: 5.0.10(typedoc@0.28.16(typescript@5.9.3))
+        specifier: ^5.1.0
+        version: 5.1.0(typedoc@0.28.16(typescript@5.9.3))
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -136,14 +136,11 @@ importers:
   packages/eslint-plugin-function:
     dependencies:
       '@eslint-react/ast':
-        specifier: ^2.7.1
-        version: 2.7.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+        specifier: ^2.7.2
+        version: 2.7.2(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       '@eslint-react/shared':
-        specifier: ^2.7.1
-        version: 2.7.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
-      '@let/eff':
-        specifier: jsr:^0.1.2
-        version: '@jsr/let__eff@0.1.2'
+        specifier: ^2.7.2
+        version: 2.7.2(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/scope-manager':
         specifier: ^8.53.0
         version: 8.53.0
@@ -169,6 +166,9 @@ importers:
         specifier: '*'
         version: 5.9.3
     devDependencies:
+      '@let/eff':
+        specifier: jsr:^0.1.2
+        version: '@jsr/let__eff@0.1.2'
       '@types/node':
         specifier: ^25.0.9
         version: 25.0.9
@@ -203,9 +203,6 @@ importers:
 
   packages/tsl-module:
     dependencies:
-      '@let/eff':
-        specifier: jsr:^0.1.2
-        version: '@jsr/let__eff@0.1.2'
       ts-pattern:
         specifier: ^5.9.0
         version: 5.9.0
@@ -213,6 +210,9 @@ importers:
         specifier: '*'
         version: 5.9.3
     devDependencies:
+      '@let/eff':
+        specifier: jsr:^0.1.2
+        version: '@jsr/let__eff@0.1.2'
       '@local/configs':
         specifier: workspace:*
         version: link:../../.pkgs/configs
@@ -724,19 +724,19 @@ packages:
     resolution: {integrity: sha512-EriSTlt5OC9/7SXkRSCAhfSxxoSUgBm33OH+IkwbdpgoqsSsUg7y3uh+IICI/Qg4BBWr3U2i39RpmycbxMq4ew==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
-  '@eslint-react/ast@2.7.1':
-    resolution: {integrity: sha512-XkCnZ1yYgs7T0aL6vesqNttyAZ6LWu4nH4Ekl6Mg/Qh5IgsSA50ljD4tyWCYn77Atn93f8WjFt4WpvMx26CZow==}
+  '@eslint-react/ast@2.7.2':
+    resolution: {integrity: sha512-RB8AVNjboN6/md9Da4rUG4WqxLT+DqUR+qXIR6iAD0+xxp6Dtihu541+lKLZ3GCstunbBcDwu7gdhSbz+BHSuQ==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
       typescript: '>=4.8.4 <6.0.0'
 
-  '@eslint-react/eff@2.7.1':
-    resolution: {integrity: sha512-mbxOGvX+v5FViya3YnrXUjSkAadwI2fBCrwPjMq0ZLHUScGCmab6D5QZzrJ7rP5GqgxwGUpyhyC45XEm8GXEFA==}
+  '@eslint-react/eff@2.7.2':
+    resolution: {integrity: sha512-AzQGbidoI8g8izka/1H9xCKW56NR7xWGGPMccBCUZwbCoJZ4wyRKcE10E7ot7LwBv5kBoUQp3GJ9UXCcg/Er0w==}
     engines: {node: '>=20.19.0'}
 
-  '@eslint-react/shared@2.7.1':
-    resolution: {integrity: sha512-xjkLZhle/VZ6irgEnzDs9vveh8XPbUpD8dMRxw1H9EjUJiiEWBaIST/x9iyTD4DjP5XLL+BA4IlPuVj6ySVgJA==}
+  '@eslint-react/shared@2.7.2':
+    resolution: {integrity: sha512-U1H3dLaTj7kvEbyJyJEgn6xX3BmrCH1f9f+tg9gLWlN7askgWT5NF56wfX1l+jtwiEAZD/78W1TfICKkMnZDxQ==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
@@ -2360,8 +2360,8 @@ packages:
     peerDependencies:
       typedoc: 0.28.x
 
-  typedoc-plugin-mdn-links@5.0.10:
-    resolution: {integrity: sha512-TOMj1+fyhqhdJaMwfkw7ANz+0KHjRVUnE/SorPW83wghElmsMxxCZhDSBgF2hRB9+qsf/qIjDw65RDay94E2Wg==}
+  typedoc-plugin-mdn-links@5.1.0:
+    resolution: {integrity: sha512-fItGuNMvDXAQhtXk4q8tk8DinMODPeoyA7XLjqhXoq1q8bPccdxgFtZMHKbg+XnFAeCzIuYcJuZQgtNMOH3uTg==}
     peerDependencies:
       typedoc: 0.27.x || 0.28.x
 
@@ -2886,9 +2886,9 @@ snapshots:
 
   '@eslint-community/regexpp@4.12.2': {}
 
-  '@eslint-react/ast@2.7.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
+  '@eslint-react/ast@2.7.2(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
-      '@eslint-react/eff': 2.7.1
+      '@eslint-react/eff': 2.7.2
       '@typescript-eslint/types': 8.53.0
       '@typescript-eslint/typescript-estree': 8.53.0(typescript@5.9.3)
       '@typescript-eslint/utils': 8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
@@ -2898,11 +2898,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@eslint-react/eff@2.7.1': {}
+  '@eslint-react/eff@2.7.2': {}
 
-  '@eslint-react/shared@2.7.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
+  '@eslint-react/shared@2.7.2(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
-      '@eslint-react/eff': 2.7.1
+      '@eslint-react/eff': 2.7.2
       '@typescript-eslint/utils': 8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       eslint: 9.39.2(jiti@2.6.1)
       ts-pattern: 5.9.0
@@ -4515,7 +4515,7 @@ snapshots:
     dependencies:
       typedoc: 0.28.16(typescript@5.9.3)
 
-  typedoc-plugin-mdn-links@5.0.10(typedoc@0.28.16(typescript@5.9.3)):
+  typedoc-plugin-mdn-links@5.1.0(typedoc@0.28.16(typescript@5.9.3)):
     dependencies:
       typedoc: 0.28.16(typescript@5.9.3)
 

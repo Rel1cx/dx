@@ -29,10 +29,10 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@let/eff": "jsr:^0.1.2",
     "ts-pattern": "^5.9.0"
   },
   "devDependencies": {
+    "@let/eff": "jsr:^0.1.2",
     "@local/configs": "workspace:*",
     "dedent": "^1.7.1",
     "tsdown": "^0.20.0-beta.3",
