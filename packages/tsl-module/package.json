@@ -32,12 +32,12 @@
     "ts-pattern": "^5.9.0"
   },
   "devDependencies": {
-    "@let/eff": "jsr:^0.1.2",
     "@local/configs": "workspace:*",
+    "@local/eff": "workspace:*",
     "dedent": "^1.7.1",
-    "tsdown": "^0.20.0-beta.4",
+    "tsdown": "^0.20.1",
     "tsl": "^1.0.28",
-    "vitest": "^4.0.17"
+    "vitest": "^4.0.18"
   },
   "peerDependencies": {
     "tsl": "^1.0.28",

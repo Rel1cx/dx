@@ -13,17 +13,17 @@ A function that takes two guard functions as predicates and returns a guard that
 ### Type Parameters
 
 | Type Parameter |
-| ------ |
-| `T` |
-| `S` |
-| `U` |
+| -------------- |
+| `T`            |
+| `S`            |
+| `U`            |
 
 ### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `a` | (`data`: `T`) => `data is S` | The first guard function. |
-| `b` | (`data`: `T`) => `data is U` | The second guard function. |
+| Parameter | Type                         | Description                |
+| --------- | ---------------------------- | -------------------------- |
+| `a`       | (`data`: `T`) => `data is S` | The first guard function.  |
+| `b`       | (`data`: `T`) => `data is U` | The second guard function. |
 
 ### Returns
 
@@ -36,8 +36,8 @@ Function A guard function.
 #### Parameters
 
 | Parameter | Type |
-| ------ | ------ |
-| `data` | `T` |
+| --------- | ---- |
+| `data`    | `T`  |
 
 #### Returns
 
@@ -54,16 +54,16 @@ A function that takes two guard functions as predicates and returns a guard that
 ### Type Parameters
 
 | Type Parameter |
-| ------ |
-| `T` |
-| `S` |
+| -------------- |
+| `T`            |
+| `S`            |
 
 ### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `a` | (`data`: `T`) => `data is S` | The first guard function. |
-| `b` | (`data`: `T`) => `boolean` | The second guard function. |
+| Parameter | Type                         | Description                |
+| --------- | ---------------------------- | -------------------------- |
+| `a`       | (`data`: `T`) => `data is S` | The first guard function.  |
+| `b`       | (`data`: `T`) => `boolean`   | The second guard function. |
 
 ### Returns
 
@@ -76,8 +76,8 @@ Function A guard function.
 #### Parameters
 
 | Parameter | Type |
-| ------ | ------ |
-| `data` | `T` |
+| --------- | ---- |
+| `data`    | `T`  |
 
 #### Returns
 
@@ -94,16 +94,16 @@ A function that takes two guard functions as predicates and returns a guard that
 ### Type Parameters
 
 | Type Parameter |
-| ------ |
-| `T` |
-| `U` |
+| -------------- |
+| `T`            |
+| `U`            |
 
 ### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `a` | (`data`: `T`) => `boolean` | The first guard function. |
-| `b` | (`data`: `T`) => `data is U` | The second guard function. |
+| Parameter | Type                         | Description                |
+| --------- | ---------------------------- | -------------------------- |
+| `a`       | (`data`: `T`) => `boolean`   | The first guard function.  |
+| `b`       | (`data`: `T`) => `data is U` | The second guard function. |
 
 ### Returns
 
@@ -116,8 +116,8 @@ Function A guard function.
 #### Parameters
 
 | Parameter | Type |
-| ------ | ------ |
-| `data` | `T` |
+| --------- | ---- |
+| `data`    | `T`  |
 
 #### Returns
 
@@ -134,15 +134,15 @@ A function that takes two guard functions as predicates and returns a guard that
 ### Type Parameters
 
 | Type Parameter |
-| ------ |
-| `T` |
+| -------------- |
+| `T`            |
 
 ### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `a` | (`data`: `T`) => `boolean` | The first guard function. |
-| `b` | (`data`: `T`) => `boolean` | The second guard function. |
+| Parameter | Type                       | Description                |
+| --------- | -------------------------- | -------------------------- |
+| `a`       | (`data`: `T`) => `boolean` | The first guard function.  |
+| `b`       | (`data`: `T`) => `boolean` | The second guard function. |
 
 ### Returns
 
@@ -155,8 +155,8 @@ Function A guard function.
 #### Parameters
 
 | Parameter | Type |
-| ------ | ------ |
-| `data` | `T` |
+| --------- | ---- |
+| `data`    | `T`  |
 
 #### Returns
 

@@ -13,14 +13,14 @@ A function that takes a guard function as predicate and returns a guard that neg
 ### Type Parameters
 
 | Type Parameter |
-| ------ |
-| `T` |
-| `S` |
+| -------------- |
+| `T`            |
+| `S`            |
 
 ### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
+| Parameter   | Type                         | Description                   |
+| ----------- | ---------------------------- | ----------------------------- |
 | `predicate` | (`data`: `T`) => `data is S` | The guard function to negate. |
 
 ### Returns
@@ -34,8 +34,8 @@ Function A guard function.
 #### Parameters
 
 | Parameter | Type |
-| ------ | ------ |
-| `data` | `T` |
+| --------- | ---- |
+| `data`    | `T`  |
 
 #### Returns
 
@@ -52,13 +52,13 @@ A function that takes a guard function as predicate and returns a guard that neg
 ### Type Parameters
 
 | Type Parameter |
-| ------ |
-| `T` |
+| -------------- |
+| `T`            |
 
 ### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
+| Parameter   | Type                       | Description                   |
+| ----------- | -------------------------- | ----------------------------- |
 | `predicate` | (`data`: `T`) => `boolean` | The guard function to negate. |
 
 ### Returns
@@ -72,8 +72,8 @@ Function A guard function.
 #### Parameters
 
 | Parameter | Type |
-| ------ | ------ |
-| `data` | `T` |
+| --------- | ---- |
+| `data`    | `T`  |
 
 #### Returns
 

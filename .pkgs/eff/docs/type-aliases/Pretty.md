@@ -3,12 +3,11 @@
 # Type Alias: Pretty\<T\>
 
 ```ts
-type Pretty<T> = { [P in keyof T]: T[P] } & {
-};
+type Pretty<T> = { [P in keyof T]: T[P] } & {};
 ```
 
 ## Type Parameters
 
 | Type Parameter |
-| ------ |
-| `T` |
+| -------------- |
+| `T`            |

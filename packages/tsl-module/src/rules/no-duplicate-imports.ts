@@ -1,4 +1,4 @@
-import { unit } from "@let/eff";
+import { unit } from "@local/eff";
 import { P, match } from "ts-pattern";
 import { type AST, defineRule } from "tsl";
 import ts from "typescript";
