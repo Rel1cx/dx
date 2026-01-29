@@ -39,7 +39,7 @@
     "@local/tsl-local": "workspace:*",
     "@tsconfig/node24": "^24.0.4",
     "@tsconfig/strictest": "^2.0.8",
-    "@types/node": "^25.0.10",
+    "@types/node": "^25.1.0",
     "ansis": "^4.2.0",
     "dprint": "^0.51.1",
     "effect": "^3.19.15",

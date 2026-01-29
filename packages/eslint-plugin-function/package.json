@@ -34,8 +34,8 @@
     "publish": "pnpm run build && pnpm run lint:publish"
   },
   "dependencies": {
-    "@eslint-react/ast": "^2.7.4",
-    "@eslint-react/shared": "^2.7.4",
+    "@eslint-react/ast": "^2.8.1",
+    "@eslint-react/shared": "^2.8.1",
     "@typescript-eslint/scope-manager": "^8.54.0",
     "@typescript-eslint/type-utils": "^8.54.0",
     "@typescript-eslint/types": "^8.54.0",
@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@local/eff": "workspace:*",
-    "@types/node": "^25.0.10",
+    "@types/node": "^25.1.0",
     "@typescript-eslint/rule-tester": "^8.54.0",
     "dedent": "^1.7.1",
     "eslint": "^9.39.2",
