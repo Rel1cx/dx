@@ -51,16 +51,19 @@ export default createRule<Options, MessageID>({
     messages: {
       functionReturnBoolean: "The function '{{functionName}}' should return a boolean value (got {{variants}}).",
     },
-    schema: [{
-      type: "object",
-      additionalProperties: false,
-      properties: {
-        pattern: {
-          type: "string",
-          description: "The pattern to match function names against.",
+    schema: {
+      type: "array",
+      items: {
+        type: "object",
+        additionalProperties: false,
+        properties: {
+          pattern: {
+            type: "string",
+            description: "The pattern to match function names against.",
+          },
         },
       },
-    }],
+    },
   },
   name: RULE_NAME,
   create,

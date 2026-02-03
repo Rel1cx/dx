@@ -1,10 +1,10 @@
 {
-  "name": "tsl-module",
-  "version": "0.3.1",
-  "description": "A tsl plugin for JavaScript and TypeScript module syntax linting and transformations.",
+  "name": "tsl-dx",
+  "version": "0.4.0",
+  "description": "A tsl plugin for better JavaScript/TypeScript DX.",
   "keywords": [
     "tsl",
-    "tsl-module"
+    "tsl-dx"
   ],
   "license": "MIT",
   "author": "Rel1cx<let@ik.me>",

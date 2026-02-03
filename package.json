@@ -1,6 +1,6 @@
 {
   "name": "dx",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "private": true,
   "description": "Monorepo for JavaScript and TypeScript dx libraries.",
   "homepage": "https://github.com/Rel1cx/dx",
@@ -36,10 +36,9 @@
     "@eslint/compat": "^2.0.2",
     "@local/configs": "workspace:*",
     "@local/eff": "workspace:*",
-    "@local/tsl-local": "workspace:*",
     "@tsconfig/node24": "^24.0.4",
     "@tsconfig/strictest": "^2.0.8",
-    "@types/node": "^25.1.0",
+    "@types/node": "^25.2.0",
     "ansis": "^4.2.0",
     "dprint": "^0.51.1",
     "effect": "^3.19.15",
@@ -50,12 +49,13 @@
     "ts-pattern": "^5.9.0",
     "tsdown": "^0.20.1",
     "tsl": "^1.0.28",
-    "tsl-module": "workspace:*",
+    "tsl-dx": "workspace:*",
     "tsx": "latest",
     "typedoc": "^0.28.16",
     "typedoc-plugin-markdown": "^4.9.0",
     "typedoc-plugin-mdn-links": "^5.1.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   },
   "packageManager": "pnpm@10.28.2",
   "engines": {
