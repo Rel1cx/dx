@@ -4,7 +4,7 @@ import { type AST, defineRule } from "tsl";
 import ts from "typescript";
 
 export const messages = {
-  noDuplicateImports: (p: { source: string }) => `Duplicate import from module ${p.source}.`,
+  default: (p: { source: string }) => `Duplicate import from module ${p.source}.`,
 } as const;
 
 type ImportKind = 0 | 1 | 2; // 0: import, 1: import type, 2: import defer
@@ -36,7 +36,7 @@ interface ImportInfo {
  */
 export const noDuplicateImports = defineRule(() => {
   return {
-    name: "module/no-duplicate-imports",
+    name: "dx/no-duplicate-imports",
     createData(): { imports: [ImportInfo[], ImportInfo[], ImportInfo[]] } {
       return { imports: [[], [], []] };
     },
@@ -56,7 +56,7 @@ export const noDuplicateImports = defineRule(() => {
         if (duplicateImport != null) {
           ctx.report({
             node,
-            message: messages.noDuplicateImports({ source: importInfo.source }),
+            message: messages.default({ source: importInfo.source }),
             suggestions: importKind > 1
               ? [] // no auto fix for two import defer statements
               : [

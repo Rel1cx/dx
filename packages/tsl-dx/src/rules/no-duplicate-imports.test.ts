@@ -15,7 +15,7 @@ test("no-duplicate-import", () => {
         errors: [
           {
             line: 2,
-            message: messages.noDuplicateImports({ source: "'module'" }),
+            message: messages.default({ source: "'module'" }),
             suggestions: [
               {
                 message: "Merge duplicate imports",
@@ -35,7 +35,7 @@ test("no-duplicate-import", () => {
         errors: [
           {
             line: 2,
-            message: messages.noDuplicateImports({ source: "'module'" }),
+            message: messages.default({ source: "'module'" }),
             suggestions: [
               {
                 message: "Merge duplicate imports",
@@ -56,7 +56,7 @@ test("no-duplicate-import", () => {
         errors: [
           {
             line: 2,
-            message: messages.noDuplicateImports({ source: "'module'" }),
+            message: messages.default({ source: "'module'" }),
             suggestions: [],
           },
         ],
@@ -70,7 +70,7 @@ test("no-duplicate-import", () => {
         errors: [
           {
             line: 2,
-            message: messages.noDuplicateImports({ source: "'module'" }),
+            message: messages.default({ source: "'module'" }),
             suggestions: [
               {
                 message: "Merge duplicate imports",
@@ -83,7 +83,7 @@ test("no-duplicate-import", () => {
           },
           {
             line: 3,
-            message: messages.noDuplicateImports({ source: "'module'" }),
+            message: messages.default({ source: "'module'" }),
             suggestions: [
               {
                 message: "Merge duplicate imports",
@@ -104,7 +104,7 @@ test("no-duplicate-import", () => {
         errors: [
           {
             line: 2,
-            message: messages.noDuplicateImports({ source: '"mod"' }),
+            message: messages.default({ source: '"mod"' }),
             suggestions: [],
           },
         ],

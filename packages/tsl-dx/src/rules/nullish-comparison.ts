@@ -2,13 +2,20 @@ import { match } from "ts-pattern";
 import { defineRule } from "tsl";
 import { SyntaxKind } from "typescript";
 
+export const messages = {
+  default: (p: { op: string }) => `Use '${p.op}' for nullish comparison.`,
+  replace: (p: { expr: string }) => `Replace with '${p.expr}'.`,
+} as const;
+
 /**
- * Rule to enforce the use of `== null` or `!= null` for nullish comparisons.
+ * Enforces the use of '==' and '!=' for nullish comparisons (i.e., comparisons to null or undefined)
  *
- * @since 0.0.0
+ * Rationale:
+ * In TypeScript, using '==' and '!=' for nullish comparisons is a common practice because it checks for both null and undefined values
+ * This rule promotes consistency in codebases by ensuring that developers use the appropriate operators for nullish checks
  */
-export const consistentNullishComparison = defineRule(() => ({
-  name: "local/consistentNullishComparison",
+export const nullishComparison = defineRule(() => ({
+  name: "dx/nullish-comparison",
   visitor: {
     BinaryExpression(context, node) {
       const newOperatorText = match(node.operatorToken.kind)
@@ -28,13 +35,15 @@ export const consistentNullishComparison = defineRule(() => ({
       });
       if (offendingChild == null) return;
       context.report({
-        message: `Use '${newOperatorText}' for nullish comparison.`,
+        message: messages.default({ op: newOperatorText }),
         node,
         suggestions: [
           {
-            message: offendingChild === node.left
-              ? `Replace with 'null ${newOperatorText} ${node.right.getText()}'.`
-              : `Replace with '${node.left.getText()} ${newOperatorText} null'.`,
+            message: messages.replace({
+              expr: offendingChild === node.left
+                ? `null ${newOperatorText} ${node.right.getText()}`
+                : `${node.left.getText()} ${newOperatorText} null`,
+            }),
             changes: [
               {
                 node: node.operatorToken,

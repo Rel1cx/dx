@@ -2,7 +2,7 @@ import { type AST, defineRule } from "tsl";
 import ts from "typescript";
 
 export const messages = {
-  noDuplicateExports: (p: { source: string }) => `Duplicate export from module ${p.source}.`,
+  default: (p: { source: string }) => `Duplicate export from module ${p.source}.`,
 } as const;
 
 type ReExportDeclaration = AST.ExportDeclaration & { exportClause: {}; moduleSpecifier: {} };
@@ -29,7 +29,7 @@ function isReExportDeclaration(node: AST.ExportDeclaration): node is ReExportDec
  */
 export const noDuplicateExports = defineRule(() => {
   return {
-    name: "module/no-duplicate-exports",
+    name: "dx/no-duplicate-exports",
     createData(): { exports: ReExportDeclaration[] } {
       return { exports: [] };
     },
@@ -42,7 +42,7 @@ export const noDuplicateExports = defineRule(() => {
         if (duplicateExport != null) {
           ctx.report({
             node,
-            message: messages.noDuplicateExports({ source }),
+            message: messages.default({ source }),
             suggestions: buildSuggestions(duplicateExport, node),
           });
           return;

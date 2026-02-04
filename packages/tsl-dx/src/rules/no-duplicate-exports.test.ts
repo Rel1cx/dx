@@ -15,7 +15,7 @@ test("no-duplicate-exports", () => {
         errors: [
           {
             line: 2,
-            message: messages.noDuplicateExports({ source: "'module'" }),
+            message: messages.default({ source: "'module'" }),
             suggestions: [
               {
                 message: "Merge duplicate exports",
@@ -33,7 +33,7 @@ test("no-duplicate-exports", () => {
         errors: [
           {
             line: 2,
-            message: messages.noDuplicateExports({ source: "'module'" }),
+            message: messages.default({ source: "'module'" }),
             suggestions: [
               {
                 message: "Merge duplicate exports",
