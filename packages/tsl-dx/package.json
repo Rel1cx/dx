@@ -35,7 +35,7 @@
     "@local/configs": "workspace:*",
     "@local/eff": "workspace:*",
     "dedent": "^1.7.1",
-    "tsdown": "^0.20.1",
+    "tsdown": "^0.20.3",
     "tsl": "^1.0.28",
     "vitest": "^4.0.18"
   },
