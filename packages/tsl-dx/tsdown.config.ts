@@ -5,7 +5,7 @@ export default {
   dts: true,
   entry: ["src/index.ts"],
   external: ["tsl", "typescript"],
-  inlineOnly: ["@jsr/let__eff"],
+  inlineOnly: ["@local/eff"],
   format: ["esm"],
   minify: false,
   outDir: "dist",

@@ -5,7 +5,7 @@ export default {
   dts: true,
   entry: ["src/index.ts"],
   external: ["eslint", "typescript"],
-  inlineOnly: ["@jsr/let__eff"],
+  inlineOnly: ["@local/eff"],
   fixedExtension: false,
   format: ["esm"],
   minify: false,

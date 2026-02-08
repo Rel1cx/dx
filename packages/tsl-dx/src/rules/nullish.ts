@@ -3,21 +3,50 @@ import { defineRule } from "tsl";
 import { SyntaxKind } from "typescript";
 
 export const messages = {
-  default: (p: { op: string }) => `Use '${p.op}' for nullish comparison.`,
-  replace: (p: { expr: string }) => `Replace with '${p.expr}'.`,
+  useUnitForUndefined: "Use 'unit' instead of 'undefined'.",
+  useLooseNullishComparison: (p: { op: string }) => `Use '${p.op}' for nullish comparison.`,
 } as const;
 
-/**
- * Enforces the use of '==' and '!=' for nullish comparisons (i.e., comparisons to null or undefined)
- *
- * Rationale:
- * In TypeScript, using '==' and '!=' for nullish comparisons is a common practice because it checks for both null and undefined values
- * This rule promotes consistency in codebases by ensuring that developers use the appropriate operators for nullish checks
- */
-export const nullishComparison = defineRule(() => ({
-  name: "dx/nullish-comparison",
+export const suggestions = {
+  replaceWithExpression: (p: { expr: string }) => `Replace with '${p.expr}'.`,
+};
+
+export interface nullishOptions {
+  runtimeLibrary?: string;
+}
+
+export const nullish = defineRule((options?: nullishOptions) => ({
+  name: "dx/nullish",
+  createData(ctx) {
+    return {
+      runtimeLibrary: options?.runtimeLibrary ?? "@local/eff",
+    };
+  },
   visitor: {
-    BinaryExpression(context, node) {
+    UndefinedKeyword(ctx, node) {
+      if (node.getSourceFile().isDeclarationFile) return;
+      ctx.report({
+        node,
+        message: messages.useUnitForUndefined,
+        suggestions: [
+          {
+            message: suggestions.replaceWithExpression({ expr: "unit" }),
+            changes: [
+              {
+                node,
+                newText: "unit",
+              },
+              {
+                start: 0,
+                end: 0,
+                newText: `import { unit } from '${ctx.data.runtimeLibrary}';\n`,
+              },
+            ],
+          },
+        ],
+      });
+    },
+    BinaryExpression(ctx, node) {
       const newOperatorText = match(node.operatorToken.kind)
         .with(SyntaxKind.EqualsEqualsEqualsToken, () => "==")
         .with(SyntaxKind.ExclamationEqualsEqualsToken, () => "!=")
@@ -34,12 +63,12 @@ export const nullishComparison = defineRule(() => ({
         }
       });
       if (offendingChild == null) return;
-      context.report({
-        message: messages.default({ op: newOperatorText }),
+      ctx.report({
+        message: messages.useLooseNullishComparison({ op: newOperatorText }),
         node,
         suggestions: [
           {
-            message: messages.replace({
+            message: suggestions.replaceWithExpression({
               expr: offendingChild === node.left
                 ? `null ${newOperatorText} ${node.right.getText()}`
                 : `${node.left.getText()} ${newOperatorText} null`,

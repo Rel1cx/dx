@@ -2,21 +2,40 @@ import tsx from "dedent";
 import { ruleTester } from "tsl/ruleTester";
 import { expect, test } from "vitest";
 
-import { messages, nullishComparison } from "./nullish-comparison";
+import { messages, nullish, suggestions } from "./nullish";
 
-test("nullish-comparison", () => {
+test("nullish", () => {
   const ret = ruleTester({
     invalid: [
+      {
+        code: tsx`
+          let undef: undefined;
+        `,
+        errors: [
+          {
+            message: messages.useUnitForUndefined,
+            suggestions: [
+              {
+                message: suggestions.replaceWithExpression({ expr: "unit" }),
+                output: tsx`
+                  import { unit } from '@local/eff';
+                  let undef: unit;
+                `,
+              },
+            ],
+          },
+        ],
+      },
       {
         code: tsx`
           if (a === null) { }
         `,
         errors: [
           {
-            message: messages.default({ op: "==" }),
+            message: messages.useLooseNullishComparison({ op: "==" }),
             suggestions: [
               {
-                message: messages.replace({ expr: "a == null" }),
+                message: suggestions.replaceWithExpression({ expr: "a == null" }),
                 output: tsx`
                   if (a == null) { }
                 `,
@@ -31,10 +50,10 @@ test("nullish-comparison", () => {
         `,
         errors: [
           {
-            message: messages.default({ op: "!=" }),
+            message: messages.useLooseNullishComparison({ op: "!=" }),
             suggestions: [
               {
-                message: messages.replace({ expr: "a != null" }),
+                message: suggestions.replaceWithExpression({ expr: "a != null" }),
                 output: tsx`
                   if (a != null) { }
                 `,
@@ -49,10 +68,10 @@ test("nullish-comparison", () => {
         `,
         errors: [
           {
-            message: messages.default({ op: "!=" }),
+            message: messages.useLooseNullishComparison({ op: "!=" }),
             suggestions: [
               {
-                message: messages.replace({ expr: "null != a" }),
+                message: suggestions.replaceWithExpression({ expr: "null != a" }),
                 output: tsx`
                   if (null != a) { }
                 `,
@@ -67,10 +86,10 @@ test("nullish-comparison", () => {
         `,
         errors: [
           {
-            message: messages.default({ op: "==" }),
+            message: messages.useLooseNullishComparison({ op: "==" }),
             suggestions: [
               {
-                message: messages.replace({ expr: "a == null" }),
+                message: suggestions.replaceWithExpression({ expr: "a == null" }),
                 output: tsx`
                   if (a == null) { }
                 `,
@@ -85,10 +104,10 @@ test("nullish-comparison", () => {
         `,
         errors: [
           {
-            message: messages.default({ op: "!=" }),
+            message: messages.useLooseNullishComparison({ op: "!=" }),
             suggestions: [
               {
-                message: messages.replace({ expr: "null != b" }),
+                message: suggestions.replaceWithExpression({ expr: "null != b" }),
                 output: tsx`
                   if (null != b) { }
                 `,
@@ -98,7 +117,7 @@ test("nullish-comparison", () => {
         ],
       },
     ],
-    ruleFn: nullishComparison,
+    ruleFn: nullish,
     tsx: true,
     valid: [
       tsx`

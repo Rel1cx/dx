@@ -44,7 +44,7 @@
 //     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-/* tsl-ignore local/consistentNullishComparison */
+/* tsl-ignore dx/nullish */
 
 // #region Helpers
 
