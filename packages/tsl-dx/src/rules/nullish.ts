@@ -47,6 +47,7 @@ export const nullish = defineRule((options?: nullishOptions) => ({
       });
     },
     BinaryExpression(ctx, node) {
+      if (node.getSourceFile().isDeclarationFile) return;
       const newOperatorText = match(node.operatorToken.kind)
         .with(SyntaxKind.EqualsEqualsEqualsToken, () => "==")
         .with(SyntaxKind.ExclamationEqualsEqualsToken, () => "!=")
