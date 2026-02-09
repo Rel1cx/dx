@@ -3,14 +3,16 @@
 # Variable: nullish()
 
 ```ts
-const nullish: (options?: "off") => Rule<unknown>;
+const nullish: (options?: 
+  | Record<string, unknown>
+| "off") => Rule<unknown>;
 ```
 
 ## Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `options?` | `"off"` |
+| `options?` | \| [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `unknown`\> \| `"off"` |
 
 ## Returns
 

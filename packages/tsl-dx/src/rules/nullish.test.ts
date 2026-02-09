@@ -116,6 +116,79 @@ test("nullish", () => {
           },
         ],
       },
+      {
+        // undefined on the left side with ===
+        code: tsx`
+          if (undefined === x) { }
+        `,
+        errors: [
+          {
+            message: messages.useLooseNullishComparison({ op: "==" }),
+            suggestions: [
+              {
+                message: suggestions.replaceWithExpression({ expr: "null == x" }),
+                output: tsx`
+                  if (null == x) { }
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        // undefined on the left side with !==
+        code: tsx`
+          if (undefined !== y) { }
+        `,
+        errors: [
+          {
+            message: messages.useLooseNullishComparison({ op: "!=" }),
+            suggestions: [
+              {
+                message: suggestions.replaceWithExpression({ expr: "null != y" }),
+                output: tsx`
+                  if (null != y) { }
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        // Multiple undefined usages
+        code: tsx`
+          let a: undefined;
+          let b: undefined;
+        `,
+        errors: [
+          {
+            message: messages.useUnitForUndefined,
+            suggestions: [
+              {
+                message: suggestions.replaceWithExpression({ expr: "unit" }),
+                output: tsx`
+                  import { unit } from '@local/eff';
+                  let a: unit;
+                  let b: undefined;
+                `,
+              },
+            ],
+          },
+          {
+            message: messages.useUnitForUndefined,
+            suggestions: [
+              {
+                message: suggestions.replaceWithExpression({ expr: "unit" }),
+                output: tsx`
+                  import { unit } from '@local/eff';
+                  let a: undefined;
+                  let b: unit;
+                `,
+              },
+            ],
+          },
+        ],
+      },
     ],
     ruleFn: nullish,
     tsx: true,
@@ -131,6 +204,24 @@ test("nullish", () => {
       `,
       tsx`
         if (null != d) { }
+      `,
+      // Using unit is valid
+      tsx`
+        let x: unit;
+      `,
+      // Loose equality with null is valid
+      tsx`
+        if (x == null) { }
+      `,
+      // Comparison with other values
+      tsx`
+        if (y === 0) { }
+      `,
+      tsx`
+        if (z === '') { }
+      `,
+      tsx`
+        if (w === false) { }
       `,
     ],
   });

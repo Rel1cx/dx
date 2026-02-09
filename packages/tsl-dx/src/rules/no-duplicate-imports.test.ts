@@ -109,6 +109,89 @@ test("no-duplicate-import", () => {
           },
         ],
       },
+      {
+        // Namespace import with named imports
+        code: tsx`
+          import * as ns from 'module';
+          import { A } from 'module';
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import * as ns, { A } from 'module';\n
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        // Default import with namespace import
+        code: tsx`
+          import Default from 'module';
+          import * as ns from 'module';
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import Default, * as ns from 'module';\n
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        // Import with aliases
+        code: tsx`
+          import { A as B } from 'module';
+          import { C as D } from 'module';
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import { A as B, C as D } from 'module';\n
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        // Three import defer statements (no suggestions)
+        code: tsx`
+          import defer { foo1 } from 'module';
+          import defer { foo2 } from 'module';
+          import defer { foo3 } from 'module';
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [],
+          },
+          {
+            line: 3,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [],
+          },
+        ],
+      },
     ],
     ruleFn: noDuplicateImports,
     tsx: true,
@@ -126,6 +209,21 @@ test("no-duplicate-import", () => {
       `,
       tsx`
         import defer * as ns from "mod";
+      `,
+      // Side-effect imports should be skipped
+      tsx`
+        import 'module';
+        import 'module';
+      `,
+      // Namespace imports from different modules
+      tsx`
+        import * as ns1 from 'module1';
+        import * as ns2 from 'module2';
+      `,
+      // Default imports from different modules
+      tsx`
+        import A from 'module1';
+        import B from 'module2';
       `,
     ],
   });
