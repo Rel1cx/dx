@@ -1,6 +1,6 @@
 {
   "name": "dx",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "private": true,
   "description": "Monorepo for JavaScript and TypeScript dx libraries.",
   "homepage": "https://github.com/Rel1cx/dx",
