@@ -4,7 +4,7 @@ Monorepo for JavaScript and TypeScript DX libraries.
 
 - [`eslint-plugin-function`](./packages/eslint-plugin-function) - (WIP) an ESLint plugin for function-related rules
 - [`eslint-plugin-function-rule`](./packages/eslint-plugin-function-rule) - an ESLint plugin for writing custom rules with JavaScript functions
-- [`tsl-module`](./packages/tsl-module) - a tsl plugin for JavaScript and TypeScript module syntax linting and transformations
+- [`tsl-module`](./packages/tsl-dx) - A tsl plugin for better JavaScript/TypeScript DX
 
 ## License
 
