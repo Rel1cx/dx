@@ -23,8 +23,9 @@ export const nullish = defineRule((options?: nullishOptions) => ({
     };
   },
   visitor: {
-    UndefinedKeyword(ctx, node) {
+    Identifier(ctx, node) {
       if (node.getSourceFile().isDeclarationFile) return;
+      if (node.parent.kind === SyntaxKind.BinaryExpression || node.text !== "undefined") return;
       ctx.report({
         node,
         message: messages.useUnitForUndefined,
@@ -46,6 +47,29 @@ export const nullish = defineRule((options?: nullishOptions) => ({
         ],
       });
     },
+    UndefinedKeyword(ctx, node) {
+      if (node.getSourceFile().isDeclarationFile) return;
+      ctx.report({
+        node,
+        message: messages.useUnitForUndefined,
+        suggestions: [
+          {
+            message: suggestions.replaceWithExpression({ expr: "unit" }),
+            changes: [
+              {
+                node,
+                newText: "unit",
+              },
+              {
+                start: 0,
+                end: 0,
+                newText: `import type { unit } from '${ctx.data.runtimeLibrary}';\n`,
+              },
+            ],
+          },
+        ],
+      });
+    },
     BinaryExpression(ctx, node) {
       if (node.getSourceFile().isDeclarationFile) return;
       const newOperatorText = match(node.operatorToken.kind)
@@ -58,7 +82,7 @@ export const nullish = defineRule((options?: nullishOptions) => ({
           case SyntaxKind.NullKeyword:
             return true;
           case SyntaxKind.Identifier:
-            return n.escapedText === "undefined";
+            return n.text === "unit" || n.text === "undefined";
           default:
             return false;
         }

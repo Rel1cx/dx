@@ -18,8 +18,27 @@ test("nullish", () => {
               {
                 message: suggestions.replaceWithExpression({ expr: "unit" }),
                 output: tsx`
-                  import { unit } from '@local/eff';
+                  import type { unit } from '@local/eff';
                   let undef: unit;
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        code: tsx`
+          let undef = undefined;
+        `,
+        errors: [
+          {
+            message: messages.useUnitForUndefined,
+            suggestions: [
+              {
+                message: suggestions.replaceWithExpression({ expr: "unit" }),
+                output: tsx`
+                  import { unit } from '@local/eff';
+                  let undef = unit;
                 `,
               },
             ],
@@ -167,7 +186,7 @@ test("nullish", () => {
               {
                 message: suggestions.replaceWithExpression({ expr: "unit" }),
                 output: tsx`
-                  import { unit } from '@local/eff';
+                  import type { unit } from '@local/eff';
                   let a: unit;
                   let b: undefined;
                 `,
@@ -180,7 +199,7 @@ test("nullish", () => {
               {
                 message: suggestions.replaceWithExpression({ expr: "unit" }),
                 output: tsx`
-                  import { unit } from '@local/eff';
+                  import type { unit } from '@local/eff';
                   let a: undefined;
                   let b: unit;
                 `,
