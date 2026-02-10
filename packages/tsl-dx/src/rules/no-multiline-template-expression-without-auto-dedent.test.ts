@@ -3,10 +3,10 @@ import { expect, test } from "vitest";
 
 import {
   messages,
-  noMultilineTemplateExpressionsWithoutAutoDedent,
-} from "./no-multiline-template-expressions-without-auto-dedent";
+  noMultilineTemplateExpressionWithoutAutoDedent,
+} from "./no-multiline-template-expression-without-auto-dedent";
 
-test("no-multiline-template-expressions-without-auto-dedent", () => {
+test("no-multiline-template-expression-without-auto-dedent", () => {
   const ret = ruleTester({
     invalid: [
       {
@@ -45,7 +45,7 @@ test("no-multiline-template-expressions-without-auto-dedent", () => {
         ],
       },
     ],
-    ruleFn: noMultilineTemplateExpressionsWithoutAutoDedent,
+    ruleFn: noMultilineTemplateExpressionWithoutAutoDedent,
     tsx: true,
     valid: [
       {

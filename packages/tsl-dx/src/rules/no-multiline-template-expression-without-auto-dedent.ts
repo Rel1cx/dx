@@ -4,11 +4,11 @@ import { SyntaxKind } from "typescript";
 import { getLine } from "../utils";
 
 export const messages = {
-  default: () => `Avoid using multiline template expressions without auto-dedent`,
+  default: () => `Avoid using multiline template expression without auto-dedent`,
 } as const;
 
-export const noMultilineTemplateExpressionsWithoutAutoDedent = defineRule(() => ({
-  name: "dx/no-multiline-template-expressions-without-auto-dedent",
+export const noMultilineTemplateExpressionWithoutAutoDedent = defineRule(() => ({
+  name: "dx/no-multiline-template-expression-without-auto-dedent",
   visitor: {
     NoSubstitutionTemplateLiteral(ctx, node) {
       // Assuming this tag supports auto-dedentation to keep it simple

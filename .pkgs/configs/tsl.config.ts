@@ -2,7 +2,7 @@ import { core, defineConfig } from "tsl";
 import {
   noDuplicateExports,
   noDuplicateImports,
-  noMultilineTemplateExpressionsWithoutAutoDedent,
+  noMultilineTemplateExpressionWithoutAutoDedent,
   nullish,
 } from "tsl-dx";
 
@@ -26,6 +26,6 @@ export default defineConfig({
     nullish(),
     noDuplicateImports(),
     noDuplicateExports(),
-    noMultilineTemplateExpressionsWithoutAutoDedent(),
+    noMultilineTemplateExpressionWithoutAutoDedent(),
   ],
 });
