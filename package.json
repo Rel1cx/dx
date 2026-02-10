@@ -1,6 +1,6 @@
 {
   "name": "dx",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "private": true,
   "description": "Monorepo for JavaScript and TypeScript dx libraries.",
   "homepage": "https://github.com/Rel1cx/dx",
@@ -38,7 +38,7 @@
     "@local/eff": "workspace:*",
     "@tsconfig/node24": "^24.0.4",
     "@tsconfig/strictest": "^2.0.8",
-    "@types/node": "^25.2.2",
+    "@types/node": "^25.2.3",
     "ansis": "^4.2.0",
     "dprint": "^0.51.1",
     "effect": "^3.19.16",

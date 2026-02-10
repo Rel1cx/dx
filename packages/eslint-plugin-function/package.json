@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-function",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "private": false,
   "description": "(WIP) An ESLint plugin for function-related rules.",
   "homepage": "https://github.com/Rel1cx/dx",
@@ -34,8 +34,8 @@
     "publish": "pnpm run build && pnpm run lint:publish"
   },
   "dependencies": {
-    "@eslint-react/ast": "^2.12.2",
-    "@eslint-react/shared": "^2.12.2",
+    "@eslint-react/ast": "^2.12.4",
+    "@eslint-react/shared": "^2.12.4",
     "@typescript-eslint/scope-manager": "^8.55.0",
     "@typescript-eslint/type-utils": "^8.55.0",
     "@typescript-eslint/types": "^8.55.0",
@@ -47,14 +47,14 @@
   },
   "devDependencies": {
     "@local/eff": "workspace:*",
-    "@types/node": "^25.2.2",
+    "@types/node": "^25.2.3",
     "dedent": "^1.7.1",
     "eslint": "^10.0.0",
     "tsdown": "^0.20.3",
     "tsl": "^1.0.28"
   },
   "peerDependencies": {
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "typescript": "*"
   },
   "engines": {

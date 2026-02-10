@@ -1,10 +1,10 @@
 import type { Rule } from "eslint";
 
 /**
- * Wraps an ESLint rule's create function as an ESLint Plugin with a single rule named "function-rule".
- * The rule is fixable and supports suggestions.
- * @param create The rule's listener create function.
- * @returns ESLint Plugin object with "function-rule".
+ * Wraps an ESLint rule's create function as an ESLint Plugin with a single rule named "function-rule"
+ * The rule is fixable and supports suggestions
+ * @param create The rule's listener create function
+ * @returns ESLint Plugin object with "function-rule"
  */
 export function functionRule(create: Rule.RuleModule["create"]) {
   return {
@@ -21,27 +21,34 @@ export function functionRule(create: Rule.RuleModule["create"]) {
 }
 
 /**
- * Defines a RuleListener by merging multiple visitor objects
- * @param visitor The base visitor object
- * @param visitors Additional visitor objects to merge
- * @returns
+ * Defines a rule listener by merging multiple visitor objects
+ *
+ * @param base Base visitor object (target of merge)
+ * @param rest Additional visitor objects to merge (one or more)
+ * @returns Merged RuleListener object
+ *
+ * @example
+ * ```typescript
+ * const listener1 = { Identifier: () => console.log(1) };
+ * const listener2 = { Identifier: () => console.log(2) };
+ * const merged = defineRuleListener(listener1, listener2);
+ * // When encountering Identifier nodes, outputs 1 then 2
+ * ```
  */
-export function defineRuleListener(visitor: Rule.RuleListener, ...visitors: Rule.RuleListener[]): Rule.RuleListener {
-  for (const v of visitors) {
-    for (const key in v) {
-      if (visitor[key] != null) {
-        const o = visitor[key];
-        // @ts-expect-error - no type check
-        visitor[key] = (...args) => {
-          // @ts-expect-error - no type check
-          o(...args);
-          // @ts-expect-error - no type check
-          v[key]?.(...args);
-        };
-      } else {
-        visitor[key] = v[key];
-      }
+export function defineRuleListener(base: Rule.RuleListener, ...rest: Rule.RuleListener[]): Rule.RuleListener {
+  for (const r of rest) {
+    for (const key in r) {
+      const existing = base[key];
+      base[key] = existing != null
+        // @ts-expect-error - no check
+        ? (...args) => {
+          // @ts-expect-error - no check
+          existing(...args);
+          // @ts-expect-error - no check
+          r[key]?.(...args);
+        }
+        : r[key];
     }
   }
-  return visitor;
+  return base;
 }
