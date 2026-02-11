@@ -2,7 +2,7 @@ import tsx from "dedent";
 import { ruleTester } from "tsl/ruleTester";
 import { expect, test } from "vitest";
 
-import { messages, nullish, suggestions } from "./nullish";
+import { messages, nullish } from "./nullish";
 
 test("nullish", () => {
   const ret = ruleTester({
@@ -16,9 +16,34 @@ test("nullish", () => {
             message: messages.useUnitForUndefined,
             suggestions: [
               {
-                message: suggestions.replaceWithExpression({ expr: "unit" }),
+                message: messages.replaceWithExpression({ expr: "unit" }),
                 output: tsx`
                   import type { unit } from '@local/eff';
+                  let undef: unit;
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        code: tsx`
+          let foo: null;
+          let bar: null;
+          let baz: null;
+          let undef: undefined;
+        `,
+        errors: [
+          {
+            message: messages.useUnitForUndefined,
+            suggestions: [
+              {
+                message: messages.replaceWithExpression({ expr: "unit" }),
+                output: tsx`
+                  import type { unit } from '@local/eff';
+                  let foo: null;
+                  let bar: null;
+                  let baz: null;
                   let undef: unit;
                 `,
               },
@@ -35,7 +60,7 @@ test("nullish", () => {
             message: messages.useUnitForUndefined,
             suggestions: [
               {
-                message: suggestions.replaceWithExpression({ expr: "unit" }),
+                message: messages.replaceWithExpression({ expr: "unit" }),
                 output: tsx`
                   import { unit } from '@local/eff';
                   let undef = unit;
@@ -54,7 +79,7 @@ test("nullish", () => {
             message: messages.useLooseNullishComparison({ op: "==" }),
             suggestions: [
               {
-                message: suggestions.replaceWithExpression({ expr: "a == null" }),
+                message: messages.replaceWithExpression({ expr: "a == null" }),
                 output: tsx`
                   if (a == null) { }
                 `,
@@ -72,7 +97,7 @@ test("nullish", () => {
             message: messages.useLooseNullishComparison({ op: "!=" }),
             suggestions: [
               {
-                message: suggestions.replaceWithExpression({ expr: "a != null" }),
+                message: messages.replaceWithExpression({ expr: "a != null" }),
                 output: tsx`
                   if (a != null) { }
                 `,
@@ -90,7 +115,7 @@ test("nullish", () => {
             message: messages.useLooseNullishComparison({ op: "!=" }),
             suggestions: [
               {
-                message: suggestions.replaceWithExpression({ expr: "null != a" }),
+                message: messages.replaceWithExpression({ expr: "null != a" }),
                 output: tsx`
                   if (null != a) { }
                 `,
@@ -108,7 +133,7 @@ test("nullish", () => {
             message: messages.useLooseNullishComparison({ op: "==" }),
             suggestions: [
               {
-                message: suggestions.replaceWithExpression({ expr: "a == null" }),
+                message: messages.replaceWithExpression({ expr: "a == null" }),
                 output: tsx`
                   if (a == null) { }
                 `,
@@ -126,7 +151,7 @@ test("nullish", () => {
             message: messages.useLooseNullishComparison({ op: "!=" }),
             suggestions: [
               {
-                message: suggestions.replaceWithExpression({ expr: "null != b" }),
+                message: messages.replaceWithExpression({ expr: "null != b" }),
                 output: tsx`
                   if (null != b) { }
                 `,
@@ -145,7 +170,7 @@ test("nullish", () => {
             message: messages.useLooseNullishComparison({ op: "==" }),
             suggestions: [
               {
-                message: suggestions.replaceWithExpression({ expr: "null == x" }),
+                message: messages.replaceWithExpression({ expr: "null == x" }),
                 output: tsx`
                   if (null == x) { }
                 `,
@@ -164,7 +189,7 @@ test("nullish", () => {
             message: messages.useLooseNullishComparison({ op: "!=" }),
             suggestions: [
               {
-                message: suggestions.replaceWithExpression({ expr: "null != y" }),
+                message: messages.replaceWithExpression({ expr: "null != y" }),
                 output: tsx`
                   if (null != y) { }
                 `,
@@ -184,7 +209,7 @@ test("nullish", () => {
             message: messages.useUnitForUndefined,
             suggestions: [
               {
-                message: suggestions.replaceWithExpression({ expr: "unit" }),
+                message: messages.replaceWithExpression({ expr: "unit" }),
                 output: tsx`
                   import type { unit } from '@local/eff';
                   let a: unit;
@@ -197,7 +222,7 @@ test("nullish", () => {
             message: messages.useUnitForUndefined,
             suggestions: [
               {
-                message: suggestions.replaceWithExpression({ expr: "unit" }),
+                message: messages.replaceWithExpression({ expr: "unit" }),
                 output: tsx`
                   import type { unit } from '@local/eff';
                   let a: undefined;

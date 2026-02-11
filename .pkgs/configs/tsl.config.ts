@@ -26,6 +26,9 @@ export default defineConfig({
     nullish(),
     noDuplicateImports(),
     noDuplicateExports(),
-    noMultilineTemplateExpressionWithoutAutoDedent(),
+    noMultilineTemplateExpressionWithoutAutoDedent({
+      dedentTagNames: ["ts", "tsx", "dedent"],
+      dedentTagImportCallback: (name) => `import ${name} from "dedent";\n`,
+    }),
   ],
 });

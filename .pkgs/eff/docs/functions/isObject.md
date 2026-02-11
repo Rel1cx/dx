@@ -25,3 +25,7 @@ Checks if the given parameter is of type `"object"` via `typeof`, excluding `nul
 `data is NarrowedTo<T, object>`
 
 The input type, narrowed to only objects.
+
+## Since
+
+1.0.0

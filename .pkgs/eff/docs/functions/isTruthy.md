@@ -25,3 +25,7 @@ A function that checks if the passed parameter is truthy and narrows its type ac
 data is Exclude\<T, false \| "" \| 0 \| null \| undefined\>
 
 True if the passed input is truthy, false otherwise.
+
+## Since
+
+1.0.0

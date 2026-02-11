@@ -16,6 +16,7 @@
   "dependencies": {
     "@tsconfig/node24": "^24.0.4",
     "@tsconfig/strictest": "^2.0.8",
-    "tsl": "^1.0.28"
+    "tsl": "^1.0.28",
+    "tsl-dx": "workspace:*"
   }
 }

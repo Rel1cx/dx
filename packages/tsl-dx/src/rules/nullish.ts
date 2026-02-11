@@ -5,16 +5,31 @@ import { SyntaxKind } from "typescript";
 export const messages = {
   useUnitForUndefined: "Use 'unit' instead of 'undefined'.",
   useLooseNullishComparison: (p: { op: string }) => `Use '${p.op}' for nullish comparison.`,
+  // suggestions
+  replaceWithExpression: (p: { expr: string }) => `Replace with '${p.expr}'.`,
 } as const;
 
-export const suggestions = {
-  replaceWithExpression: (p: { expr: string }) => `Replace with '${p.expr}'.`,
+export type nullishOptions = {
+  runtimeLibrary?: string;
 };
 
-export interface nullishOptions {
-  runtimeLibrary?: string;
-}
-
+/**
+ * Rule to enforce the use of `unit` instead of `undefined` and loose equality for nullish checks.
+ *
+ * @example
+ *
+ * ```ts
+ * // Incorrect
+ * let x = undefined;
+ * if (x === undefined) { }
+ * ```
+ *
+ * ```ts
+ * // Correct
+ * let x = unit;
+ * if (x == null) { }
+ * ```
+ */
 export const nullish = defineRule((options?: nullishOptions) => ({
   name: "dx/nullish",
   createData(ctx) {
@@ -31,16 +46,16 @@ export const nullish = defineRule((options?: nullishOptions) => ({
         message: messages.useUnitForUndefined,
         suggestions: [
           {
-            message: suggestions.replaceWithExpression({ expr: "unit" }),
+            message: messages.replaceWithExpression({ expr: "unit" }),
             changes: [
-              {
-                node,
-                newText: "unit",
-              },
               {
                 start: 0,
                 end: 0,
                 newText: `import { unit } from '${ctx.data.runtimeLibrary}';\n`,
+              },
+              {
+                node,
+                newText: "unit",
               },
             ],
           },
@@ -54,16 +69,16 @@ export const nullish = defineRule((options?: nullishOptions) => ({
         message: messages.useUnitForUndefined,
         suggestions: [
           {
-            message: suggestions.replaceWithExpression({ expr: "unit" }),
+            message: messages.replaceWithExpression({ expr: "unit" }),
             changes: [
-              {
-                node,
-                newText: "unit",
-              },
               {
                 start: 0,
                 end: 0,
                 newText: `import type { unit } from '${ctx.data.runtimeLibrary}';\n`,
+              },
+              {
+                node,
+                newText: "unit",
               },
             ],
           },
@@ -93,7 +108,7 @@ export const nullish = defineRule((options?: nullishOptions) => ({
         node,
         suggestions: [
           {
-            message: suggestions.replaceWithExpression({
+            message: messages.replaceWithExpression({
               expr: offendingChild === node.left
                 ? `null ${newOperatorText} ${node.right.getText()}`
                 : `${node.left.getText()} ${newOperatorText} null`,

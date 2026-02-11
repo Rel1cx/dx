@@ -5,7 +5,7 @@
 | Type Alias                               | Description                                                                                                     |
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | [NarrowedTo](type-aliases/NarrowedTo.md) | An extension of Extract for type predicates which falls back to the base in order to narrow the `unknown` case. |
-| [Pretty](type-aliases/Pretty.md)         | -                                                                                                               |
+| [Pretty](type-aliases/Pretty.md)         | Converts a type to a pretty-printed version that is easier to read in IDE tooltips.                             |
 | [unit](type-aliases/unit.md)             | alias for `undefined`.                                                                                          |
 
 ## Variables

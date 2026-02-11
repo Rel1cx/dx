@@ -102,6 +102,9 @@ importers:
       tsl:
         specifier: ^1.0.28
         version: 1.0.28(typescript@5.9.3)
+      tsl-dx:
+        specifier: workspace:*
+        version: link:../../packages/tsl-dx
 
   .pkgs/eff:
     devDependencies:

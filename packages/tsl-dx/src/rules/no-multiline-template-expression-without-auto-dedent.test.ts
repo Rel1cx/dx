@@ -13,7 +13,13 @@ test("no-multiline-template-expression-without-auto-dedent", () => {
         code: "`\n`",
         errors: [
           {
-            message: messages.default(),
+            message: messages.useDedentTag(),
+            suggestions: [
+              {
+                message: messages.addDedentTag({ name: "dedent" }),
+                output: 'import dedent from "dedent";\ndedent`\n`',
+              },
+            ],
           },
         ],
       },
@@ -22,7 +28,13 @@ test("no-multiline-template-expression-without-auto-dedent", () => {
         code: "`\nhello world\n`",
         errors: [
           {
-            message: messages.default(),
+            message: messages.useDedentTag(),
+            suggestions: [
+              {
+                message: messages.addDedentTag({ name: "dedent" }),
+                output: 'import dedent from "dedent";\ndedent`\nhello world\n`',
+              },
+            ],
           },
         ],
       },
@@ -31,7 +43,13 @@ test("no-multiline-template-expression-without-auto-dedent", () => {
         code: "`line1\nline2\nline3`",
         errors: [
           {
-            message: messages.default(),
+            message: messages.useDedentTag(),
+            suggestions: [
+              {
+                message: messages.addDedentTag({ name: "dedent" }),
+                output: 'import dedent from "dedent";\ndedent`line1\nline2\nline3`',
+              },
+            ],
           },
         ],
       },
@@ -40,7 +58,13 @@ test("no-multiline-template-expression-without-auto-dedent", () => {
         code: "`\n  indented content\n`",
         errors: [
           {
-            message: messages.default(),
+            message: messages.useDedentTag(),
+            suggestions: [
+              {
+                message: messages.addDedentTag({ name: "dedent" }),
+                output: 'import dedent from "dedent";\ndedent`\n  indented content\n`',
+              },
+            ],
           },
         ],
       },
