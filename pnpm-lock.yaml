@@ -67,8 +67,8 @@ importers:
         specifier: ^0.20.3
         version: 0.20.3(publint@0.3.17)(typescript@5.9.3)
       tsl:
-        specifier: ^1.0.28
-        version: 1.0.28(typescript@5.9.3)
+        specifier: ^1.0.29
+        version: 1.0.29(typescript@5.9.3)
       tsl-dx:
         specifier: workspace:*
         version: link:packages/tsl-dx
@@ -100,8 +100,8 @@ importers:
         specifier: ^2.0.8
         version: 2.0.8
       tsl:
-        specifier: ^1.0.28
-        version: 1.0.28(typescript@5.9.3)
+        specifier: ^1.0.29
+        version: 1.0.29(typescript@5.9.3)
       tsl-dx:
         specifier: workspace:*
         version: link:../../packages/tsl-dx
@@ -109,8 +109,8 @@ importers:
   .pkgs/eff:
     devDependencies:
       tsl:
-        specifier: ^1.0.28
-        version: 1.0.28(typescript@5.9.3)
+        specifier: ^1.0.29
+        version: 1.0.29(typescript@5.9.3)
 
   packages/eslint-plugin-function:
     dependencies:
@@ -164,8 +164,8 @@ importers:
         specifier: ^0.20.3
         version: 0.20.3(publint@0.3.17)(typescript@5.9.3)
       tsl:
-        specifier: ^1.0.28
-        version: 1.0.28(typescript@5.9.3)
+        specifier: ^1.0.29
+        version: 1.0.29(typescript@5.9.3)
 
   packages/eslint-plugin-function-rule:
     dependencies:
@@ -177,8 +177,8 @@ importers:
         specifier: workspace:*
         version: link:../../.pkgs/configs
       tsl:
-        specifier: ^1.0.28
-        version: 1.0.28(typescript@5.9.3)
+        specifier: ^1.0.29
+        version: 1.0.29(typescript@5.9.3)
 
   packages/tsl-dx:
     dependencies:
@@ -202,8 +202,8 @@ importers:
         specifier: ^0.20.3
         version: 0.20.3(publint@0.3.17)(typescript@5.9.3)
       tsl:
-        specifier: ^1.0.28
-        version: 1.0.28(typescript@5.9.3)
+        specifier: ^1.0.29
+        version: 1.0.29(typescript@5.9.3)
       vitest:
         specifier: ^4.0.18
         version: 4.0.18(@types/node@25.2.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
@@ -2127,8 +2127,8 @@ packages:
       unplugin-unused:
         optional: true
 
-  tsl@1.0.28:
-    resolution: {integrity: sha512-zinipy9ZK5yjMzYyN2YaH05it29eCZmk23JOafhC0+9fAVl2pB6N4IKn9x2583peYbplJ6ltw3ORng7ubf5Hsg==}
+  tsl@1.0.29:
+    resolution: {integrity: sha512-MwEfB1QiR95zz07MP4MiXYXUPjaQFFfgWeAeNIdtoZYbIx+YV0zib1BlF9ynLLOFOJFLIy3M8Y/yN+Ro4Y9tLA==}
     hasBin: true
     peerDependencies:
       typescript: ^5.9.3
@@ -4119,7 +4119,7 @@ snapshots:
       - synckit
       - vue-tsc
 
-  tsl@1.0.28(typescript@5.9.3):
+  tsl@1.0.29(typescript@5.9.3):
     dependencies:
       esbuild: 0.27.3
       ts-api-utils: 2.4.0(typescript@5.9.3)

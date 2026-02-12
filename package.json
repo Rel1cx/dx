@@ -48,7 +48,7 @@
     "tinyglobby": "^0.2.15",
     "ts-pattern": "^5.9.0",
     "tsdown": "^0.20.3",
-    "tsl": "^1.0.28",
+    "tsl": "^1.0.29",
     "tsl-dx": "workspace:*",
     "tsx": "latest",
     "typedoc": "^0.28.16",

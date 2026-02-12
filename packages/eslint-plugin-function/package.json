@@ -51,7 +51,7 @@
     "dedent": "^1.7.1",
     "eslint": "^10.0.0",
     "tsdown": "^0.20.3",
-    "tsl": "^1.0.28"
+    "tsl": "^1.0.29"
   },
   "peerDependencies": {
     "eslint": "^10.0.0",
