@@ -208,6 +208,34 @@ importers:
         specifier: ^4.0.18
         version: 4.0.18(@types/node@25.2.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
 
+  packages/tsl-rules-of-react:
+    dependencies:
+      ts-pattern:
+        specifier: ^5.9.0
+        version: 5.9.0
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+    devDependencies:
+      '@local/configs':
+        specifier: workspace:*
+        version: link:../../.pkgs/configs
+      '@local/eff':
+        specifier: workspace:*
+        version: link:../../.pkgs/eff
+      dedent:
+        specifier: ^1.7.1
+        version: 1.7.1
+      tsdown:
+        specifier: ^0.20.3
+        version: 0.20.3(publint@0.3.17)(typescript@5.9.3)
+      tsl:
+        specifier: ^1.0.29
+        version: 1.0.29(typescript@5.9.3)
+      vitest:
+        specifier: ^4.0.18
+        version: 4.0.18(@types/node@25.2.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
+
 packages:
 
   '@arr/every@1.0.1':
