@@ -6,7 +6,8 @@
 const rulesOfJsx: (options?: "off") => Rule<unknown>;
 ```
 
-@todo: implement this
+TS checks for most of the issues described at https://react.dev/learn/writing-markup-with-jsx#the-rules-of-jsx
+by default, so there isn't much for us to implement.
 
 ## Parameters
 

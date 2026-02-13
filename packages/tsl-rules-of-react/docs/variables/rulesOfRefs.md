@@ -6,8 +6,6 @@
 const rulesOfRefs: (options?: "off") => Rule<unknown>;
 ```
 
-@todo: implement this
-
 ## Parameters
 
 | Parameter | Type |
@@ -17,3 +15,7 @@ const rulesOfRefs: (options?: "off") => Rule<unknown>;
 ## Returns
 
 `Rule`\<`unknown`\>
+
+## Todo
+
+implement this

@@ -1,10 +1,10 @@
 {
   "name": "tsl-rules-of-react",
   "version": "0.7.0",
-  "description": "React 19+ rules for tsl",
+  "description": "Rules of React for tsl.",
   "keywords": [
     "tsl",
-    "tsl-shared"
+    "tsl-rules-of-react"
   ],
   "license": "MIT",
   "author": "Rel1cx<let@ik.me>",
@@ -34,9 +34,15 @@
   "devDependencies": {
     "@local/configs": "workspace:*",
     "@local/eff": "workspace:*",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "dedent": "^1.7.1",
+    "preact": "^10.28.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "tsdown": "^0.20.3",
     "tsl": "^1.0.29",
+    "tsl-shared": "workspace:*",
     "vitest": "^4.0.18"
   },
   "peerDependencies": {

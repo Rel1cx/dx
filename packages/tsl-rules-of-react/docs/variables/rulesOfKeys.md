@@ -6,8 +6,6 @@
 const rulesOfKeys: (options?: "off") => Rule<unknown>;
 ```
 
-@todo: implement this
-
 ## Parameters
 
 | Parameter | Type |

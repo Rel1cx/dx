@@ -4,7 +4,7 @@ import ts from "typescript";
 export const messages = {};
 
 /**
- * @todo: implement this
+ * @todo implement this
  */
 export const rulesOfState = defineRule(() => {
   return {

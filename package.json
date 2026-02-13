@@ -31,7 +31,7 @@
     "update:version": "tsx ./scripts/update-version.ts"
   },
   "devDependencies": {
-    "@effect/platform": "^0.94.4",
+    "@effect/platform": "^0.94.5",
     "@effect/platform-node": "^0.104.1",
     "@eslint/compat": "^2.0.2",
     "@local/configs": "workspace:*",
@@ -41,7 +41,7 @@
     "@types/node": "^25.2.3",
     "ansis": "^4.2.0",
     "dprint": "^0.51.1",
-    "effect": "^3.19.16",
+    "effect": "^3.19.17",
     "publint": "^0.3.17",
     "skott": "^0.35.7",
     "sort-package-json": "^3.6.1",
@@ -51,7 +51,7 @@
     "tsl": "^1.0.29",
     "tsl-dx": "workspace:*",
     "tsx": "latest",
-    "typedoc": "^0.28.16",
+    "typedoc": "^0.28.17",
     "typedoc-plugin-markdown": "^4.10.0",
     "typedoc-plugin-mdn-links": "^5.1.1",
     "typescript": "^5.9.3",

@@ -4,11 +4,11 @@
 
 | Variable | Description |
 | ------ | ------ |
-| [rulesOfComponentHookFactories](variables/rulesOfComponentHookFactories.md) | @todo: implement this |
-| [rulesOfEffect](variables/rulesOfEffect.md) | @todo: implement this |
-| [rulesOfJsx](variables/rulesOfJsx.md) | @todo: implement this |
-| [rulesOfKeys](variables/rulesOfKeys.md) | @todo: implement this |
-| [rulesOfProps](variables/rulesOfProps.md) | @todo: implement this |
-| [rulesOfRefs](variables/rulesOfRefs.md) | @todo: implement this |
-| [rulesOfRender](variables/rulesOfRender.md) | @todo: implement this |
-| [rulesOfState](variables/rulesOfState.md) | @todo: implement this |
+| [rulesOfComponentHookFactories](variables/rulesOfComponentHookFactories.md) | - |
+| [rulesOfEffect](variables/rulesOfEffect.md) | - |
+| [rulesOfJsx](variables/rulesOfJsx.md) | TS checks for most of the issues described at https://react.dev/learn/writing-markup-with-jsx#the-rules-of-jsx by default, so there isn't much for us to implement. |
+| [rulesOfKeys](variables/rulesOfKeys.md) | - |
+| [rulesOfProps](variables/rulesOfProps.md) | - |
+| [rulesOfRefs](variables/rulesOfRefs.md) | - |
+| [rulesOfRender](variables/rulesOfRender.md) | - |
+| [rulesOfState](variables/rulesOfState.md) | - |
