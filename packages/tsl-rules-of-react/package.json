@@ -1,7 +1,7 @@
 {
   "name": "tsl-rules-of-react",
   "version": "0.7.0",
-  "description": "A tsl plugin for rules of React.",
+  "description": "React 19+ rules for tsl",
   "keywords": [
     "tsl",
     "tsl-shared"
