@@ -1,10 +1,14 @@
-# tsl-module
+# tsl-rules-of-react
 
 ## Variables
 
 | Variable | Description |
 | ------ | ------ |
-| [noDuplicateExports](variables/noDuplicateExports.md) | Rule to detect and merge duplicate `export from` statements from the same module. |
-| [noDuplicateImports](variables/noDuplicateImports.md) | Rule to detect and merge duplicate `import from` statements from the same module. |
-| [noMultilineTemplateExpressionWithoutAutoDedent](variables/noMultilineTemplateExpressionWithoutAutoDedent.md) | Rule to enforce the use of a dedent tag for multiline template expressions. |
-| [nullish](variables/nullish.md) | Rule to enforce the use of `unit` instead of `undefined` and loose equality for nullish checks. |
+| [rulesOfComponentHookFactories](variables/rulesOfComponentHookFactories.md) | @todo: implement this |
+| [rulesOfEffect](variables/rulesOfEffect.md) | @todo: implement this |
+| [rulesOfJsx](variables/rulesOfJsx.md) | @todo: implement this |
+| [rulesOfKeys](variables/rulesOfKeys.md) | @todo: implement this |
+| [rulesOfProps](variables/rulesOfProps.md) | @todo: implement this |
+| [rulesOfRefs](variables/rulesOfRefs.md) | @todo: implement this |
+| [rulesOfRender](variables/rulesOfRender.md) | @todo: implement this |
+| [rulesOfState](variables/rulesOfState.md) | @todo: implement this |

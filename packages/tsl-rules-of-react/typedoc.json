@@ -2,7 +2,7 @@
   "extends": [
     "@local/configs/typedoc.base.json"
   ],
-  "name": "tsl-module",
+  "name": "tsl-rules-of-react",
   "entryPoints": [
     "src/index.ts"
   ],

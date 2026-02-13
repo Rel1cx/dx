@@ -6,9 +6,9 @@ export const messages = {};
 /**
  * @todo: implement this
  */
-export const rulesOfKeys = defineRule(() => {
+export const rulesOfJsx = defineRule(() => {
   return {
-    name: "rules-of-react/rules-of-keys",
+    name: "rules-of-react/rules-of-jsx",
     visitor: {},
   };
 });

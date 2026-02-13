@@ -1,4 +1,4 @@
-[tsl-module](../README.md) / nullish
+[tsl-dx](../README.md) / nullish
 
 # Variable: nullish()
 

@@ -1,4 +1,4 @@
-[tsl-module](../README.md) / noMultilineTemplateExpressionWithoutAutoDedent
+[tsl-dx](../README.md) / noMultilineTemplateExpressionWithoutAutoDedent
 
 # Variable: noMultilineTemplateExpressionWithoutAutoDedent()
 
