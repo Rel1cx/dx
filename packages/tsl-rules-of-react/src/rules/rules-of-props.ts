@@ -1,7 +1,7 @@
 import { type AST, defineRule } from "tsl";
 import ts from "typescript";
 
-export const messages = {};
+export const messages = [] as const;
 
 /**
  * @todo implement this
