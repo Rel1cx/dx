@@ -21,7 +21,7 @@
     "build:pkgs": "pnpm -r --stream --filter \"./.pkgs/*\" run build",
     "format:check": "dprint check",
     "format:write": "dprint fmt",
-    "lint": "pnpm run lint:deps && pnpm run lint:publish && pnpm run lint:ts && pnpm run lint:examples",
+    "lint": "pnpm run lint:publish && pnpm run lint:ts && pnpm run lint:examples",
     "lint:examples": "pnpm m -F \"./examples/*\" run lint",
     "lint:publish": "pnpm m run lint:publish",
     "lint:ts": "pnpm m run lint:ts",
