@@ -32,7 +32,7 @@ export const rulesOfKeys = defineRule(() => {
   return {
     name: "rules-of-react/rules-of-keys",
     createData(ctx) {
-      const { jsx = "react-jsx" } = ctx.program.getCompilerOptions();
+      const { jsx = ts.JsxEmit.ReactJSX } = ctx.program.getCompilerOptions();
       return {
         isNewJsxTransform: jsx === ts.JsxEmit.ReactJSX || jsx === ts.JsxEmit.ReactJSXDev,
       };
