@@ -36,6 +36,7 @@
     "dedent": "^1.7.1",
     "tsdown": "^0.20.3",
     "tsl": "^1.0.29",
+    "typescript": "*",
     "vitest": "^4.0.18"
   },
   "peerDependencies": {

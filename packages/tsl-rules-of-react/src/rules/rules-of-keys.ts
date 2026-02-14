@@ -55,25 +55,24 @@ export const rulesOfKeys = defineRule(() => {
         if (element.kind !== ts.SyntaxKind.JsxOpeningElement && element.kind !== ts.SyntaxKind.JsxSelfClosingElement) {
           return;
         }
-        const children: ts.Node[] = [];
-        ts.forEachChild(element.attributes, (n) => void children.push(n));
+        let index = -1;
         let firstSpreadAttrIndex: null | number = null;
-        for (const [index, attr] of children.entries()) {
+        ts.forEachChild(element.attributes, (attr) => {
+          index++;
           if (attr.kind === ts.SyntaxKind.JsxSpreadAttribute) {
             firstSpreadAttrIndex ??= index;
-            continue;
+            return;
           }
           if (firstSpreadAttrIndex == null) {
-            continue;
+            return;
           }
-          const name = attr.getChildAt(0);
-          if (name.getText() === "key" && index > firstSpreadAttrIndex) {
+          if (attr.getChildAt(0).getText() === "key" && index > firstSpreadAttrIndex) {
             ctx.report({
               message: messages[3],
               node: attr,
             });
           }
-        }
+        });
       },
     },
   };
