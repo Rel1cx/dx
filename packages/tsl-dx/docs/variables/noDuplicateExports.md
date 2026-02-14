@@ -1,4 +1,4 @@
-[tsl-module](../README.md) / noDuplicateExports
+[tsl-dx](../README.md) / noDuplicateExports
 
 # Variable: noDuplicateExports()
 

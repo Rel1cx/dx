@@ -1,10 +1,10 @@
 {
-  "name": "tsl-dx",
+  "name": "tsl-shared",
   "version": "0.7.0",
-  "description": "A tsl plugin for better JavaScript/TypeScript DX.",
+  "description": "Shared utilities for tsl.",
   "keywords": [
     "tsl",
-    "tsl-dx"
+    "tsl-shared"
   ],
   "license": "MIT",
   "author": "Rel1cx<let@ik.me>",
@@ -25,8 +25,7 @@
     "build:docs": "typedoc",
     "lint:publish": "pnpm publint",
     "lint:ts": "tsl",
-    "publish": "pnpm run build && pnpm run lint:publish",
-    "test": "vitest"
+    "publish": "pnpm run build && pnpm run lint:publish"
   },
   "dependencies": {
     "ts-pattern": "^5.9.0"
@@ -37,6 +36,7 @@
     "dedent": "^1.7.1",
     "tsdown": "^0.20.3",
     "tsl": "^1.0.29",
+    "typescript": "*",
     "vitest": "^4.0.18"
   },
   "peerDependencies": {
