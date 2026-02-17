@@ -15,7 +15,3 @@ const rulesOfProps: (options?: "off") => Rule<unknown>;
 ## Returns
 
 `Rule`\<`unknown`\>
-
-## Todo
-
-implement this

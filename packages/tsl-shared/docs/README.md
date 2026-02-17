@@ -10,6 +10,7 @@
 
 | Function | Description |
 | ------ | ------ |
+| [findParentNode](functions/findParentNode.md) | Find the parent node that satisfies the test function |
 | [getFullyQualifiedNameEx](functions/getFullyQualifiedNameEx.md) | An enhanced version of getFullyQualifiedName that handles cases that original function does not handle |
 | [isAnyType](functions/isAnyType.md) | Check if a type is any or a type parameter |
 | [isBigIntType](functions/isBigIntType.md) | Check if a type is a bigint type |

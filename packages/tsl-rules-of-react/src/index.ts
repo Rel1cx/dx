@@ -1,4 +1,3 @@
-export { rulesOfComponentHookFactories } from "./rules/rules-of-component-hook-factories";
 export { rulesOfEffect } from "./rules/rules-of-effect";
 export { rulesOfJsx } from "./rules/rules-of-jsx";
 export { rulesOfKeys } from "./rules/rules-of-keys";
