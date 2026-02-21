@@ -39,7 +39,6 @@ export const nullish = defineRule((options?: nullishOptions) => ({
   },
   visitor: {
     Identifier(ctx, node) {
-      if (node.getSourceFile().isDeclarationFile) return;
       if (node.parent.kind === SyntaxKind.BinaryExpression || node.text !== "undefined") return;
       ctx.report({
         node,
@@ -63,7 +62,6 @@ export const nullish = defineRule((options?: nullishOptions) => ({
       });
     },
     UndefinedKeyword(ctx, node) {
-      if (node.getSourceFile().isDeclarationFile) return;
       ctx.report({
         node,
         message: messages.useUnitForUndefined,
@@ -86,7 +84,6 @@ export const nullish = defineRule((options?: nullishOptions) => ({
       });
     },
     BinaryExpression(ctx, node) {
-      if (node.getSourceFile().isDeclarationFile) return;
       const newOperatorText = match(node.operatorToken.kind)
         .with(SyntaxKind.EqualsEqualsEqualsToken, () => "==")
         .with(SyntaxKind.ExclamationEqualsEqualsToken, () => "!=")
