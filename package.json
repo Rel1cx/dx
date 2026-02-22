@@ -41,7 +41,7 @@
     "@types/node": "^25.3.0",
     "ansis": "^4.2.0",
     "dprint": "^0.51.1",
-    "effect": "^3.19.18",
+    "effect": "^3.19.19",
     "publint": "^0.3.17",
     "skott": "^0.35.7",
     "sort-package-json": "^3.6.1",
