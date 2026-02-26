@@ -1,5 +1,5 @@
 import { unit } from "@local/eff";
-import { P, match } from "ts-pattern";
+import { match } from "ts-pattern";
 import { type AST, defineRule } from "tsl";
 import ts from "typescript";
 
@@ -7,15 +7,18 @@ export const messages = {
   default: (p: { source: string }) => `Duplicate import from module ${p.source}.`,
 } as const;
 
-type ImportKind = 0 | 1 | 2; // 0: import, 1: import type, 2: import defer
+type ImportKind = "value" | "type" | "defer";
+
+type NamedBindings =
+  | { kind: "named"; imports: string[] }
+  | { kind: "namespace"; name: string };
 
 interface ImportInfo {
   node: AST.ImportDeclaration;
   kind: ImportKind;
-  defaultImport: string | unit;
-  namedImports: string[];
-  namespaceImport: string | unit;
   source: string;
+  defaultImport: string | unit;
+  bindings: NamedBindings;
 }
 
 /**
@@ -37,99 +40,83 @@ interface ImportInfo {
 export const noDuplicateImports = defineRule(() => {
   return {
     name: "dx/no-duplicate-imports",
-    createData(): { imports: [ImportInfo[], ImportInfo[], ImportInfo[]] } {
-      return { imports: [[], [], []] };
+    createData(): { imports: Map<ImportKind, ImportInfo[]> } {
+      return { imports: new Map([["value", []], ["type", []], ["defer", []]]) };
     },
     visitor: {
       ImportDeclaration(ctx, node) {
         if (node.importClause == null) return; // skip side-effect imports
-        const importKind = getImportKind(node);
+        const importKind = match(node.importClause.phaseModifier)
+          .with(ts.SyntaxKind.TypeKeyword, () => "type" as const)
+          .with(ts.SyntaxKind.DeferKeyword, () => "defer" as const)
+          .otherwise(() => "value" as const);
         const importSource = node.moduleSpecifier.getText();
         const importInfo = {
           node,
           source: importSource,
           kind: importKind,
-          ...decodeImportClause(node.importClause),
+          defaultImport: node.importClause.name?.getText(),
+          bindings: match(node.importClause.namedBindings)
+            .with({ kind: ts.SyntaxKind.NamedImports }, (nb) => ({
+              kind: "named" as const,
+              imports: nb.elements.map((el) => el.getText()),
+            }))
+            .with({ kind: ts.SyntaxKind.NamespaceImport }, (nb) => ({
+              kind: "namespace" as const,
+              name: nb.name.getText(),
+            }))
+            .otherwise(() => ({ kind: "named" as const, imports: [] })),
         } as const satisfies ImportInfo;
-        const existingImports = ctx.data.imports[importKind];
+        const existingImports = ctx.data.imports.get(importKind)!;
         const duplicateImport = existingImports.find((imp) => imp.source === importInfo.source);
-        if (duplicateImport != null) {
-          ctx.report({
-            node,
-            message: messages.default({ source: importInfo.source }),
-            suggestions: importKind > 1
-              ? [] // no auto fix for two import defer statements
-              : [
-                {
-                  message: "Merge duplicate imports",
-                  changes: [
-                    {
-                      node,
-                      newText: "",
-                    },
-                    {
-                      node: duplicateImport.node,
-                      newText: buildMergedImport(duplicateImport, importInfo),
-                    },
-                  ],
-                },
-              ],
-          });
+        if (duplicateImport == null) {
+          existingImports.push(importInfo);
           return;
         }
-        existingImports.push(importInfo);
+        ctx.report({
+          node,
+          message: messages.default({ source: importInfo.source }),
+          suggestions: buildSuggestions(duplicateImport, importInfo),
+        });
       },
     },
   };
 });
 
-function getImportKind(node: AST.ImportDeclaration): ImportKind {
-  return match<ts.ImportPhaseModifierSyntaxKind | unit, ImportKind>(node.importClause?.phaseModifier)
-    .with(P.nullish, () => 0)
-    .with(ts.SyntaxKind.TypeKeyword, () => 1)
-    .with(ts.SyntaxKind.DeferKeyword, () => 2)
-    .otherwise(() => 0);
-}
-
-function decodeImportClause(node: AST.ImportClause) {
-  const { name, namedBindings } = node;
-  return {
-    defaultImport: name?.getText(),
-    namedImports: namedBindings != null
-        && ts.isNamedImports(namedBindings)
-      ? namedBindings.elements.map((el) => el.getText())
-      : [],
-    namespaceImport: namedBindings != null
-        && ts.isNamespaceImport(namedBindings)
-      ? namedBindings.name.getText()
-      : unit,
-  } as const;
-}
-
-function buildMergedImport(a: ImportInfo, b: ImportInfo): string {
+function buildSuggestions(existing: ImportInfo, incoming: ImportInfo) {
+  if (
+    incoming.kind === "defer"
+    || incoming.bindings.kind === "namespace"
+    || existing.bindings.kind === "namespace"
+  ) {
+    return [];
+  }
+  // Both bindings are guaranteed to be "named" here
   const parts: string[] = [];
-  // Default import
-  if (a.defaultImport != null) {
-    parts.push(a.defaultImport);
-  } else if (b.defaultImport != null) {
-    parts.push(b.defaultImport);
+  const defaultImport = existing.defaultImport ?? incoming.defaultImport;
+  if (defaultImport != null) {
+    parts.push(defaultImport);
   }
-  // Namespace import
-  if (a.namespaceImport != null) {
-    parts.push(`* as ${a.namespaceImport}`);
-  } else if (b.namespaceImport != null) {
-    parts.push(`* as ${b.namespaceImport}`);
+  const mergedImports = Array.from(
+    new Set([
+      ...existing.bindings.imports,
+      ...incoming.bindings.imports,
+    ]),
+  );
+  if (mergedImports.length > 0) {
+    parts.push(`{ ${mergedImports.join(", ")} }`);
   }
-  // Named imports
-  const namedImports = Array.from(new Set([...a.namedImports, ...b.namedImports]));
-  // Construct named imports part
-  if (namedImports.length > 0) {
-    parts.push(`{ ${namedImports.join(", ")} }`);
-  }
-  const importKindPrefix = match<ImportKind, string>(a.kind)
-    .with(0, () => "import")
-    .with(1, () => "import type")
-    .with(2, () => "import defer")
-    .exhaustive();
-  return `${importKindPrefix} ${parts.join(", ")} from ${a.source};`;
+  const importKindPrefix = incoming.kind === "value" ? "import" : "import type";
+  return [
+    {
+      message: "Merge duplicate imports",
+      changes: [
+        { node: incoming.node, newText: "" },
+        {
+          node: existing.node,
+          newText: `${importKindPrefix} ${parts.join(", ")} from ${existing.source};`,
+        },
+      ],
+    },
+  ];
 }

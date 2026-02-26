@@ -32,6 +32,7 @@
     "ts-pattern": "^5.9.0"
   },
   "devDependencies": {
+    "@liautaud/typezod": "^2.0.0",
     "@local/configs": "workspace:*",
     "@local/eff": "workspace:*",
     "dedent": "^1.7.1",
