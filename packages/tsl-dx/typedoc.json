@@ -2,7 +2,7 @@
   "extends": [
     "@local/configs/typedoc.base.json"
   ],
-  "name": "tsl-module",
+  "name": "tsl-dx",
   "entryPoints": [
     "src/index.ts"
   ],

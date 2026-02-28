@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0] - 2025-02-28
+
+### Added
+
+- **tsl-rules-of-react**: New package - Rules of React for tsl
+- **tsl-shared**: New package - Shared utilities for tsl
+
+### Changed
+
+- **tsl-dx**: Replaced `unit` with `null`
+- Updated dependencies
+
+## [0.8.0] - 2025-02-25
+
+### Changed
+
+- **tsl-dx**: Refactored import and export rules
+
+## [0.7.2] - 2025-02-21
+
+### Changed
+
+- Upgraded `effect` to 3.19.19
+- Updated dependencies
+
 ## [0.7.1] - 2025-02-21
 
 - Updated dependencies: `@types/node` to ^25.3.0, `effect` to ^3.19.18, `eslint` to ^10.0.1, `pnpm` to 10.30.1

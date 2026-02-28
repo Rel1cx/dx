@@ -1,0 +1,49 @@
+{
+  "name": "tsl-shared",
+  "version": "0.9.0",
+  "description": "Shared utilities for tsl.",
+  "keywords": [
+    "tsl",
+    "tsl-shared"
+  ],
+  "license": "MIT",
+  "author": "Rel1cx<let@ik.me>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown --dts-resolve",
+    "build:docs": "typedoc",
+    "lint:publish": "pnpm publint",
+    "lint:ts": "tsl",
+    "publish": "pnpm run build && pnpm run lint:publish"
+  },
+  "dependencies": {
+    "ts-pattern": "^5.9.0"
+  },
+  "devDependencies": {
+    "@local/configs": "workspace:*",
+    "@local/eff": "workspace:*",
+    "dedent": "^1.7.1",
+    "tsdown": "^0.21.0-beta.2",
+    "tsl": "^1.0.29",
+    "typescript": "*",
+    "vitest": "^4.0.18"
+  },
+  "peerDependencies": {
+    "tsl": "^1.0.29",
+    "typescript": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
