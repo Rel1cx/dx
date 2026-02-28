@@ -17,6 +17,6 @@
     "@tsconfig/node24": "^24.0.4",
     "@tsconfig/strictest": "^2.0.8",
     "tsl": "^1.0.29",
-    "tsl-dx": "^0.7.1"
+    "tsl-dx": "^0.9.0"
   }
 }

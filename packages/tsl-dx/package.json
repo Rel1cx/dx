@@ -1,6 +1,6 @@
 {
   "name": "tsl-dx",
-  "version": "0.7.0",
+  "version": "0.9.0",
   "description": "A tsl plugin for better JavaScript/TypeScript DX.",
   "keywords": [
     "tsl",
@@ -32,10 +32,11 @@
     "ts-pattern": "^5.9.0"
   },
   "devDependencies": {
+    "@liautaud/typezod": "^2.0.0",
     "@local/configs": "workspace:*",
     "@local/eff": "workspace:*",
     "dedent": "^1.7.1",
-    "tsdown": "^0.20.3",
+    "tsdown": "^0.21.0-beta.2",
     "tsl": "^1.0.29",
     "vitest": "^4.0.18"
   },

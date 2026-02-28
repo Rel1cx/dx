@@ -1,4 +1,3 @@
-import { unit } from "@local/eff";
 import type { AST } from "tsl";
 import ts from "typescript";
 
@@ -9,9 +8,9 @@ import ts from "typescript";
  * @returns The parent node that satisfies the test function or `_` if not found
  */
 function findParentNode<A extends AST.AnyNode>(
-  node: AST.AnyNode | unit,
+  node: AST.AnyNode | null,
   test: (n: AST.AnyNode) => n is A,
-): A | unit;
+): A | null;
 
 /**
  * Find the parent node that satisfies the test function or `_` if not found
@@ -19,13 +18,13 @@ function findParentNode<A extends AST.AnyNode>(
  * @param test The test function
  * @returns The parent node that satisfies the test function
  */
-function findParentNode(node: AST.AnyNode | unit, test: (node: AST.AnyNode) => boolean): AST.AnyNode | unit;
+function findParentNode(node: AST.AnyNode | null, test: (node: AST.AnyNode) => boolean): AST.AnyNode | null;
 function findParentNode<A extends AST.AnyNode>(
-  node: AST.AnyNode | unit,
+  node: AST.AnyNode | null,
   // tsl-ignore core/noRedundantTypeConstituents
   test: ((node: AST.AnyNode) => boolean) | ((n: AST.AnyNode) => n is A),
-): AST.AnyNode | A | unit {
-  if (node == null) return unit;
+): AST.AnyNode | A | null {
+  if (node == null) return null;
   let parent = node.parent;
   while (parent.kind !== ts.SyntaxKind.SourceFile) {
     // @ts-expect-error - wait for tsl to fix the issue
@@ -35,7 +34,7 @@ function findParentNode<A extends AST.AnyNode>(
     }
     parent = parent.parent;
   }
-  return unit;
+  return null;
 }
 
 export { findParentNode };

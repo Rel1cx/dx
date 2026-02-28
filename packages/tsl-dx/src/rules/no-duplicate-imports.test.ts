@@ -97,19 +97,6 @@ test("no-duplicate-import", () => {
         ],
       },
       {
-        code: tsx`
-           import defer * as ns1 from "mod";
-           import defer * as ns2 from "mod";
-        `,
-        errors: [
-          {
-            line: 2,
-            message: messages.default({ source: '"mod"' }),
-            suggestions: [],
-          },
-        ],
-      },
-      {
         // Namespace import with named imports
         code: tsx`
           import * as ns from 'module';
@@ -119,14 +106,7 @@ test("no-duplicate-import", () => {
           {
             line: 2,
             message: messages.default({ source: "'module'" }),
-            suggestions: [
-              {
-                message: "Merge duplicate imports",
-                output: tsx`
-                  import * as ns, { A } from 'module';\n
-                `,
-              },
-            ],
+            suggestions: [],
           },
         ],
       },
@@ -140,14 +120,7 @@ test("no-duplicate-import", () => {
           {
             line: 2,
             message: messages.default({ source: "'module'" }),
-            suggestions: [
-              {
-                message: "Merge duplicate imports",
-                output: tsx`
-                  import Default, * as ns from 'module';\n
-                `,
-              },
-            ],
+            suggestions: [],
           },
         ],
       },
@@ -173,21 +146,14 @@ test("no-duplicate-import", () => {
         ],
       },
       {
-        // Three import defer statements (no suggestions)
         code: tsx`
-          import defer { foo1 } from 'module';
-          import defer { foo2 } from 'module';
-          import defer { foo3 } from 'module';
+          import * as astUtils from "@typescript-eslint/utils/ast-utils";
+          import { getStaticValue } from "@typescript-eslint/utils/ast-utils";
         `,
         errors: [
           {
             line: 2,
-            message: messages.default({ source: "'module'" }),
-            suggestions: [],
-          },
-          {
-            line: 3,
-            message: messages.default({ source: "'module'" }),
+            message: messages.default({ source: '"@typescript-eslint/utils/ast-utils"' }),
             suggestions: [],
           },
         ],

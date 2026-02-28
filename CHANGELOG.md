@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.1] - 2025-02-21
+
+- Updated dependencies: `@types/node` to ^25.3.0, `effect` to ^3.19.18, `eslint` to ^10.0.1, `pnpm` to 10.30.1
+- **tsl-dx**: Removed unused code from `nullish` rule
+- Updated `tsl.config.ts` with ignore patterns for `.d.ts`, `dist/`, and `build/` directories
+
 ## [0.7.0] - 2025-02-11
 
 ### Added
