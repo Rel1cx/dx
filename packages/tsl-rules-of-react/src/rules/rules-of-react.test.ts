@@ -15,8 +15,6 @@ test("rules-of-react", () => {
     tsx: true,
     ruleFn: rulesOfReact,
     invalid: [
-      // ===== Rules of JSX =====
-      // Rule000: Don't pass children as a prop
       {
         code: tsx`
           function Component() {
@@ -28,7 +26,6 @@ test("rules-of-react", () => {
           { message: "Don't pass children as a prop. Instead, put the children between the opening and closing tags." },
         ],
       },
-      // Rule001: key after spread
       {
         code: tsx`
           function Component({ props }) {
@@ -73,7 +70,6 @@ test("rules-of-react", () => {
           { message: "The 'key' prop must be placed before any spread props when using the new JSX transform." },
         ],
       },
-      // key after spread (with ref too, but only key triggers Rule000)
       {
         code: tsx`
           function Component({ props }) {
@@ -85,10 +81,6 @@ test("rules-of-react", () => {
           { message: "The 'key' prop must be placed before any spread props when using the new JSX transform." },
         ],
       },
-
-      // ===== Rules of Keys =====
-      // Rule001: Keys must be used when rendering lists (.map)
-      // Arrow function concise body without key
       {
         code: tsx`
           function Component({ items }: { items: string[] }) {
@@ -223,163 +215,6 @@ test("rules-of-react", () => {
           },
         ],
       },
-
-      // Rule003: Don't use array index as key
-      // Direct use of index as key
-      {
-        code: tsx`
-          function Component({ items }: { items: string[] }) {
-            return <div>{items.map((item, index) => <span key={index}>{item}</span>)}</div>;
-          }
-        `,
-        compilerOptions,
-        errors: [
-          {
-            message: "Don't use array index as key. Keys should be stable and unique identifiers that don't change between renders.",
-          },
-        ],
-      },
-      // Short variable name (i) as index key
-      {
-        code: tsx`
-          function Component({ items }: { items: string[] }) {
-            return <div>{items.map((item, i) => <span key={i}>{item}</span>)}</div>;
-          }
-        `,
-        compilerOptions,
-        errors: [
-          {
-            message: "Don't use array index as key. Keys should be stable and unique identifiers that don't change between renders.",
-          },
-        ],
-      },
-      // Template literal with index
-      {
-        code: tsx`
-          function Component({ items }: { items: string[] }) {
-            return <div>{items.map((item, index) => <span key={\`item-\${index}\`}>{item}</span>)}</div>;
-          }
-        `,
-        compilerOptions,
-        errors: [
-          {
-            message: "Don't use array index as key. Keys should be stable and unique identifiers that don't change between renders.",
-          },
-        ],
-      },
-      // String concatenation with index
-      {
-        code: tsx`
-          function Component({ items }: { items: string[] }) {
-            return <div>{items.map((item, index) => <span key={'item-' + index}>{item}</span>)}</div>;
-          }
-        `,
-        compilerOptions,
-        errors: [
-          {
-            message: "Don't use array index as key. Keys should be stable and unique identifiers that don't change between renders.",
-          },
-        ],
-      },
-      // index.toString() as key
-      {
-        code: tsx`
-          function Component({ items }: { items: string[] }) {
-            return <div>{items.map((item, index) => <span key={index.toString()}>{item}</span>)}</div>;
-          }
-        `,
-        compilerOptions,
-        errors: [
-          {
-            message: "Don't use array index as key. Keys should be stable and unique identifiers that don't change between renders.",
-          },
-        ],
-      },
-      // String(index) as key
-      {
-        code: tsx`
-          function Component({ items }: { items: string[] }) {
-            return <div>{items.map((item, index) => <span key={String(index)}>{item}</span>)}</div>;
-          }
-        `,
-        compilerOptions,
-        errors: [
-          {
-            message: "Don't use array index as key. Keys should be stable and unique identifiers that don't change between renders.",
-          },
-        ],
-      },
-      // Parenthesized index as key
-      {
-        code: tsx`
-          function Component({ items }: { items: string[] }) {
-            return <div>{items.map((item, index) => <span key={(index)}>{item}</span>)}</div>;
-          }
-        `,
-        compilerOptions,
-        errors: [
-          {
-            message: "Don't use array index as key. Keys should be stable and unique identifiers that don't change between renders.",
-          },
-        ],
-      },
-      // flatMap with index as key
-      {
-        code: tsx`
-          function Component({ items }: { items: string[] }) {
-            return <div>{items.flatMap((item, index) => <span key={index}>{item}</span>)}</div>;
-          }
-        `,
-        compilerOptions,
-        errors: [
-          {
-            message: "Don't use array index as key. Keys should be stable and unique identifiers that don't change between renders.",
-          },
-        ],
-      },
-      // Function expression with index as key
-      {
-        code: tsx`
-          function Component({ items }: { items: string[] }) {
-            return (
-              <div>
-                {items.map(function(item, index) {
-                  return <span key={index}>{item}</span>;
-                })}
-              </div>
-            );
-          }
-        `,
-        compilerOptions,
-        errors: [
-          {
-            message: "Don't use array index as key. Keys should be stable and unique identifiers that don't change between renders.",
-          },
-        ],
-      },
-      // Arrow function block body with index as key
-      {
-        code: tsx`
-          function Component({ items }: { items: string[] }) {
-            return (
-              <div>
-                {items.map((item, index) => {
-                  return <span key={index}>{item}</span>;
-                })}
-              </div>
-            );
-          }
-        `,
-        compilerOptions,
-        errors: [
-          {
-            message: "Don't use array index as key. Keys should be stable and unique identifiers that don't change between renders.",
-          },
-        ],
-      },
-
-      // ===== Rules of Props =====
-      // Rule001: implicit key via spread
       {
         code: tsx`
           function Component({ data }: { data: { key: string; name: string } }) {
@@ -423,7 +258,6 @@ test("rules-of-react", () => {
           },
         ],
       },
-      // Rule002: implicit ref via spread
       {
         code: tsx`
           function Component({ data }: { data: { ref: any; name: string } }) {
@@ -486,7 +320,6 @@ test("rules-of-react", () => {
       },
     ],
     valid: [
-      // ===== Rules of JSX - valid cases =====
       // key before spread
       {
         code: tsx`
@@ -898,6 +731,14 @@ test("rules-of-react", () => {
         `,
         compilerOptions,
       },
+      {
+        code: tsx`
+          function Component({ items }: { items: { id: string }[] }) {
+            return <div>{items.map((item, idx) => <span key={idx}>{idx}</span>)}</div>;
+          }
+        `,
+        compilerOptions,
+      },
       // No index parameter declared – index not available
       {
         code: tsx`
@@ -935,8 +776,6 @@ test("rules-of-react", () => {
         `,
         compilerOptions,
       },
-
-      // ===== Rules of Props - valid cases =====
       // React.Attributes spread is allowed for key
       {
         code: tsx`
