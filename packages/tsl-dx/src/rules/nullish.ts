@@ -3,10 +3,9 @@ import { defineRule } from "tsl";
 import { SyntaxKind } from "typescript";
 
 export const messages = {
-  useUnitForUndefined: "Use 'unit' instead of 'undefined'.",
-  useLooseNullishComparison: (p: { op: string }) => `Use '${p.op}' for nullish comparison.`,
+  default: (p: { op: string }) => `Use '${p.op}' for nullish comparison.`,
   // suggestions
-  replaceWithExpression: (p: { expr: string }) => `Replace with '${p.expr}'.`,
+  replace: (p: { expr: string }) => `Replace with '${p.expr}'.`,
 } as const;
 
 export type nullishOptions = {
@@ -38,51 +37,6 @@ export const nullish = defineRule((options?: nullishOptions) => ({
     };
   },
   visitor: {
-    Identifier(ctx, node) {
-      if (node.parent.kind === SyntaxKind.BinaryExpression || node.text !== "undefined") return;
-      ctx.report({
-        node,
-        message: messages.useUnitForUndefined,
-        suggestions: [
-          {
-            message: messages.replaceWithExpression({ expr: "unit" }),
-            changes: [
-              {
-                start: 0,
-                end: 0,
-                newText: `import { unit } from '${ctx.data.runtimeLibrary}';\n`,
-              },
-              {
-                node,
-                newText: "unit",
-              },
-            ],
-          },
-        ],
-      });
-    },
-    UndefinedKeyword(ctx, node) {
-      ctx.report({
-        node,
-        message: messages.useUnitForUndefined,
-        suggestions: [
-          {
-            message: messages.replaceWithExpression({ expr: "unit" }),
-            changes: [
-              {
-                start: 0,
-                end: 0,
-                newText: `import type { unit } from '${ctx.data.runtimeLibrary}';\n`,
-              },
-              {
-                node,
-                newText: "unit",
-              },
-            ],
-          },
-        ],
-      });
-    },
     BinaryExpression(ctx, node) {
       const newOperatorText = match(node.operatorToken.kind)
         .with(SyntaxKind.EqualsEqualsEqualsToken, () => "==")
@@ -101,11 +55,11 @@ export const nullish = defineRule((options?: nullishOptions) => ({
       });
       if (offendingChild == null) return;
       ctx.report({
-        message: messages.useLooseNullishComparison({ op: newOperatorText }),
+        message: messages.default({ op: newOperatorText }),
         node,
         suggestions: [
           {
-            message: messages.replaceWithExpression({
+            message: messages.replace({
               expr: offendingChild === node.left
                 ? `null ${newOperatorText} ${node.right.getText()}`
                 : `${node.left.getText()} ${newOperatorText} null`,

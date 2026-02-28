@@ -1,7 +1,6 @@
 import * as AST from "@eslint-react/ast";
 import { toRegExp } from "@eslint-react/shared";
 import type { RuleContext, RuleFeature } from "@eslint-react/shared";
-import { type unit } from "@local/eff";
 import { getConstrainedTypeAtLocation } from "@typescript-eslint/type-utils";
 import { AST_NODE_TYPES as T, type TSESTree } from "@typescript-eslint/types";
 import { ESLintUtils } from "@typescript-eslint/utils";
@@ -18,12 +17,7 @@ export const RULE_FEATURES = [] as const satisfies RuleFeature[];
 
 export type MessageID = CamelCase<typeof RULE_NAME>;
 
-type Options = readonly [
-  | unit
-  | {
-    readonly pattern?: string;
-  },
-];
+type Options = readonly [{ readonly pattern?: string }?];
 
 const defaultPattern = "/^(is|has|should)/u";
 

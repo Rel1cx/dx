@@ -1,4 +1,3 @@
-import { unit } from "@local/eff";
 import { match } from "ts-pattern";
 import { type AST, defineRule } from "tsl";
 import ts from "typescript";
@@ -17,7 +16,7 @@ interface ImportInfo {
   node: AST.ImportDeclaration;
   kind: ImportKind;
   source: string;
-  defaultImport: string | unit;
+  defaultImport: string | null;
   bindings: NamedBindings;
 }
 
@@ -55,7 +54,7 @@ export const noDuplicateImports = defineRule(() => {
           node,
           source: importSource,
           kind: importKind,
-          defaultImport: node.importClause.name?.getText(),
+          defaultImport: node.importClause.name?.getText() ?? null,
           bindings: match(node.importClause.namedBindings)
             .with({ kind: ts.SyntaxKind.NamedImports }, (nb) => ({
               kind: "named" as const,
