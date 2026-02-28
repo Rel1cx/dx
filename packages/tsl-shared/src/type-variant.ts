@@ -1,25 +1,6 @@
 import { match } from "ts-pattern";
 import type ts from "typescript";
-import {
-  isAnyType,
-  isBigIntType,
-  isBooleanType,
-  isEnumType,
-  isFalseLiteralType,
-  isFalsyBigIntType,
-  isFalsyNumberType,
-  isFalsyStringType,
-  isNeverType,
-  isNullishType,
-  isNumberType,
-  isObjectType,
-  isStringType,
-  isTrueLiteralType,
-  isTruthyBigIntType,
-  isTruthyNumberType,
-  isTruthyStringType,
-  isUnknownType,
-} from "./type-is";
+import { isAnyType, isBigIntType, isBooleanType, isEnumType, isFalseLiteralType, isFalsyBigIntType, isFalsyNumberType, isFalsyStringType, isNeverType, isNullishType, isNumberType, isObjectType, isStringType, isTrueLiteralType, isTruthyBigIntType, isTruthyNumberType, isTruthyStringType, isUnknownType } from "./type-is";
 
 /**
  * Represents the variant classification of a TypeScript type

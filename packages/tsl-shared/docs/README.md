@@ -4,6 +4,7 @@
 
 | Type Alias | Description |
 | ------ | ------ |
+| [JsxElementLike](type-aliases/JsxElementLike.md) | - |
 | [TypeVariant](type-aliases/TypeVariant.md) | Represents the variant classification of a TypeScript type for use in strict boolean expression checking |
 
 ## Functions

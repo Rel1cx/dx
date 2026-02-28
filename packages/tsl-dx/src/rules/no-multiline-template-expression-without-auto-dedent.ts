@@ -1,13 +1,10 @@
-import { defineRule } from "tsl";
+import { type AST, defineRule } from "tsl";
 import { SyntaxKind } from "typescript";
-
-import { getLine } from "../utils";
 
 export const messages = {
   useDedentTag: () => "Use a dedent tag to auto-dedent this template expression's content.",
   // suggestions
-  addDedentTag: (p: { name: string }) =>
-    `Add a/an '${p.name}' tag to this template expression to auto-dedent its content.`,
+  addDedentTag: (p: { name: string }) => `Add a/an '${p.name}' tag to this template expression to auto-dedent its content.`,
 } as const;
 
 export type noMultilineTemplateExpressionWithoutAutoDedentOptions = {
@@ -37,15 +34,20 @@ export type noMultilineTemplateExpressionWithoutAutoDedentOptions = {
  * `;
  * ```
  */
-export const noMultilineTemplateExpressionWithoutAutoDedent = defineRule((
-  options?: noMultilineTemplateExpressionWithoutAutoDedentOptions,
-) => {
+export const noMultilineTemplateExpressionWithoutAutoDedent = defineRule((options?: noMultilineTemplateExpressionWithoutAutoDedentOptions) => {
   const dedentTagNames = options
     ?.dedentTagNames
     ?? ["dedent"];
   const dedentTagImportCallback = options
     ?.dedentTagImportCallback
     ?? ((name: string) => `import ${name} from "dedent";\n`);
+  function getLine(node: AST.AnyNode) {
+    const sourceFile = node.getSourceFile();
+    return [
+      sourceFile.getLineAndCharacterOfPosition(node.getStart()).line,
+      sourceFile.getLineAndCharacterOfPosition(node.getEnd()).line,
+    ] as const;
+  }
   return {
     name: "dx/no-multiline-template-expression-without-auto-dedent",
     visitor: {
