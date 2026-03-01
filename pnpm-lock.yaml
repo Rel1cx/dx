@@ -36,8 +36,8 @@ importers:
         specifier: ^2.0.8
         version: 2.0.8
       '@types/node':
-        specifier: ^25.3.2
-        version: 25.3.2
+        specifier: ^25.3.3
+        version: 25.3.3
       ansis:
         specifier: ^4.2.0
         version: 4.2.0
@@ -48,8 +48,8 @@ importers:
         specifier: ^3.19.19
         version: 3.19.19
       publint:
-        specifier: ^0.3.17
-        version: 0.3.17
+        specifier: ^0.3.18
+        version: 0.3.18
       react:
         specifier: ^19.2.4
         version: 19.2.4
@@ -67,7 +67,7 @@ importers:
         version: 5.9.0
       tsdown:
         specifier: ^0.21.0-beta.2
-        version: 0.21.0-beta.2(publint@0.3.17)(typescript@5.9.3)
+        version: 0.21.0-beta.2(publint@0.3.18)(typescript@5.9.3)
       tsl:
         specifier: ^1.0.29
         version: 1.0.29(typescript@5.9.3)
@@ -91,7 +91,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^4.0.18
-        version: 4.0.18(@types/node@25.3.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
+        version: 4.0.18(@types/node@25.3.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
 
   .pkgs/configs:
     dependencies:
@@ -154,17 +154,17 @@ importers:
         specifier: workspace:*
         version: link:../../.pkgs/eff
       '@types/node':
-        specifier: ^25.3.2
-        version: 25.3.2
+        specifier: ^25.3.3
+        version: 25.3.3
       dedent:
-        specifier: ^1.7.1
-        version: 1.7.1
+        specifier: ^1.7.2
+        version: 1.7.2
       eslint:
         specifier: ^10.0.2
         version: 10.0.2(jiti@2.6.1)
       tsdown:
         specifier: ^0.21.0-beta.2
-        version: 0.21.0-beta.2(publint@0.3.17)(typescript@5.9.3)
+        version: 0.21.0-beta.2(publint@0.3.18)(typescript@5.9.3)
       tsl:
         specifier: ^1.0.29
         version: 1.0.29(typescript@5.9.3)
@@ -201,17 +201,17 @@ importers:
         specifier: workspace:*
         version: link:../../.pkgs/eff
       dedent:
-        specifier: ^1.7.1
-        version: 1.7.1
+        specifier: ^1.7.2
+        version: 1.7.2
       tsdown:
         specifier: ^0.21.0-beta.2
-        version: 0.21.0-beta.2(publint@0.3.17)(typescript@5.9.3)
+        version: 0.21.0-beta.2(publint@0.3.18)(typescript@5.9.3)
       tsl:
         specifier: ^1.0.29
         version: 1.0.29(typescript@5.9.3)
       vitest:
         specifier: ^4.0.18
-        version: 4.0.18(@types/node@25.3.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
+        version: 4.0.18(@types/node@25.3.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
 
   packages/tsl-rules-of-react:
     dependencies:
@@ -235,8 +235,8 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.14)
       dedent:
-        specifier: ^1.7.1
-        version: 1.7.1
+        specifier: ^1.7.2
+        version: 1.7.2
       preact:
         specifier: ^10.28.4
         version: 10.28.4
@@ -248,7 +248,7 @@ importers:
         version: 19.2.4(react@19.2.4)
       tsdown:
         specifier: ^0.21.0-beta.2
-        version: 0.21.0-beta.2(publint@0.3.17)(typescript@5.9.3)
+        version: 0.21.0-beta.2(publint@0.3.18)(typescript@5.9.3)
       tsl:
         specifier: ^1.0.29
         version: 1.0.29(typescript@5.9.3)
@@ -257,7 +257,7 @@ importers:
         version: link:../tsl-shared
       vitest:
         specifier: ^4.0.18
-        version: 4.0.18(@types/node@25.3.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
+        version: 4.0.18(@types/node@25.3.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
 
   packages/tsl-shared:
     dependencies:
@@ -272,11 +272,11 @@ importers:
         specifier: workspace:*
         version: link:../../.pkgs/eff
       dedent:
-        specifier: ^1.7.1
-        version: 1.7.1
+        specifier: ^1.7.2
+        version: 1.7.2
       tsdown:
         specifier: ^0.21.0-beta.2
-        version: 0.21.0-beta.2(publint@0.3.17)(typescript@5.9.3)
+        version: 0.21.0-beta.2(publint@0.3.18)(typescript@5.9.3)
       tsl:
         specifier: ^1.0.29
         version: 1.0.29(typescript@5.9.3)
@@ -285,7 +285,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^4.0.18
-        version: 4.0.18(@types/node@25.3.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
+        version: 4.0.18(@types/node@25.3.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
 
 packages:
 
@@ -821,8 +821,8 @@ packages:
     resolution: {integrity: sha512-WYa2tUVV5HiArWPB3ydlOc4R2ivq0IDrlqhMi3l7mVsFEXNcTfxYFPIHXHXIh/ca/y/V5N4E1zecyxdIBjYnkQ==}
     engines: {node: '>= 10.0.0'}
 
-  '@publint/pack@0.1.3':
-    resolution: {integrity: sha512-dHDWeutAerz+Z2wFYAce7Y51vd4rbLBfUh0BNnyul4xKoVsPUVJBrOAFsJvtvYBwGFJSqKsxyyHf/7evZ8+Q5Q==}
+  '@publint/pack@0.1.4':
+    resolution: {integrity: sha512-HDVTWq3H0uTXiU0eeSQntcVUTPP3GamzeXI41+x7uU9J65JgWQh3qWZHblR1i0npXfFtF+mxBiU2nJH8znxWnQ==}
     engines: {node: '>=18'}
 
   '@quansync/fs@1.0.0':
@@ -1081,8 +1081,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@25.3.2':
-    resolution: {integrity: sha512-RpV6r/ij22zRRdyBPcxDeKAzH43phWVKEjL2iksqo1Vz3CuBUrgmPpPhALKiRfU7OMCmeeO9vECBMsV0hMTG8Q==}
+  '@types/node@25.3.3':
+    resolution: {integrity: sha512-DpzbrH7wIcBaJibpKo9nnSQL0MTRdnWttGyE5haGwK86xgMOkFLp7vEyfQPGLOJh5wNYiJ3V9PmUMDhV9u8kkQ==}
 
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
@@ -1281,8 +1281,8 @@ packages:
       supports-color:
         optional: true
 
-  dedent@1.7.1:
-    resolution: {integrity: sha512-9JmrhGZpOlEgOLdQgSm0zxFaYoQon408V1v49aqTWuXENVlnCuY9JBZcXZiCsZQWDjTm5Qf/nIvAy77mXDAjEg==}
+  dedent@1.7.2:
+    resolution: {integrity: sha512-WzMx3mW98SN+zn3hgemf4OzdmyNhhhKz5Ay0pUfQiMQ3e1g+xmTJWp/pKdwKVXhdSkAEGIIzqeuWrL3mV/AXbA==}
     peerDependencies:
       babel-plugin-macros: ^3.1.0
     peerDependenciesMeta:
@@ -1635,8 +1635,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  publint@0.3.17:
-    resolution: {integrity: sha512-Q3NLegA9XM6usW+dYQRG1g9uEHiYUzcCVBJDJ7yMcWRqVU9LYZUWdqbwMZfmTCFC5PZLQpLAmhvRcQRl3exqkw==}
+  publint@0.3.18:
+    resolution: {integrity: sha512-JRJFeBTrfx4qLwEuGFPk+haJOJN97KnPuK01yj+4k/Wj5BgoOK5uNsivporiqBjk2JDaslg7qJOhGRnpltGeog==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2405,7 +2405,7 @@ snapshots:
       '@parcel/watcher-win32-ia32': 2.5.4
       '@parcel/watcher-win32-x64': 2.5.4
 
-  '@publint/pack@0.1.3': {}
+  '@publint/pack@0.1.4': {}
 
   '@quansync/fs@1.0.0':
     dependencies:
@@ -2570,7 +2570,7 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@25.3.2':
+  '@types/node@25.3.3':
     dependencies:
       undici-types: 7.18.2
 
@@ -2719,13 +2719,13 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.0.3
 
-  '@vitest/mocker@4.0.18(vite@7.3.0(@types/node@25.3.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1))':
+  '@vitest/mocker@4.0.18(vite@7.3.0(@types/node@25.3.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1))':
     dependencies:
       '@vitest/spy': 4.0.18
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 7.3.0(@types/node@25.3.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
+      vite: 7.3.0(@types/node@25.3.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
 
   '@vitest/pretty-format@4.0.18':
     dependencies:
@@ -2811,7 +2811,7 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
-  dedent@1.7.1: {}
+  dedent@1.7.2: {}
 
   deep-is@0.1.4: {}
 
@@ -3188,9 +3188,9 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  publint@0.3.17:
+  publint@0.3.18:
     dependencies:
-      '@publint/pack': 0.1.3
+      '@publint/pack': 0.1.4
       package-manager-detector: 1.6.0
       picocolors: 1.1.1
       sade: 1.8.1
@@ -3333,7 +3333,7 @@ snapshots:
 
   ts-pattern@5.9.0: {}
 
-  tsdown@0.21.0-beta.2(publint@0.3.17)(typescript@5.9.3):
+  tsdown@0.21.0-beta.2(publint@0.3.18)(typescript@5.9.3):
     dependencies:
       ansis: 4.2.0
       cac: 6.7.14
@@ -3352,7 +3352,7 @@ snapshots:
       unconfig-core: 7.5.0
       unrun: 0.2.28
     optionalDependencies:
-      publint: 0.3.17
+      publint: 0.3.18
       typescript: 5.9.3
     transitivePeerDependencies:
       - '@ts-macro/tsc'
@@ -3438,7 +3438,7 @@ snapshots:
 
   uuid@11.1.0: {}
 
-  vite@7.3.0(@types/node@25.3.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1):
+  vite@7.3.0(@types/node@25.3.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1):
     dependencies:
       esbuild: 0.27.3
       fdir: 6.5.0(picomatch@4.0.3)
@@ -3447,16 +3447,16 @@ snapshots:
       rollup: 4.54.0
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 25.3.2
+      '@types/node': 25.3.3
       fsevents: 2.3.3
       jiti: 2.6.1
       tsx: 4.21.0
       yaml: 2.8.1
 
-  vitest@4.0.18(@types/node@25.3.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1):
+  vitest@4.0.18(@types/node@25.3.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1):
     dependencies:
       '@vitest/expect': 4.0.18
-      '@vitest/mocker': 4.0.18(vite@7.3.0(@types/node@25.3.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1))
+      '@vitest/mocker': 4.0.18(vite@7.3.0(@types/node@25.3.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1))
       '@vitest/pretty-format': 4.0.18
       '@vitest/runner': 4.0.18
       '@vitest/snapshot': 4.0.18
@@ -3473,10 +3473,10 @@ snapshots:
       tinyexec: 1.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vite: 7.3.0(@types/node@25.3.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
+      vite: 7.3.0(@types/node@25.3.3)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 25.3.2
+      '@types/node': 25.3.3
     transitivePeerDependencies:
       - jiti
       - less
