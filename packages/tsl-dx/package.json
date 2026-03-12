@@ -36,9 +36,9 @@
     "@local/configs": "workspace:*",
     "@local/eff": "workspace:*",
     "dedent": "^1.7.2",
-    "tsdown": "^0.21.0-beta.2",
+    "tsdown": "^0.21.2",
     "tsl": "^1.0.29",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.0"
   },
   "peerDependencies": {
     "tsl": "^1.0.29",
