@@ -83,12 +83,17 @@ export const noDuplicateImports = defineRule(() => {
 });
 
 function buildSuggestions(existing: ImportInfo, incoming: ImportInfo) {
-  if (
-    incoming.kind === "defer"
-    || incoming.bindings.kind === "namespace"
-    || existing.bindings.kind === "namespace"
-  ) {
-    return [];
+  switch (true) {
+    case incoming.kind === "defer"
+      || incoming.bindings.kind === "namespace"
+      || existing.bindings.kind === "namespace":
+      return [];
+    case existing.defaultImport != null
+      && incoming.defaultImport != null
+      && existing.defaultImport !== incoming.defaultImport:
+      return [];
+    default:
+      break;
   }
   // Both bindings are guaranteed to be "named" here
   const parts: string[] = [];
@@ -110,7 +115,11 @@ function buildSuggestions(existing: ImportInfo, incoming: ImportInfo) {
     {
       message: "Merge duplicate imports",
       changes: [
-        { node: incoming.node, newText: "" },
+        {
+          start: incoming.node.getFullStart(),
+          end: incoming.node.getEnd(),
+          newText: "",
+        },
         {
           node: existing.node,
           newText: `${importKindPrefix} ${parts.join(", ")} from ${existing.source};`,

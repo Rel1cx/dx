@@ -20,7 +20,7 @@ test("no-duplicate-import", () => {
               {
                 message: "Merge duplicate imports",
                 output: tsx`
-                  import { A, B } from 'module';\n
+                  import { A, B } from 'module';
                 `,
               },
             ],
@@ -40,7 +40,7 @@ test("no-duplicate-import", () => {
               {
                 message: "Merge duplicate imports",
                 output: tsx`
-                  import type { A, B } from 'module';\n
+                  import type { A, B } from 'module';
                 `,
               },
             ],
@@ -62,6 +62,7 @@ test("no-duplicate-import", () => {
         ],
       },
       {
+        // Conflicting default imports across all three statements
         code: tsx`
           import foo, { type bar, baz } from 'module';
           import foo2, { type qux, quux } from 'module';
@@ -71,28 +72,14 @@ test("no-duplicate-import", () => {
           {
             line: 2,
             message: messages.default({ source: "'module'" }),
-            suggestions: [
-              {
-                message: "Merge duplicate imports",
-                output: tsx`
-                  import foo, { type bar, baz, type qux, quux } from 'module';\n
-                  import foo3, { corge } from 'module';
-                `,
-              },
-            ],
+            // Cannot merge: conflicting default imports foo vs foo2
+            suggestions: [],
           },
           {
             line: 3,
             message: messages.default({ source: "'module'" }),
-            suggestions: [
-              {
-                message: "Merge duplicate imports",
-                output: tsx`
-                  import foo, { type bar, baz, corge } from 'module';
-                  import foo2, { type qux, quux } from 'module';\n
-                `,
-              },
-            ],
+            // Cannot merge: conflicting default imports foo vs foo3
+            suggestions: [],
           },
         ],
       },
@@ -138,7 +125,7 @@ test("no-duplicate-import", () => {
               {
                 message: "Merge duplicate imports",
                 output: tsx`
-                  import { A as B, C as D } from 'module';\n
+                  import { A as B, C as D } from 'module';
                 `,
               },
             ],
@@ -158,6 +145,159 @@ test("no-duplicate-import", () => {
           },
         ],
       },
+      {
+        // Conflicting default imports with no named bindings
+        code: tsx`
+          import A from 'module';
+          import B from 'module';
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [],
+          },
+        ],
+      },
+      {
+        // Conflicting default imports with named bindings
+        code: tsx`
+          import A, { foo } from 'module';
+          import B, { bar } from 'module';
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [],
+          },
+        ],
+      },
+      {
+        // Same default import name on both sides IS safe to merge
+        code: tsx`
+          import A, { foo } from 'module';
+          import A, { bar } from 'module';
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import A, { foo, bar } from 'module';
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        // Only existing has default, incoming has only named — merge is safe
+        code: tsx`
+          import Default from 'module';
+          import { A } from 'module';
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import Default, { A } from 'module';
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        // Only incoming has default, existing has only named — merge is safe
+        code: tsx`
+          import { A } from 'module';
+          import Default from 'module';
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import Default, { A } from 'module';
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        // Removing duplicate import should not leave a trailing blank line
+        code: tsx`
+          import { A } from 'module';
+          import { B } from 'module';
+          const x = 1;
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import { A, B } from 'module';
+                  const x = 1;
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        // Three imports from same module — no blank lines should accumulate
+        code: tsx`
+          import { A } from 'module';
+          import { B } from 'module';
+          import { C } from 'module';
+          const x = 1;
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import { A, B } from 'module';
+                  import { C } from 'module';
+                  const x = 1;
+                `,
+              },
+            ],
+          },
+          {
+            line: 3,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import { A, C } from 'module';
+                  import { B } from 'module';
+                  const x = 1;
+                `,
+              },
+            ],
+          },
+        ],
+      },
     ],
     ruleFn: noDuplicateImports,
     tsx: true,
@@ -172,6 +312,11 @@ test("no-duplicate-import", () => {
         import { A } from 'module';
         import type { A } from 'module';
         import defer { A } from 'module';
+      `,
+      // Reversed order: value first, then type
+      tsx`
+        import { B } from 'module';
+        import type { A } from 'module';
       `,
       tsx`
         import defer * as ns from "mod";

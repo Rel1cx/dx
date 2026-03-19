@@ -1,6 +1,6 @@
 [tsl-dx](../README.md) / noDuplicateExports
 
-# Variable: noDuplicateExports()
+# Variable: noDuplicateExports
 
 ```ts
 const noDuplicateExports: (options?: "off") => Rule<unknown>;

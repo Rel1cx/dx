@@ -53,25 +53,26 @@ export const noDuplicateExports = defineRule(() => {
   };
 });
 
-function buildSuggestions(a: ReExportDeclaration, b: ReExportDeclaration) {
+function buildSuggestions(existing: ReExportDeclaration, incoming: ReExportDeclaration) {
   switch (true) {
-    case ts.isNamedExports(a.exportClause)
-      && ts.isNamedExports(b.exportClause): {
-      const aElements = a.exportClause.elements.map((el) => el.getText());
-      const bElements = b.exportClause.elements.map((el) => el.getText());
-      const parts = Array.from(new Set([...aElements, ...bElements]));
+    case ts.isNamedExports(existing.exportClause)
+      && ts.isNamedExports(incoming.exportClause): {
+      const existingElements = existing.exportClause.elements.map((el) => el.getText());
+      const incomingElements = incoming.exportClause.elements.map((el) => el.getText());
+      const parts = Array.from(new Set([...existingElements, ...incomingElements]));
       return [
         {
           message: "Merge duplicate exports",
           changes: [
             {
-              node: a,
+              start: incoming.getFullStart(),
+              end: incoming.getEnd(),
               newText: "",
             },
             {
-              node: b,
+              node: existing,
               // dprint-ignore
-              newText: `export ${a.isTypeOnly ? "type " : ""}{ ${parts.join(", ")} } from ${a.moduleSpecifier.getText()};`,
+              newText: `export ${existing.isTypeOnly ? "type " : ""}{ ${parts.join(", ")} } from ${existing.moduleSpecifier.getText()};`,
             },
           ],
         },

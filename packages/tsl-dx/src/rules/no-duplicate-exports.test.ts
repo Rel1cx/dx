@@ -19,7 +19,9 @@ test("no-duplicate-exports", () => {
             suggestions: [
               {
                 message: "Merge duplicate exports",
-                output: tsx`\nexport { A, B } from 'module';`,
+                output: tsx`
+                  export { A, B } from 'module';
+                `,
               },
             ],
           },
@@ -37,7 +39,9 @@ test("no-duplicate-exports", () => {
             suggestions: [
               {
                 message: "Merge duplicate exports",
-                output: tsx`\nexport type { A, B } from 'module';`,
+                output: tsx`
+                  export type { A, B } from 'module';
+                `,
               },
             ],
           },
@@ -57,7 +61,10 @@ test("no-duplicate-exports", () => {
             suggestions: [
               {
                 message: "Merge duplicate exports",
-                output: tsx`\nexport { A, B } from 'module';\nexport { C } from 'module';`,
+                output: tsx`
+                  export { A, B } from 'module';
+                  export { C } from 'module';
+                `,
               },
             ],
           },
@@ -67,7 +74,10 @@ test("no-duplicate-exports", () => {
             suggestions: [
               {
                 message: "Merge duplicate exports",
-                output: tsx`\nexport { B } from 'module';\nexport { A, C } from 'module';`,
+                output: tsx`
+                  export { A, C } from 'module';
+                  export { B } from 'module';
+                `,
               },
             ],
           },
@@ -86,7 +96,9 @@ test("no-duplicate-exports", () => {
             suggestions: [
               {
                 message: "Merge duplicate exports",
-                output: tsx`\nexport { A as B, C as D } from 'module';`,
+                output: tsx`
+                  export { A as B, C as D } from 'module';
+                `,
               },
             ],
           },
@@ -105,7 +117,9 @@ test("no-duplicate-exports", () => {
             suggestions: [
               {
                 message: "Merge duplicate exports",
-                output: tsx`\nexport { A, B, C, D } from 'module';`,
+                output: tsx`
+                  export { A, B, C, D } from 'module';
+                `,
               },
             ],
           },
