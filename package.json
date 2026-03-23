@@ -30,8 +30,8 @@
     "update:version": "tsx ./scripts/update-version.ts"
   },
   "devDependencies": {
-    "@effect/platform": "^0.95.0",
-    "@effect/platform-node": "^0.105.0",
+    "@effect/platform": "^0.96.0",
+    "@effect/platform-node": "^0.106.0",
     "@eslint/compat": "^2.0.3",
     "@local/configs": "workspace:*",
     "@local/eff": "workspace:*",
@@ -40,7 +40,7 @@
     "@types/node": "^25.5.0",
     "ansis": "^4.2.0",
     "dprint": "^0.53.0",
-    "effect": "^3.20.0",
+    "effect": "^3.21.0",
     "publint": "^0.3.18",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
