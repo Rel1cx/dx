@@ -39,7 +39,7 @@
     "@tsconfig/strictest": "^2.0.8",
     "@types/node": "^25.5.0",
     "ansis": "^4.2.0",
-    "dprint": "^0.53.0",
+    "dprint": "^0.53.1",
     "effect": "^3.21.0",
     "publint": "^0.3.18",
     "react": "^19.2.4",
@@ -47,17 +47,17 @@
     "sort-package-json": "^3.6.1",
     "tinyglobby": "^0.2.15",
     "ts-pattern": "^5.9.0",
-    "tsdown": "^0.21.4",
+    "tsdown": "^0.21.6",
     "tsl": "^1.0.29",
     "tsl-dx": "workspace:*",
     "tsx": "latest",
-    "typedoc": "^0.28.17",
+    "typedoc": "^0.28.18",
     "typedoc-plugin-markdown": "^4.11.0",
     "typedoc-plugin-mdn-links": "^5.1.1",
-    "typescript": "^5.9.3",
-    "vitest": "^4.1.0"
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.2"
   },
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@10.33.0",
   "engines": {
     "node": ">=24.0.0"
   }

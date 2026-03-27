@@ -36,21 +36,21 @@
   "dependencies": {
     "@eslint-react/ast": "^3.0.0",
     "@eslint-react/shared": "^3.0.0",
-    "@typescript-eslint/scope-manager": "^8.57.1",
-    "@typescript-eslint/type-utils": "^8.57.1",
-    "@typescript-eslint/types": "^8.57.1",
-    "@typescript-eslint/utils": "^8.57.1",
+    "@typescript-eslint/scope-manager": "^8.57.2",
+    "@typescript-eslint/type-utils": "^8.57.2",
+    "@typescript-eslint/types": "^8.57.2",
+    "@typescript-eslint/utils": "^8.57.2",
     "string-ts": "^2.3.1",
     "ts-api-utils": "^2.5.0",
     "ts-pattern": "^5.9.0",
-    "typescript-eslint": "^8.57.1"
+    "typescript-eslint": "^8.57.2"
   },
   "devDependencies": {
     "@local/eff": "workspace:*",
     "@types/node": "^25.5.0",
     "dedent": "^1.7.2",
     "eslint": "^10.1.0",
-    "tsdown": "^0.21.4",
+    "tsdown": "^0.21.6",
     "tsl": "^1.0.29"
   },
   "peerDependencies": {
