@@ -1,6 +1,6 @@
 [tsl-rules-of-react](../README.md) / rulesOfReact
 
-# Variable: rulesOfReact
+# Variable: rulesOfReact()
 
 ```ts
 const rulesOfReact: (options?: "off") => Rule<unknown>;

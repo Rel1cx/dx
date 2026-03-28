@@ -1,6 +1,6 @@
 [tsl-dx](../README.md) / noDuplicateImports
 
-# Variable: noDuplicateImports
+# Variable: noDuplicateImports()
 
 ```ts
 const noDuplicateImports: (options?: "off") => Rule<unknown>;
