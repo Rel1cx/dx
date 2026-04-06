@@ -11,7 +11,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **tsl-rules-of-react**: New package - Rules of React for tsl
 - **tsl-shared**: New package - Shared utilities for tsl
 
 ### Changed
