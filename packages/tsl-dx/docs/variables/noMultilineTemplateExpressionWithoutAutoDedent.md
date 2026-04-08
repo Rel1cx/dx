@@ -1,6 +1,6 @@
 [tsl-dx](../README.md) / noMultilineTemplateExpressionWithoutAutoDedent
 
-# Variable: noMultilineTemplateExpressionWithoutAutoDedent()
+# Variable: noMultilineTemplateExpressionWithoutAutoDedent
 
 ```ts
 const noMultilineTemplateExpressionWithoutAutoDedent: (options?: noMultilineTemplateExpressionWithoutAutoDedentOptions | "off") => Rule<unknown>;

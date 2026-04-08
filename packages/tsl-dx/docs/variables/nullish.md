@@ -1,6 +1,6 @@
 [tsl-dx](../README.md) / nullish
 
-# Variable: nullish()
+# Variable: nullish
 
 ```ts
 const nullish: (options?: nullishOptions | "off") => Rule<unknown>;
