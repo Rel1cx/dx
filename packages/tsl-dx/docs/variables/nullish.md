@@ -6,7 +6,7 @@
 const nullish: (options?: nullishOptions | "off") => Rule<unknown>;
 ```
 
-Rule to enforce the use of `unit` instead of `undefined` and loose equality for nullish checks.
+Rule to enforce the use of loose equality for nullish checks.
 
 ## Parameters
 
@@ -22,12 +22,10 @@ Rule to enforce the use of `unit` instead of `undefined` and loose equality for 
 
 ```ts
 // Incorrect
-let x = undefined;
 if (x === undefined) { }
 ```
 
 ```ts
 // Correct
-let x = unit;
 if (x == null) { }
 ```
