@@ -38,7 +38,7 @@
     "dedent": "^1.7.2",
     "tsdown": "^0.21.7",
     "tsl": "^1.0.30",
-    "vitest": "^4.1.3"
+    "vitest": "^4.1.4"
   },
   "peerDependencies": {
     "tsl": "^1.0.30",
