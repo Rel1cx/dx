@@ -12,6 +12,8 @@
   },
   "license": "MIT",
   "author": "Rel1cx<let@ik.me>",
+  "private": true,
+  "sideEffects": false,
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
