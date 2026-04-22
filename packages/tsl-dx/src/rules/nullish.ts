@@ -1,6 +1,8 @@
 import { match } from "ts-pattern";
 import { defineRule } from "tsl";
-import { SyntaxKind } from "typescript";
+import ts, { SyntaxKind } from "typescript";
+
+import { printNode } from "../utils/print-node";
 
 export const messages = {
   default: (p: { op: string }) => `Use '${p.op}' for nullish comparison.`,
@@ -37,10 +39,13 @@ export const nullish = defineRule((options?: nullishOptions) => ({
   visitor: {
     BinaryExpression(ctx, node) {
       const newOperatorText = match(node.operatorToken.kind)
-        .with(SyntaxKind.EqualsEqualsEqualsToken, () => "==")
-        .with(SyntaxKind.ExclamationEqualsEqualsToken, () => "!=")
+        .with(SyntaxKind.EqualsEqualsEqualsToken, () => "==" as const)
+        .with(SyntaxKind.ExclamationEqualsEqualsToken, () => "!=" as const)
         .otherwise(() => null);
       if (newOperatorText == null) return;
+      const operatorToken = newOperatorText === "=="
+        ? ts.factory.createToken(ts.SyntaxKind.EqualsEqualsToken)
+        : ts.factory.createToken(ts.SyntaxKind.ExclamationEqualsToken);
       const offendingChild = [node.left, node.right].find((n) => {
         switch (n.kind) {
           case SyntaxKind.NullKeyword:
@@ -52,24 +57,29 @@ export const nullish = defineRule((options?: nullishOptions) => ({
         }
       });
       if (offendingChild == null) return;
+      const nullNode = ts.factory.createNull();
       ctx.report({
         message: messages.default({ op: newOperatorText }),
         node,
         suggestions: [
           {
             message: messages.replace({
-              expr: offendingChild === node.left
-                ? `null ${newOperatorText} ${node.right.getText()}`
-                : `${node.left.getText()} ${newOperatorText} null`,
+              expr: printNode(
+                offendingChild === node.left
+                  // @ts-expect-error - type issue
+                  ? ts.factory.createBinaryExpression(nullNode, operatorToken, node.right)
+                  // @ts-expect-error - type issue
+                  : ts.factory.createBinaryExpression(node.left, operatorToken, nullNode),
+              ),
             }),
             changes: [
               {
                 node: node.operatorToken,
-                newText: newOperatorText,
+                newText: printNode(operatorToken),
               },
               {
                 node: offendingChild,
-                newText: "null",
+                newText: printNode(nullNode),
               },
             ],
           },

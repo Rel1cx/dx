@@ -1,5 +1,7 @@
 import { type AST, defineRule } from "tsl";
-import { SyntaxKind } from "typescript";
+import ts, { SyntaxKind } from "typescript";
+
+import { printNode } from "../utils/print-node";
 
 export const messages = {
   useDedentTag: () => "Use a dedent tag to auto-dedent this template expression's content.",
@@ -40,7 +42,14 @@ export const noMultilineTemplateExpressionWithoutAutoDedent = defineRule((option
     ?? ["dedent"];
   const dedentTagImportCallback = options
     ?.dedentTagImportCallback
-    ?? ((name: string) => `import ${name} from "dedent";\n`);
+    ?? ((name: string) => {
+      const importDecl = ts.factory.createImportDeclaration(
+        undefined,
+        ts.factory.createImportClause(undefined, ts.factory.createIdentifier(name), undefined),
+        ts.factory.createStringLiteral("dedent"),
+      );
+      return printNode(importDecl) + "\n";
+    });
   function getLine(node: AST.AnyNode) {
     const sourceFile = node.getSourceFile();
     return [

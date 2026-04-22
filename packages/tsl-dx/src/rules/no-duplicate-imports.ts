@@ -2,6 +2,8 @@ import { match } from "ts-pattern";
 import { type AST, defineRule } from "tsl";
 import ts from "typescript";
 
+import { printNode } from "../utils/print-node";
+
 export const messages = {
   default: (p: { source: string }) => `Duplicate import from module ${p.source}.`,
 } as const;
@@ -9,7 +11,7 @@ export const messages = {
 type ImportKind = "value" | "type" | "defer";
 
 type NamedBindings =
-  | { kind: "named"; imports: string[] }
+  | { kind: "named"; elements: readonly AST.ImportSpecifier[] }
   | { kind: "namespace"; name: string };
 
 interface ImportInfo {
@@ -58,13 +60,13 @@ export const noDuplicateImports = defineRule(() => {
           bindings: match(node.importClause.namedBindings)
             .with({ kind: ts.SyntaxKind.NamedImports }, (nb) => ({
               kind: "named" as const,
-              imports: nb.elements.map((el) => el.getText()),
+              elements: nb.elements,
             }))
             .with({ kind: ts.SyntaxKind.NamespaceImport }, (nb) => ({
               kind: "namespace" as const,
               name: nb.name.getText(),
             }))
-            .otherwise(() => ({ kind: "named" as const, imports: [] })),
+            .otherwise(() => ({ kind: "named" as const, elements: [] })),
         } as const satisfies ImportInfo;
         const existingImports = ctx.data.imports.get(importKind)!;
         const duplicateImport = existingImports.find((imp) => imp.source === importInfo.source);
@@ -96,21 +98,31 @@ function buildSuggestions(existing: ImportInfo, incoming: ImportInfo) {
       break;
   }
   // Both bindings are guaranteed to be "named" here
-  const parts: string[] = [];
   const defaultImport = existing.defaultImport ?? incoming.defaultImport;
-  if (defaultImport != null) {
-    parts.push(defaultImport);
+  const seen = new Set<string>();
+  const elements: ts.ImportSpecifier[] = [];
+  for (const el of [...existing.bindings.elements, ...incoming.bindings.elements]) {
+    const text = el.getText();
+    if (seen.has(text)) continue;
+    seen.add(text);
+    elements.push(ts.factory.createImportSpecifier(
+      el.isTypeOnly,
+      el.propertyName ? ts.factory.createIdentifier(el.propertyName.text) : undefined,
+      ts.factory.createIdentifier(el.name.text),
+    ));
   }
-  const mergedImports = Array.from(
-    new Set([
-      ...existing.bindings.imports,
-      ...incoming.bindings.imports,
-    ]),
+  const sourceText = existing.source;
+  const isSingleQuote = sourceText.startsWith("'");
+  const sourceValue = sourceText.slice(1, -1);
+  const importDecl = ts.factory.createImportDeclaration(
+    undefined,
+    ts.factory.createImportClause(
+      incoming.kind === "type",
+      defaultImport != null ? ts.factory.createIdentifier(defaultImport) : undefined,
+      ts.factory.createNamedImports(elements),
+    ),
+    ts.factory.createStringLiteral(sourceValue, isSingleQuote),
   );
-  if (mergedImports.length > 0) {
-    parts.push(`{ ${mergedImports.join(", ")} }`);
-  }
-  const importKindPrefix = incoming.kind === "value" ? "import" : "import type";
   return [
     {
       message: "Merge duplicate imports",
@@ -122,7 +134,7 @@ function buildSuggestions(existing: ImportInfo, incoming: ImportInfo) {
         },
         {
           node: existing.node,
-          newText: `${importKindPrefix} ${parts.join(", ")} from ${existing.source};`,
+          newText: printNode(importDecl),
         },
       ],
     },

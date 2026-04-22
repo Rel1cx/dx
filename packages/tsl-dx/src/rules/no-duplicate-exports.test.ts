@@ -125,6 +125,27 @@ test("no-duplicate-exports", () => {
           },
         ],
       },
+      {
+        // Double-quoted module specifier should preserve quotes in output
+        code: tsx`
+          export { A } from "module";
+          export { B } from "module";
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: '"module"' }),
+            suggestions: [
+              {
+                message: "Merge duplicate exports",
+                output: tsx`
+                  export { A, B } from "module";
+                `,
+              },
+            ],
+          },
+        ],
+      },
     ],
     ruleFn: noDuplicateExports,
     tsx: true,

@@ -1,6 +1,7 @@
 {
   "name": "@local/eff",
   "version": "0.2.9",
+  "private": true,
   "description": "JavaScript and TypeScript utilities.",
   "homepage": "https://github.com/Rel1cx/dx",
   "bugs": {
@@ -12,7 +13,6 @@
   },
   "license": "MIT",
   "author": "Rel1cx<let@ik.me>",
-  "private": true,
   "sideEffects": false,
   "type": "module",
   "exports": {

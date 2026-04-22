@@ -1,6 +1,8 @@
 import { type AST, defineRule } from "tsl";
 import ts from "typescript";
 
+import { printNode } from "../utils/print-node";
+
 export const messages = {
   default: (p: { source: string }) => `Duplicate export from module ${p.source}.`,
 } as const;
@@ -57,9 +59,27 @@ function buildSuggestions(existing: ReExportDeclaration, incoming: ReExportDecla
   switch (true) {
     case ts.isNamedExports(existing.exportClause)
       && ts.isNamedExports(incoming.exportClause): {
-      const existingElements = existing.exportClause.elements.map((el) => el.getText());
-      const incomingElements = incoming.exportClause.elements.map((el) => el.getText());
-      const parts = Array.from(new Set([...existingElements, ...incomingElements]));
+      const seen = new Set<string>();
+      const elements: ts.ExportSpecifier[] = [];
+      for (const el of [...existing.exportClause.elements, ...incoming.exportClause.elements]) {
+        const text = el.getText();
+        if (seen.has(text)) continue;
+        seen.add(text);
+        elements.push(ts.factory.createExportSpecifier(
+          el.isTypeOnly,
+          el.propertyName != null ? ts.factory.createIdentifier(el.propertyName.text) : undefined,
+          ts.factory.createIdentifier(el.name.text),
+        ));
+      }
+      const specifierText = existing.moduleSpecifier.getText();
+      const isSingleQuote = specifierText.startsWith("'");
+      const specifierValue = specifierText.slice(1, -1);
+      const exportDecl = ts.factory.createExportDeclaration(
+        undefined,
+        existing.isTypeOnly,
+        ts.factory.createNamedExports(elements),
+        ts.factory.createStringLiteral(specifierValue, isSingleQuote),
+      );
       return [
         {
           message: "Merge duplicate exports",
@@ -71,8 +91,7 @@ function buildSuggestions(existing: ReExportDeclaration, incoming: ReExportDecla
             },
             {
               node: existing,
-              // dprint-ignore
-              newText: `export ${existing.isTypeOnly ? "type " : ""}{ ${parts.join(", ")} } from ${existing.moduleSpecifier.getText()};`,
+              newText: printNode(exportDecl),
             },
           ],
         },

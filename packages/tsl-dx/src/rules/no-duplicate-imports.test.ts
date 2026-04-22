@@ -298,6 +298,48 @@ test("no-duplicate-import", () => {
           },
         ],
       },
+      {
+        // Double-quoted module specifier should preserve quotes in output
+        code: tsx`
+          import { A } from "module";
+          import { B } from "module";
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: '"module"' }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import { A, B } from "module";
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        // Type-only import with default import merge
+        code: tsx`
+          import type Default, { A } from 'module';
+          import type { B } from 'module';
+        `,
+        errors: [
+          {
+            line: 2,
+            message: messages.default({ source: "'module'" }),
+            suggestions: [
+              {
+                message: "Merge duplicate imports",
+                output: tsx`
+                  import type Default, { A, B } from 'module';
+                `,
+              },
+            ],
+          },
+        ],
+      },
     ],
     ruleFn: noDuplicateImports,
     tsx: true,

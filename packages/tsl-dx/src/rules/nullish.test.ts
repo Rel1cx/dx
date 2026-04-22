@@ -135,6 +135,44 @@ test("nullish", () => {
           },
         ],
       },
+      {
+        // null on the left side with ===
+        code: tsx`
+          if (null === a) { }
+        `,
+        errors: [
+          {
+            message: messages.default({ op: "==" }),
+            suggestions: [
+              {
+                message: messages.replace({ expr: "null == a" }),
+                output: tsx`
+                  if (null == a) { }
+                `,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        // unit identifier on the left side with ===
+        code: tsx`
+          if (unit === a) { }
+        `,
+        errors: [
+          {
+            message: messages.default({ op: "==" }),
+            suggestions: [
+              {
+                message: messages.replace({ expr: "null == a" }),
+                output: tsx`
+                  if (null == a) { }
+                `,
+              },
+            ],
+          },
+        ],
+      },
     ],
     ruleFn: nullish,
     tsx: true,
