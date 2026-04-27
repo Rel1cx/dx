@@ -107,7 +107,7 @@ function buildSuggestions(existing: ImportInfo, incoming: ImportInfo) {
     seen.add(text);
     elements.push(ts.factory.createImportSpecifier(
       el.isTypeOnly,
-      el.propertyName ? ts.factory.createIdentifier(el.propertyName.text) : undefined,
+      el.propertyName != null ? ts.factory.createIdentifier(el.propertyName.text) : undefined,
       ts.factory.createIdentifier(el.name.text),
     ));
   }
