@@ -13,33 +13,21 @@ A function that takes a guard function as predicate and returns a guard that neg
 ### Type Parameters
 
 | Type Parameter |
-| -------------- |
-| `T`            |
-| `S`            |
+| ------ |
+| `T` |
+| `S` |
 
 ### Parameters
 
-| Parameter   | Type                         | Description                   |
-| ----------- | ---------------------------- | ----------------------------- |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
 | `predicate` | (`data`: `T`) => `data is S` | The guard function to negate. |
 
 ### Returns
 
-Function A guard function.
+A guard function that negates the given predicate.
 
-```ts
-(data: T): data is Exclude<T, S>;
-```
-
-#### Parameters
-
-| Parameter | Type |
-| --------- | ---- |
-| `data`    | `T`  |
-
-#### Returns
-
-`data is Exclude<T, S>`
+(`data`: `T`) => `data is Exclude<T, S>`
 
 ## Call Signature
 
@@ -52,29 +40,17 @@ A function that takes a guard function as predicate and returns a guard that neg
 ### Type Parameters
 
 | Type Parameter |
-| -------------- |
-| `T`            |
+| ------ |
+| `T` |
 
 ### Parameters
 
-| Parameter   | Type                       | Description                   |
-| ----------- | -------------------------- | ----------------------------- |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
 | `predicate` | (`data`: `T`) => `boolean` | The guard function to negate. |
 
 ### Returns
 
-Function A guard function.
+A guard function that negates the given predicate.
 
-```ts
-(data: T): boolean;
-```
-
-#### Parameters
-
-| Parameter | Type |
-| --------- | ---- |
-| `data`    | `T`  |
-
-#### Returns
-
-`boolean`
+(`data`: `T`) => `boolean`

@@ -10,42 +10,32 @@ Inverse function of `tupled`.
 
 ## Type Parameters
 
-| Type Parameter                     |
-| ---------------------------------- |
-| `A` _extends_ readonly `unknown`[] |
-| `B`                                |
+| Type Parameter |
+| ------ |
+| `A` *extends* readonly `unknown`[] |
+| `B` |
 
 ## Parameters
 
-| Parameter | Type              | Description                   |
-| --------- | ----------------- | ----------------------------- |
-| `f`       | (`a`: `A`) => `B` | The function to be converted. |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `f` | (`a`: `A`) => `B` | The function to be converted. |
 
 ## Returns
 
-```ts
-(...a: A): B;
-```
+A new function that accepts spread arguments instead of a tuple.
 
-### Parameters
-
-| Parameter | Type |
-| --------- | ---- |
-| ...`a`    | `A`  |
-
-### Returns
-
-`B`
+(...`a`: `A`) => `B`
 
 ## Example
 
 ```ts
-import { untupled } from "effect/Function";
-import * as assert from "node:assert";
+import * as assert from "node:assert"
+import { untupled } from "effect/Function"
 
-const getFirst = untupled(<A, B>(tuple: [A, B]): A => tuple[0]);
+const getFirst = untupled(<A, B>(tuple: [A, B]): A => tuple[0])
 
-assert.deepStrictEqual(getFirst(1, 2), 1);
+assert.deepStrictEqual(getFirst(1, 2), 1)
 ```
 
 ## Since

@@ -11,21 +11,17 @@ A function that checks if the passed parameter is an Array and narrows its type 
 ## Type Parameters
 
 | Type Parameter |
-| -------------- |
-| `T`            |
+| ------ |
+| `T` |
 
 ## Parameters
 
-| Parameter | Type                            | Description            |
-| --------- | ------------------------------- | ---------------------- |
-| `data`    | `T` \| `ArrayLike`\<`unknown`\> | The variable to check. |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `data` | `T` \| `ArrayLike`\<`unknown`\> | The variable to check. |
 
 ## Returns
 
 `data is NarrowedTo<T, readonly unknown[]>`
 
 True if the passed input is an Array, false otherwise.
-
-## Since
-
-1.0.0

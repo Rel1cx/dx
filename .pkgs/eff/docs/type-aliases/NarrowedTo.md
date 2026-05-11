@@ -12,16 +12,12 @@ in order to narrow the `unknown` case.
 ## Type Parameters
 
 | Type Parameter |
-| -------------- |
-| `T`            |
-| `Base`         |
+| ------ |
+| `T` |
+| `Base` |
 
 ## Example
 
 ```ts
 function isMyType<T>(data: T | MyType): data is NarrowedTo<T, MyType> { ... }
 ```
-
-## Since
-
-1.0.0

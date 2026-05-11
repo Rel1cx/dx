@@ -1,11 +1,11 @@
 [Public APIs](../README.md) / compose
 
-# Variable: compose()
+# Variable: compose
 
 ```ts
 const compose: {
-  <B, C>(bc: (b: B) => C): <A>(self: (a: A) => B) => (a: A) => C;
-  <A, B, C>(self: (a: A) => B, bc: (b: B) => C): (a: A) => C;
+<B, C>  (bc: (b: B) => C): <A>(self: (a: A) => B) => (a: A) => C;
+<A, B, C>  (self: (a: A) => B, bc: (b: B) => C): (a: A) => C;
 };
 ```
 
@@ -21,49 +21,19 @@ The result is obtained by first applying the `ab` function to `a` and then apply
 ### Type Parameters
 
 | Type Parameter |
-| -------------- |
-| `B`            |
-| `C`            |
+| ------ |
+| `B` |
+| `C` |
 
 ### Parameters
 
-| Parameter | Type              |
-| --------- | ----------------- |
-| `bc`      | (`b`: `B`) => `C` |
+| Parameter | Type |
+| ------ | ------ |
+| `bc` | (`b`: `B`) => `C` |
 
 ### Returns
 
-```ts
-<A>(self: (a: A) => B): (a: A) => C;
-```
-
-#### Type Parameters
-
-| Type Parameter |
-| -------------- |
-| `A`            |
-
-#### Parameters
-
-| Parameter | Type              |
-| --------- | ----------------- |
-| `self`    | (`a`: `A`) => `B` |
-
-#### Returns
-
-```ts
-(a: A): C;
-```
-
-##### Parameters
-
-| Parameter | Type |
-| --------- | ---- |
-| `a`       | `A`  |
-
-##### Returns
-
-`C`
+\<`A`\>(`self`: (`a`: `A`) => `B`) => (`a`: `A`) => `C`
 
 ## Call Signature
 
@@ -74,39 +44,39 @@ The result is obtained by first applying the `ab` function to `a` and then apply
 ### Type Parameters
 
 | Type Parameter |
-| -------------- |
-| `A`            |
-| `B`            |
-| `C`            |
+| ------ |
+| `A` |
+| `B` |
+| `C` |
 
 ### Parameters
 
-| Parameter | Type              |
-| --------- | ----------------- |
-| `self`    | (`a`: `A`) => `B` |
-| `bc`      | (`b`: `B`) => `C` |
+| Parameter | Type |
+| ------ | ------ |
+| `self` | (`a`: `A`) => `B` |
+| `bc` | (`b`: `B`) => `C` |
 
 ### Returns
 
-```ts
-(a: A): C;
-```
+(`a`: `A`) => `C`
 
-#### Parameters
+## Param
 
-| Parameter | Type |
-| --------- | ---- |
-| `a`       | `A`  |
+The first function to apply (or the composed function in data-last style).
 
-#### Returns
+## Param
 
-`C`
+The second function to apply.
+
+## Returns
+
+A composed function that applies both functions in sequence.
 
 ## Example
 
 ```ts
-import { compose } from "effect/Function";
-import * as assert from "node:assert";
+import * as assert from "node:assert"
+import { compose } from "effect/Function"
 
 const increment = (n: number) => n + 1;
 const square = (n: number) => n * n;

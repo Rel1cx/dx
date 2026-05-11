@@ -11,15 +11,17 @@ Returns its argument.
 ## Type Parameters
 
 | Type Parameter |
-| -------------- |
-| `T`            |
+| ------ |
+| `T` |
 
 ## Parameters
 
-| Parameter | Type | Description          |
-| --------- | ---- | -------------------- |
-| `x`       | `T`  | The value to return. |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `x` | `T` | The value to return. |
 
 ## Returns
 
 `T`
+
+The input value unchanged.

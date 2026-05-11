@@ -3,17 +3,15 @@
 # Type Alias: Pretty\<T\>
 
 ```ts
-type Pretty<T> = { [P in keyof T]: T[P] } & {};
+type Pretty<T> = { [P in keyof T]: T[P] } & {
+};
 ```
 
-Converts a type to a pretty-printed version that is easier to read in IDE tooltips.
+Simplifies a complex type intersection into a flat object type for better readability
+in IDE tooltips and error messages.
 
 ## Type Parameters
 
 | Type Parameter |
-| -------------- |
-| `T`            |
-
-## Since
-
-1.0.0
+| ------ |
+| `T` |

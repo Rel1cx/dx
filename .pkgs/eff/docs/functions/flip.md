@@ -10,55 +10,33 @@ Reverses the order of arguments for a curried function.
 
 ## Type Parameters
 
-| Type Parameter            |
-| ------------------------- |
-| `A` _extends_ `unknown`[] |
-| `B` _extends_ `unknown`[] |
-| `C`                       |
+| Type Parameter |
+| ------ |
+| `A` *extends* `unknown`[] |
+| `B` *extends* `unknown`[] |
+| `C` |
 
 ## Parameters
 
-| Parameter | Type                                  | Description           |
-| --------- | ------------------------------------- | --------------------- |
-| `f`       | (...`a`: `A`) => (...`b`: `B`) => `C` | The function to flip. |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `f` | (...`a`: `A`) => (...`b`: `B`) => `C` | The function to flip. |
 
 ## Returns
 
-```ts
-(...b: B): (...a: A) => C;
-```
+A new function with the argument order reversed.
 
-### Parameters
-
-| Parameter | Type |
-| --------- | ---- |
-| ...`b`    | `B`  |
-
-### Returns
-
-```ts
-(...a: A): C;
-```
-
-#### Parameters
-
-| Parameter | Type |
-| --------- | ---- |
-| ...`a`    | `A`  |
-
-#### Returns
-
-`C`
+(...`b`: `B`) => (...`a`: `A`) => `C`
 
 ## Example
 
 ```ts
-import { flip } from "effect/Function";
-import * as assert from "node:assert";
+import * as assert from "node:assert"
+import { flip } from "effect/Function"
 
-const f = (a: number) => (b: string) => a - b.length;
+const f = (a: number) => (b: string) => a - b.length
 
-assert.deepStrictEqual(flip(f)("aaa")(2), -1);
+assert.deepStrictEqual(flip(f)('aaa')(2), -1)
 ```
 
 ## Since

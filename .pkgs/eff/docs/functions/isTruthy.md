@@ -11,21 +11,17 @@ A function that checks if the passed parameter is truthy and narrows its type ac
 ## Type Parameters
 
 | Type Parameter |
-| -------------- |
-| `T`            |
+| ------ |
+| `T` |
 
 ## Parameters
 
-| Parameter | Type | Description            |
-| --------- | ---- | ---------------------- |
-| `data`    | `T`  | The variable to check. |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `data` | `T` | The variable to check. |
 
 ## Returns
 
 data is Exclude\<T, false \| "" \| 0 \| null \| undefined\>
 
 True if the passed input is truthy, false otherwise.
-
-## Since
-
-1.0.0

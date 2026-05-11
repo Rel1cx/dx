@@ -11,45 +11,29 @@ Apply a function to a given value.
 ## Type Parameters
 
 | Type Parameter |
-| -------------- |
-| `A`            |
+| ------ |
+| `A` |
 
 ## Parameters
 
-| Parameter | Type | Description         |
-| --------- | ---- | ------------------- |
-| `a`       | `A`  | The value to apply. |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `a` | `A` | The value to apply. |
 
 ## Returns
 
-```ts
-<B>(self: (a: A) => B): B;
-```
+A function that takes a function and applies it to the given value.
 
-### Type Parameters
-
-| Type Parameter |
-| -------------- |
-| `B`            |
-
-### Parameters
-
-| Parameter | Type              |
-| --------- | ----------------- |
-| `self`    | (`a`: `A`) => `B` |
-
-### Returns
-
-`B`
+\<`B`\>(`self`: (`a`: `A`) => `B`) => `B`
 
 ## Example
 
 ```ts
-import { apply, pipe } from "effect/Function";
-import { length } from "effect/String";
-import * as assert from "node:assert";
+import * as assert from "node:assert"
+import { pipe, apply } from "effect/Function"
+import { length } from "effect/String"
 
-assert.deepStrictEqual(pipe(length, apply("hello")), 5);
+assert.deepStrictEqual(pipe(length, apply("hello")), 5)
 ```
 
 ## Since
