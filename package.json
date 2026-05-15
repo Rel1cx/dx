@@ -34,11 +34,11 @@
     "@local/eff": "workspace:*",
     "@tsconfig/node24": "^24.0.4",
     "@tsconfig/strictest": "^2.0.8",
-    "@types/node": "^25.7.0",
+    "@types/node": "^25.8.0",
     "ansis": "^4.3.0",
     "dprint": "^0.54.0",
     "effect": "^4.0.0-beta.65",
-    "publint": "^0.3.20",
+    "publint": "^0.3.21",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "sort-package-json": "^3.6.1",
@@ -54,7 +54,7 @@
     "typescript": "^6.0.3",
     "vitest": "^4.1.6"
   },
-  "packageManager": "pnpm@11.1.1",
+  "packageManager": "pnpm@11.1.2",
   "engines": {
     "node": ">=24.0.0"
   }
