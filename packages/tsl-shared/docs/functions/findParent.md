@@ -1,11 +1,14 @@
-[tsl-shared](../README.md) / findParentNode
+[tsl-shared](../README.md) / findParent
 
-# Function: findParentNode()
+# Function: findParent()
 
 ## Call Signature
 
 ```ts
-function findParentNode<A>(node: AnyNode | null, test: (n: AnyNode) => n is A): A | null;
+function findParent<A>(
+   node: AnyNode | null, 
+   test: (n: AnyNode) => n is A, 
+   stop?: NodePredicate): A | null;
 ```
 
 Find the parent node that satisfies the test function
@@ -22,6 +25,7 @@ Find the parent node that satisfies the test function
 | ------ | ------ | ------ |
 | `node` | `AnyNode` \| `null` | The AST node |
 | `test` | (`n`: `AnyNode`) => `n is A` | The test function |
+| `stop?` | `NodePredicate` | The stop function |
 
 ### Returns
 
@@ -32,7 +36,10 @@ The parent node that satisfies the test function or `_` if not found
 ## Call Signature
 
 ```ts
-function findParentNode(node: AnyNode | null, test: (node: AnyNode) => boolean): AnyNode | null;
+function findParent(
+   node: AnyNode | null, 
+   test: (node: AnyNode) => boolean, 
+   stop?: NodePredicate): AnyNode | null;
 ```
 
 Find the parent node that satisfies the test function or `_` if not found
@@ -43,6 +50,7 @@ Find the parent node that satisfies the test function or `_` if not found
 | ------ | ------ | ------ |
 | `node` | `AnyNode` \| `null` | The AST node |
 | `test` | (`node`: `AnyNode`) => `boolean` | The test function |
+| `stop?` | `NodePredicate` | The stop function |
 
 ### Returns
 
