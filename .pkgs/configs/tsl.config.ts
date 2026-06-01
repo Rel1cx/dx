@@ -1,6 +1,11 @@
 import { globSync } from "tinyglobby";
 import { core, defineConfig } from "tsl";
-import { noDuplicateExports, noDuplicateImports, noMultilineTemplateExpressionWithoutAutoDedent, nullish } from "tsl-dx";
+import {
+  noDuplicateExports,
+  noDuplicateImports,
+  noMultilineTemplateExpressionWithoutAutoDedent,
+  nullish,
+} from "tsl-dx";
 
 export default defineConfig({
   ignore: [

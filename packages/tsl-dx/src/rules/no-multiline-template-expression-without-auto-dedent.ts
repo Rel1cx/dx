@@ -6,7 +6,8 @@ import { printNode } from "../utils/print-node";
 export const messages = {
   useDedentTag: () => "Use a dedent tag to auto-dedent this template expression's content.",
   // suggestions
-  addDedentTag: (p: { name: string }) => `Add a/an '${p.name}' tag to this template expression to auto-dedent its content.`,
+  addDedentTag: (p: { name: string }) =>
+    `Add a/an '${p.name}' tag to this template expression to auto-dedent its content.`,
 } as const;
 
 export type noMultilineTemplateExpressionWithoutAutoDedentOptions = {
@@ -36,59 +37,61 @@ export type noMultilineTemplateExpressionWithoutAutoDedentOptions = {
  * `;
  * ```
  */
-export const noMultilineTemplateExpressionWithoutAutoDedent = defineRule((options?: noMultilineTemplateExpressionWithoutAutoDedentOptions) => {
-  const dedentTagNames = options
-    ?.dedentTagNames
-    ?? ["dedent"];
-  const dedentTagImportCallback = options
-    ?.dedentTagImportCallback
-    ?? ((name: string) => {
-      const importDecl = ts.factory.createImportDeclaration(
-        undefined,
-        ts.factory.createImportClause(undefined, ts.factory.createIdentifier(name), undefined),
-        ts.factory.createStringLiteral("dedent"),
-      );
-      return printNode(importDecl) + "\n";
-    });
-  function getLine(node: AST.AnyNode) {
-    const sourceFile = node.getSourceFile();
-    return [
-      sourceFile.getLineAndCharacterOfPosition(node.getStart()).line,
-      sourceFile.getLineAndCharacterOfPosition(node.getEnd()).line,
-    ] as const;
-  }
-  return {
-    name: "dx/no-multiline-template-expression-without-auto-dedent",
-    visitor: {
-      NoSubstitutionTemplateLiteral(ctx, node) {
-        const parent = node.parent;
-        // Assuming this tag supports auto-dedentation to keep it simple
-        if (parent.kind === SyntaxKind.TaggedTemplateExpression) return;
-        const [startLine, endLine] = getLine(node);
-        if (startLine !== endLine) {
-          ctx.report({
-            node,
-            message: messages.useDedentTag(),
-            suggestions: dedentTagNames
-              .map(name => {
-                return {
-                  message: messages.addDedentTag({ name }),
-                  changes: [
-                    {
-                      start: 0,
-                      end: 0,
-                      newText: dedentTagImportCallback(name),
-                    },
-                    {
-                      node,
-                      newText: `${name}${node.getFullText()}`,
-                    },
-                  ],
-                };
-              }),
-          });
-        }
+export const noMultilineTemplateExpressionWithoutAutoDedent = defineRule(
+  (options?: noMultilineTemplateExpressionWithoutAutoDedentOptions) => {
+    const dedentTagNames = options
+      ?.dedentTagNames
+      ?? ["dedent"];
+    const dedentTagImportCallback = options
+      ?.dedentTagImportCallback
+      ?? ((name: string) => {
+        const importDecl = ts.factory.createImportDeclaration(
+          undefined,
+          ts.factory.createImportClause(undefined, ts.factory.createIdentifier(name), undefined),
+          ts.factory.createStringLiteral("dedent"),
+        );
+        return printNode(importDecl) + "\n";
+      });
+    function getLine(node: AST.AnyNode) {
+      const sourceFile = node.getSourceFile();
+      return [
+        sourceFile.getLineAndCharacterOfPosition(node.getStart()).line,
+        sourceFile.getLineAndCharacterOfPosition(node.getEnd()).line,
+      ] as const;
+    }
+    return {
+      name: "dx/no-multiline-template-expression-without-auto-dedent",
+      visitor: {
+        NoSubstitutionTemplateLiteral(ctx, node) {
+          const parent = node.parent;
+          // Assuming this tag supports auto-dedentation to keep it simple
+          if (parent.kind === SyntaxKind.TaggedTemplateExpression) return;
+          const [startLine, endLine] = getLine(node);
+          if (startLine !== endLine) {
+            ctx.report({
+              node,
+              message: messages.useDedentTag(),
+              suggestions: dedentTagNames
+                .map(name => {
+                  return {
+                    message: messages.addDedentTag({ name }),
+                    changes: [
+                      {
+                        start: 0,
+                        end: 0,
+                        newText: dedentTagImportCallback(name),
+                      },
+                      {
+                        node,
+                        newText: `${name}${node.getFullText()}`,
+                      },
+                    ],
+                  };
+                }),
+            });
+          }
+        },
       },
-    },
-  };
-});
+    };
+  },
+);
