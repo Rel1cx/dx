@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **tsl-dx**: Replaced `// Incorrect` and `// Correct` comments with `// 🔴` and `// 🟢` in rule documentation and examples
+
 ## [0.10.3] - 2026-04-07
 
 ### Changed

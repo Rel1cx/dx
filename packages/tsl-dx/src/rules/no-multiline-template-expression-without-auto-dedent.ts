@@ -21,7 +21,7 @@ export type noMultilineTemplateExpressionWithoutAutoDedentOptions = {
  * @example
  *
  * ```ts
- * // Incorrect
+ * // 🔴
  * const message = `
  *   Hello
  *   World
@@ -29,7 +29,7 @@ export type noMultilineTemplateExpressionWithoutAutoDedentOptions = {
  * ```
  *
  * ```ts
- * // Correct
+ * // 🟢
  * import dedent from "dedent";
  * const message = dedent`
  *   Hello

@@ -21,7 +21,7 @@ Rule to enforce the use of a dedent tag for multiline template expressions.
 ## Example
 
 ```ts
-// Incorrect
+// 🔴
 const message = `
   Hello
   World
@@ -29,7 +29,7 @@ const message = `
 ```
 
 ```ts
-// Correct
+// 🟢
 import dedent from "dedent";
 const message = dedent`
   Hello

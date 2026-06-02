@@ -28,13 +28,13 @@ interface ImportInfo {
  * @example
  *
  * ```ts
- * // Incorrect
+ * // 🔴
  * import { A } from 'module';
  * import { B } from 'module';
  * ```
  *
  * ```ts
- * // Correct
+ * // 🟢
  * import { A, B } from 'module';
  * ```
  */

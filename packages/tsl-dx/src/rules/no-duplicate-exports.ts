@@ -19,13 +19,13 @@ function isReExportDeclaration(node: AST.ExportDeclaration): node is ReExportDec
  * @example
  *
  * ```ts
- * // Incorrect
+ * // 🔴
  * export { A } from 'module';
  * export { B } from 'module';
  * ```
  *
  * ```ts
- * // Correct
+ * // 🟢
  * export { A, B } from 'module';
  * ```
  */

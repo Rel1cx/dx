@@ -20,12 +20,12 @@ export type nullishOptions = {
  * @example
  *
  * ```ts
- * // Incorrect
+ * // 🔴
  * if (x === undefined) { }
  * ```
  *
  * ```ts
- * // Correct
+ * // 🟢
  * if (x == null) { }
  * ```
  */

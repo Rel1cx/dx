@@ -21,12 +21,12 @@ Rule to detect and merge duplicate `import from` statements from the same module
 ## Example
 
 ```ts
-// Incorrect
+// 🔴
 import { A } from 'module';
 import { B } from 'module';
 ```
 
 ```ts
-// Correct
+// 🟢
 import { A, B } from 'module';
 ```

@@ -21,11 +21,11 @@ Rule to enforce the use of loose equality for nullish checks.
 ## Example
 
 ```ts
-// Incorrect
+// 🔴
 if (x === undefined) { }
 ```
 
 ```ts
-// Correct
+// 🟢
 if (x == null) { }
 ```

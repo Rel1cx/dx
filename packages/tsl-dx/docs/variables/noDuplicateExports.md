@@ -21,12 +21,12 @@ Rule to detect and merge duplicate `export from` statements from the same module
 ## Example
 
 ```ts
-// Incorrect
+// 🔴
 export { A } from 'module';
 export { B } from 'module';
 ```
 
 ```ts
-// Correct
+// 🟢
 export { A, B } from 'module';
 ```
