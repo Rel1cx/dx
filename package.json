@@ -29,22 +29,22 @@
     "update:version": "tsx ./scripts/update-version.ts"
   },
   "devDependencies": {
-    "@effect/platform-node": "^4.0.0-beta.78",
+    "@effect/platform-node": "^4.0.0-beta.85",
     "@local/configs": "workspace:*",
     "@local/eff": "workspace:*",
     "@tsconfig/node24": "^24.0.4",
     "@tsconfig/strictest": "^2.0.8",
-    "@types/node": "^25.9.2",
+    "@types/node": "^26.0.0",
     "ansis": "^4.3.1",
     "dprint": "^0.54.0",
-    "effect": "^4.0.0-beta.78",
+    "effect": "^4.0.0-beta.85",
     "publint": "^0.3.21",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "sort-package-json": "^4.0.0",
     "tinyglobby": "^0.2.17",
     "ts-pattern": "^5.9.0",
-    "tsdown": "^0.22.2",
+    "tsdown": "^0.22.3",
     "tsl": "^1.0.30",
     "tsl-dx": "workspace:*",
     "tsx": "latest",
@@ -52,9 +52,9 @@
     "typedoc-plugin-markdown": "^4.12.0",
     "typedoc-plugin-mdn-links": "^5.1.1",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.8"
+    "vitest": "^4.1.9"
   },
-  "packageManager": "pnpm@11.5.3",
+  "packageManager": "pnpm@11.8.0",
   "engines": {
     "node": ">=24.0.0"
   }

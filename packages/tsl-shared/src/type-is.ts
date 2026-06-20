@@ -69,8 +69,7 @@ export const isEnumType = (type: ts.Type) => isTypeFlagSet(type, ts.TypeFlags.En
  * @param type The type to check
  * @returns Whether the type is a falsy bigint literal
  */
-export const isFalsyBigIntType = (type: ts.Type) =>
-  type.isLiteral() && isMatching({ value: { base10Value: "0" } }, type);
+export const isFalsyBigIntType = (type: ts.Type) => type.isLiteral() && isMatching({ value: { base10Value: "0" } }, type);
 
 /**
  * Check if a type is a falsy number literal (0)
@@ -98,8 +97,7 @@ export const isNeverType = (type: ts.Type) => isTypeFlagSet(type, ts.TypeFlags.N
  * @param type The type to check
  * @returns Whether the type is nullish
  */
-export const isNullishType = (type: ts.Type) =>
-  isTypeFlagSet(type, ts.TypeFlags.Null | ts.TypeFlags.Undefined | ts.TypeFlags.VoidLike);
+export const isNullishType = (type: ts.Type) => isTypeFlagSet(type, ts.TypeFlags.Null | ts.TypeFlags.Undefined | ts.TypeFlags.VoidLike);
 
 /**
  * Check if a type is a number type
@@ -141,8 +139,7 @@ export const isStringType = (type: ts.Type) => isTypeFlagSet(type, ts.TypeFlags.
  * @param type The type to check
  * @returns Whether the type is a truthy bigint literal
  */
-export const isTruthyBigIntType = (type: ts.Type) =>
-  type.isLiteral() && isMatching({ value: { base10Value: P.not("0") } }, type);
+export const isTruthyBigIntType = (type: ts.Type) => type.isLiteral() && isMatching({ value: { base10Value: P.not("0") } }, type);
 
 /**
  * Check if a type is a truthy number literal (not 0)

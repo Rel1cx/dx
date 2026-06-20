@@ -6,8 +6,7 @@ import { printNode } from "../utils/print-node";
 export const messages = {
   useDedentTag: () => "Use a dedent tag to auto-dedent this template expression's content.",
   // suggestions
-  addDedentTag: (p: { name: string }) =>
-    `Add a/an '${p.name}' tag to this template expression to auto-dedent its content.`,
+  addDedentTag: (p: { name: string }) => `Add a/an '${p.name}' tag to this template expression to auto-dedent its content.`,
 } as const;
 
 export type noMultilineTemplateExpressionWithoutAutoDedentOptions = {

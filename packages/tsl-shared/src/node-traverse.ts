@@ -10,11 +10,7 @@ type NodePredicate = (node: AST.AnyNode) => boolean;
  * @param stop The stop function
  * @returns The parent node that satisfies the test function or `_` if not found
  */
-function findParent<A extends AST.AnyNode>(
-  node: AST.AnyNode | null,
-  test: (n: AST.AnyNode) => n is A,
-  stop?: NodePredicate,
-): A | null;
+function findParent<A extends AST.AnyNode>(node: AST.AnyNode | null, test: (n: AST.AnyNode) => n is A, stop?: NodePredicate): A | null;
 /**
  * Find the parent node that satisfies the test function or `_` if not found
  * @param node The AST node
@@ -22,14 +18,9 @@ function findParent<A extends AST.AnyNode>(
  * @param stop The stop function
  * @returns The parent node that satisfies the test function
  */
-function findParent(
-  node: AST.AnyNode | null,
-  test: (node: AST.AnyNode) => boolean,
-  stop?: NodePredicate,
-): AST.AnyNode | null;
+function findParent(node: AST.AnyNode | null, test: (node: AST.AnyNode) => boolean, stop?: NodePredicate): AST.AnyNode | null;
 function findParent<A extends AST.AnyNode>(
   node: AST.AnyNode | null,
-  // tsl-ignore core/noRedundantTypeConstituents
   test: ((node: AST.AnyNode) => boolean) | ((n: AST.AnyNode) => n is A),
   stop?: NodePredicate,
 ): AST.AnyNode | A | null {

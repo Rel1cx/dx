@@ -3,20 +3,66 @@
   "version": "0.0.0",
   "private": true,
   "description": "Local config bases for use in the workspace",
+  "homepage": "https://github.com/Rel1cx/eslint-react",
+  "bugs": {
+    "url": "https://github.com/Rel1cx/eslint-react/issues"
+  },
+  "license": "MIT",
+  "author": "Rel1cx",
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./tsl.config.ts": "./tsl.config.ts",
+    "./eslint": {
+      "types": "./eslint.d.ts",
+      "import": "./eslint.js"
+    },
+    "./tsdown.config.base": {
+      "types": "./tsdown.config.base.d.ts",
+      "import": "./tsdown.config.base.js"
+    },
+    "./tsl.config.base": {
+      "types": "./tsl.config.base.d.ts",
+      "import": "./tsl.config.base.js"
+    },
     "./tsconfig.base.json": "./tsconfig.base.json",
     "./typedoc.base.json": "./typedoc.base.json"
   },
   "scripts": {
-    "lint:publish": "publint"
+    "build": "tsc -p tsconfig.json",
+    "lint:publish": "publint",
+    "lint:ts": "tsl"
   },
   "dependencies": {
-    "@tsconfig/node24": "^24.0.4",
-    "@tsconfig/strictest": "^2.0.8",
+    "@eslint/compat": "^2.1.0",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "eslint-plugin-de-morgan": "^2.1.2",
+    "eslint-plugin-jsdoc": "^63.0.6",
+    "eslint-plugin-perfectionist": "^5.9.1",
+    "eslint-plugin-regexp": "^3.1.0",
+    "eslint-plugin-unicorn": "^68.0.0",
+    "typescript-eslint": "^8.61.1"
+  },
+  "devDependencies": {
+    "eslint": "^10.5.0",
+    "tinyglobby": "^0.2.17",
+    "tsdown": "^0.22.3",
     "tsl": "^1.0.30",
-    "tsl-dx": "workspace:*"
+    "tsl-dx": "^0.12.2",
+    "typedoc": "^0.28.19",
+    "typedoc-plugin-markdown": "^4.12.0",
+    "typedoc-plugin-mdn-links": "^5.1.1",
+    "typescript": "6.0.3"
+  },
+  "peerDependencies": {
+    "eslint": "*",
+    "tsl": "^1.0.30",
+    "tsl-dx": "^0.12.2",
+    "typedoc": "^0.28.19",
+    "typedoc-plugin-markdown": "^4.12.0",
+    "typedoc-plugin-mdn-links": "^5.1.1",
+    "typescript": "*"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   }
 }

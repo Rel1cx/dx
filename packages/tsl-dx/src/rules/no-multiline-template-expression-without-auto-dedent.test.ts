@@ -1,10 +1,7 @@
 import { ruleTester } from "tsl/ruleTester";
 import { expect, test } from "vitest";
 
-import {
-  messages,
-  noMultilineTemplateExpressionWithoutAutoDedent,
-} from "./no-multiline-template-expression-without-auto-dedent";
+import { messages, noMultilineTemplateExpressionWithoutAutoDedent } from "./no-multiline-template-expression-without-auto-dedent";
 
 test("no-multiline-template-expression-without-auto-dedent", () => {
   const ret = ruleTester({
