@@ -1,0 +1,117 @@
+name: Release
+on:
+  push:
+    tags:
+      - "*"
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup pnpm and node@24
+        uses: pnpm/setup@5d160c5bc68a09337ad0d5654e237e03253b5879 # v1
+        with:
+          runtime: node@24
+          install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Determine release info
+        id: release
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          if echo "$COMMIT_MSG" | grep -qE '^release: [0-9]+\.[0-9]+\.[0-9]+$'; then
+            VERSION=$(echo "$COMMIT_MSG" | sed -E 's/^release: //')
+            echo "is_release=true" >> "$GITHUB_OUTPUT"
+            echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+            echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+            echo "prerelease=false" >> "$GITHUB_OUTPUT"
+          elif echo "$COMMIT_MSG" | grep -qE '^release: [0-9]+\.[0-9]+\.[0-9]+-(rc|beta|next)\.[0-9]+$'; then
+            VERSION=$(echo "$COMMIT_MSG" | sed -E 's/^release: //')
+            echo "is_release=true" >> "$GITHUB_OUTPUT"
+            echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+            echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+            echo "prerelease=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_release=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Extract release notes from CHANGELOG.md
+        if: steps.release.outputs.is_release == 'true'
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          {
+            echo "## What's Changed"
+            echo ""
+            awk -v ver="$VERSION" '
+              BEGIN { found=0 }
+              /^## / {
+                if (found) { exit }
+                if ($0 ~ "^## \\[" ver "\\]") { found=1; next }
+              }
+              found { print }
+            ' CHANGELOG.md
+          } > release_notes.md
+
+      - name: Pack packages
+        if: steps.release.outputs.is_release == 'true'
+        run: |
+          for dir in packages/*/; do
+            (cd "$dir" && pnpm pack)
+          done
+
+      - name: Attest packages
+        if: steps.release.outputs.is_release == 'true'
+        id: attest
+        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4.1.0
+        with:
+          subject-path: |
+            packages/*/*.tgz
+
+      - name: Create GitHub Release
+        if: steps.release.outputs.is_release == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release.outputs.tag }}
+          PRERELEASE: ${{ steps.release.outputs.prerelease }}
+          VERSION: ${{ steps.release.outputs.version }}
+          ATTESTATION_ID: ${{ steps.attest.outputs.attestation-id }}
+          REPO: ${{ github.repository }}
+        run: |
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            echo "Release $TAG already exists, skipping."
+            exit 0
+          fi
+          PRERELEASE_FLAG=""
+          if [ "$PRERELEASE" = "true" ]; then
+            PRERELEASE_FLAG="--prerelease"
+          fi
+          DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
+          TITLE="v$VERSION ($DATE)"
+          {
+            cat release_notes.md
+            echo ""
+            echo "## Attestation"
+            echo ""
+            echo "https://github.com/$REPO/attestations/$ATTESTATION_ID"
+          } > final_release_notes.md
+          gh release create "$TAG" \
+            --title "$TITLE" \
+            --notes-file final_release_notes.md \
+            $PRERELEASE_FLAG \
+            packages/*/*.tgz
