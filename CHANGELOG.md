@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **tsl-dx**: Added `no-unsafe-as` rule to disallow `as` type assertions except `as const` and `as unknown`
+
 ### Changed
 
 - **tsl-dx**: Replaced `// Incorrect` and `// Correct` comments with `// 🔴` and `// 🟢` in rule documentation and examples

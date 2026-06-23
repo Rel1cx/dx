@@ -5,6 +5,15 @@ import * as Fn from "effect/Function";
 import { not, or } from "effect/Predicate";
 import * as Str from "effect/String";
 
+export const version = Effect.gen(function*() {
+  const fs = yield* FileSystem.FileSystem;
+  return Fn.pipe(
+    yield* fs.readFileString("VERSION", "utf8"),
+    Str.trim,
+    Str.replace(/^v/, ""),
+  );
+});
+
 export const ignores = Effect.gen(function*() {
   const fs = yield* FileSystem.FileSystem;
   const content = yield* fs.readFileString(".gitignore", "utf8");

@@ -5,9 +5,8 @@ import * as Effect from "effect/Effect";
 import * as FileSystem from "effect/FileSystem";
 import * as Fn from "effect/Function";
 import { P, isMatching, match } from "ts-pattern";
-import { glob } from "./lib/glob";
-import { ignores } from "./lib/ignores";
-import { version } from "./lib/version";
+import { ignores, version } from "./effects";
+import { glob } from "./helpers";
 
 const GLOB_PACKAGE_JSON = [
   "package.json",
