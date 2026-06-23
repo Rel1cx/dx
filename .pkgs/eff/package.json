@@ -29,7 +29,7 @@
     "build:docs": "typedoc",
     "lint:publish": "publint",
     "lint:ts": "tsl",
-    "publish": "pnpm run build && pnpm run lint:publish"
+    "publish": "node --run build && node --run lint:publish"
   },
   "devDependencies": {
     "tsl": "^1.0.30"
