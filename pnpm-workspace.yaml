@@ -12,6 +12,7 @@ minimumReleaseAgeExclude:
   - "@effect/platform-node-shared@4.0.0-beta.85"
   - "@effect/platform-node@4.0.0-beta.85"
   - effect@4.0.0-beta.85
+  - tsl-dx@0.13.1
 onlyBuiltDependencies:
   - core-js
   - dprint
