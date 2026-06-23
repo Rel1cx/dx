@@ -1,11 +1,15 @@
 {
   "name": "tsl-dx",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "description": "A tsl plugin for better JavaScript/TypeScript DX.",
   "keywords": [
     "tsl",
     "tsl-dx"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rel1cx/dx"
+  },
   "license": "MIT",
   "author": "Rel1cx<let@ik.me>",
   "sideEffects": false,

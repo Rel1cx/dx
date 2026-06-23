@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.1] - 2026-06-23
+
 ### Added
 
 - **tsl-dx**: Added `no-unsafe-as` rule to disallow `as` type assertions except `as const` and `as unknown`
@@ -14,6 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - **tsl-dx**: Replaced `// Incorrect` and `// Correct` comments with `// 🔴` and `// 🟢` in rule documentation and examples
+
+### Fixed
+
+- **tsl-dx**: Fixed missing `repository.url` in `package.json` that caused npm provenance verification to fail during publish
+- **tsl-shared**: Added missing `repository` field to `package.json` to align with npm provenance requirements
 
 ## [0.10.3] - 2026-04-07
 
