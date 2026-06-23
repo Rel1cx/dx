@@ -1,6 +1,6 @@
 import { globSync } from "tinyglobby";
 import { defineConfig } from "tsl";
-import { noDuplicateExports, noDuplicateImports, noMultilineTemplateExpressionWithoutAutoDedent, nullish } from "tsl-dx";
+import { noDuplicateExports, noDuplicateImports, noMultilineTemplateExpressionWithoutAutoDedent, noUnsafeAs, nullish } from "tsl-dx";
 export function buildConfig(cwd) {
     return defineConfig({
         ignore: [
@@ -30,6 +30,7 @@ export function buildConfig(cwd) {
             nullish({
                 runtimeLibrary: "@eslint-react/eff",
             }),
+            noUnsafeAs(),
             noDuplicateImports(),
             noDuplicateExports(),
             noMultilineTemplateExpressionWithoutAutoDedent({
