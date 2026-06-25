@@ -29,15 +29,15 @@
     "update:version": "tsx ./scripts/update-version.ts"
   },
   "devDependencies": {
-    "@effect/platform-node": "^4.0.0-beta.85",
+    "@effect/platform-node": "^4.0.0-beta.90",
     "@local/configs": "workspace:*",
     "@local/eff": "workspace:*",
     "@tsconfig/node24": "^24.0.4",
     "@tsconfig/strictest": "^2.0.8",
-    "@types/node": "^26.0.0",
+    "@types/node": "^26.0.1",
     "ansis": "^4.3.1",
     "dprint": "^0.54.0",
-    "effect": "^4.0.0-beta.85",
+    "effect": "^4.0.0-beta.90",
     "publint": "^0.3.21",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
@@ -54,7 +54,7 @@
     "typescript": "^6.0.3",
     "vitest": "^4.1.9"
   },
-  "packageManager": "pnpm@11.8.0",
+  "packageManager": "pnpm@11.9.0",
   "engines": {
     "node": ">=24.0.0"
   }

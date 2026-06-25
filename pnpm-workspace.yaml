@@ -8,11 +8,6 @@ allowBuilds:
   dprint: true
   esbuild: true
   msgpackr-extract: true
-minimumReleaseAgeExclude:
-  - "@effect/platform-node-shared@4.0.0-beta.85"
-  - "@effect/platform-node@4.0.0-beta.85"
-  - effect@4.0.0-beta.85
-  - tsl-dx@0.13.1
 onlyBuiltDependencies:
   - core-js
   - dprint
@@ -23,5 +18,11 @@ overrides:
   "tslib": "^2.8.1"
   "typescript": "^6.0.3"
   "undici": "^8.5.0"
-
-# trustPolicy: "no-downgrade"
+minimumReleaseAgeExclude:
+  - "@effect/platform-node-shared@4.0.0-beta.85 || 4.0.0-beta.90"
+  - "@effect/platform-node@4.0.0-beta.85 || 4.0.0-beta.90"
+  - effect@4.0.0-beta.85 || 4.0.0-beta.90
+  - tsl-dx@0.13.1
+  - "@types/node@26.0.1"
+  - eslint-plugin-jsdoc@63.0.8
+  - eslint-plugin-unicorn@69.0.0
