@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.2] - 2026-06-27
+
+### Added
+
+- **tsl-dx**: Enabled `no-unsafe-as` rule in the shared `tsl` config
+- Added `lint:text` script with textlint configuration for Markdown/MDX files
+- Added `lint:arch` script with sentrux architecture gate configuration
+
+### Changed
+
+- Switched all CI and package script invocations to `node --run`
+- Renamed `test/fixtures` directory to `testing/samples` and updated related tooling configs
+- Cleaned up and expanded `.gitignore` rules
+- Updated dependencies
+
 ## [0.13.1] - 2026-06-23
 
 ### Added
