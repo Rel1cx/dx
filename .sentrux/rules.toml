@@ -1,0 +1,68 @@
+[constraints]
+max_cycles = 0 # zero tolerance for circular dependencies
+max_coupling = "B" # maximum coupling grade
+max_cc = 50 # raised to avoid noise from legacy complex functions; focus is on layer architecture
+max_god_file_count = 0
+
+# ─────────────────────────────────────────────
+# Layer ordering
+# ─────────────────────────────────────────────
+# sentrux layer_direction rule (observed behavior in v0.5.7):
+#   source layer order must be <= target layer order.
+# Therefore, order increases from the topmost application layer down to the bottommost infrastructure layer.
+# ─────────────────────────────────────────────
+
+[[layers]]
+name = "apps"
+paths = ["apps/**/*"]
+order = 0
+
+[[layers]]
+name = "dx"
+paths = ["packages/tsl-dx/**/*"]
+order = 1
+
+[[layers]]
+name = "shared"
+paths = ["packages/tsl-shared/**/*"]
+order = 2
+
+[[layers]]
+name = "local"
+paths = [".pkgs/**/*"]
+order = 3
+
+# Prevent packages from reverse-depending on applications.
+# (Layer ordering already blocks this; the boundary makes it explicit.)
+[[boundaries]]
+from = "packages/**/*"
+to = "apps/**/*"
+reason = "Packages must not depend on applications"
+
+# Applications must not depend on each other
+[[boundaries]]
+from = "apps/website/**/*"
+to = "apps/playground/**/*"
+reason = "Applications must remain independent"
+
+[[boundaries]]
+from = "apps/playground/**/*"
+to = "apps/website/**/*"
+reason = "Applications must remain independent"
+
+# Shared packages must not depend on higher-level dx packages
+[[boundaries]]
+from = "packages/tsl-shared/**/*"
+to = "packages/tsl-dx/**/*"
+reason = "Shared layer is foundational and must not depend on higher-level packages"
+
+# Local packages must not depend on workspace packages to stay a pure foundation
+[[boundaries]]
+from = ".pkgs/**/*"
+to = "apps/**/*"
+reason = "Local packages must remain pure and not depend on workspace applications"
+
+[[boundaries]]
+from = ".pkgs/**/*"
+to = "packages/**/*"
+reason = "Local packages must remain pure and not depend on workspace packages"

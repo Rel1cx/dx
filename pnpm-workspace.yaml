@@ -9,8 +9,9 @@ allowBuilds:
   esbuild: true
   msgpackr-extract: true
 minimumReleaseAgeExclude:
-  - eslint-plugin-jsdoc@63.0.9
+  - eslint-plugin-jsdoc@63.0.9 || 63.0.10
   - eslint-plugin-regexp@3.1.1
+  - eslint@10.6.0
 onlyBuiltDependencies:
   - core-js
   - dprint
