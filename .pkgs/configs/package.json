@@ -39,15 +39,15 @@
     "eslint-plugin-jsdoc": "^63.0.10",
     "eslint-plugin-perfectionist": "^5.9.1",
     "eslint-plugin-regexp": "^3.1.1",
-    "eslint-plugin-unicorn": "^69.0.0",
-    "typescript-eslint": "^8.62.0"
+    "eslint-plugin-unicorn": "^70.0.0",
+    "typescript-eslint": "^8.62.1"
   },
   "devDependencies": {
     "eslint": "^10.6.0",
     "tinyglobby": "^0.2.17",
     "tsdown": "^0.22.3",
     "tsl": "^1.0.30",
-    "tsl-dx": "^0.13.1",
+    "tsl-dx": "^0.13.2",
     "typedoc": "^0.28.19",
     "typedoc-plugin-markdown": "^4.12.0",
     "typedoc-plugin-mdn-links": "^5.1.1",
@@ -56,7 +56,7 @@
   "peerDependencies": {
     "eslint": "*",
     "tsl": "^1.0.30",
-    "tsl-dx": "^0.13.1",
+    "tsl-dx": "^0.13.2",
     "typedoc": "^0.28.19",
     "typedoc-plugin-markdown": "^4.12.0",
     "typedoc-plugin-mdn-links": "^5.1.1",
