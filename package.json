@@ -53,13 +53,13 @@
     "tsl": "^1.0.30",
     "tsl-dx": "workspace:*",
     "tsx": "latest",
-    "typedoc": "^0.28.19",
+    "typedoc": "^0.28.20",
     "typedoc-plugin-markdown": "^4.12.0",
     "typedoc-plugin-mdn-links": "^5.1.1",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.9"
+    "vitest": "^4.1.10"
   },
-  "packageManager": "pnpm@11.9.0",
+  "packageManager": "pnpm@11.10.0",
   "engines": {
     "node": ">=24.0.0"
   }
