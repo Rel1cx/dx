@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.3] - 2026-07-15
+
+### Changed
+
+- Updated CI workflows to run on Node 26 and test against Node 22, 24, and 26
+- Updated dependencies including `effect`, `typescript-eslint`, `eslint-plugin-unicorn`, `dprint`, `tsdown`, `vitest`, and `@types/node`
+- Updated `pnpm-workspace.yaml` overrides and `minimumReleaseAgeExclude` configuration
+
 ## [0.13.2] - 2026-06-27
 
 ### Added
