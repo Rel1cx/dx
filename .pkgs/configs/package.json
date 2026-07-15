@@ -35,17 +35,17 @@
   "dependencies": {
     "@eslint/compat": "^2.1.0",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "eslint-plugin-de-morgan": "^2.1.2",
-    "eslint-plugin-jsdoc": "^63.0.12",
+    "eslint-plugin-de-morgan": "^2.1.3",
+    "eslint-plugin-jsdoc": "^63.0.13",
     "eslint-plugin-perfectionist": "^5.10.0",
     "eslint-plugin-regexp": "^3.1.1",
-    "eslint-plugin-unicorn": "^70.0.0",
-    "typescript-eslint": "^8.63.0"
+    "eslint-plugin-unicorn": "^72.0.0",
+    "typescript-eslint": "^8.64.0"
   },
   "devDependencies": {
-    "eslint": "^10.6.0",
+    "eslint": "^10.7.0",
     "tinyglobby": "^0.2.17",
-    "tsdown": "^0.22.4",
+    "tsdown": "^0.22.8",
     "tsl": "^1.0.30",
     "tsl-dx": "^0.13.2",
     "typedoc": "^0.28.20",
@@ -57,7 +57,7 @@
     "eslint": "*",
     "tsl": "^1.0.30",
     "tsl-dx": "^0.13.2",
-    "typedoc": "^0.28.19",
+    "typedoc": "^0.28.20",
     "typedoc-plugin-markdown": "^4.12.0",
     "typedoc-plugin-mdn-links": "^5.1.1",
     "typescript": "*"

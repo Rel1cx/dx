@@ -8,5 +8,3 @@ Monorepo for JavaScript and TypeScript DX libraries.
 ## License
 
 This project is licensed under the MIT License-see the [LICENSE](LICENSE) file for details.
-
-This project is, and will remain, 90% of its code written by humans.

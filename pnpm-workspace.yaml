@@ -9,10 +9,24 @@ allowBuilds:
   esbuild: true
   msgpackr-extract: true
 minimumReleaseAgeExclude:
-  - eslint-plugin-jsdoc@63.0.9 || 63.0.10 || 63.0.11
-  - eslint-plugin-regexp@3.1.1
-  - eslint@10.6.0
-  - "@es-joy/jsdoccomment@0.88.0"
+  - "@dprint/android-arm64@0.55.2"
+  - "@dprint/android-x64@0.55.2"
+  - "@dprint/darwin-arm64@0.55.2"
+  - "@dprint/darwin-x64@0.55.2"
+  - "@dprint/linux-arm64-glibc@0.55.2"
+  - "@dprint/linux-arm64-musl@0.55.2"
+  - "@dprint/linux-loong64-glibc@0.55.2"
+  - "@dprint/linux-loong64-musl@0.55.2"
+  - "@dprint/linux-ppc64-glibc@0.55.2"
+  - "@dprint/linux-ppc64-musl@0.55.2"
+  - "@dprint/linux-riscv64-glibc@0.55.2"
+  - "@dprint/linux-x64-glibc@0.55.2"
+  - "@dprint/linux-x64-musl@0.55.2"
+  - "@dprint/win32-arm64@0.55.2"
+  - "@dprint/win32-x64@0.55.2"
+  - dprint@0.55.2
+  - eslint-plugin-unicorn@72.0.0
+  - tsdown@0.22.8
 onlyBuiltDependencies:
   - core-js
   - dprint
