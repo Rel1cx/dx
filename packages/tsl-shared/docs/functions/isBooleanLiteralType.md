@@ -3,7 +3,7 @@
 # Function: isBooleanLiteralType()
 
 ```ts
-function isBooleanLiteralType<TType>(type: TType): type is TType & { intrinsicName: "false" | "true" };
+function isBooleanLiteralType<TType extends Type>(type: TType): type is TType & { intrinsicName: "false" | "true" };
 ```
 
 Check if a type is a boolean literal type (true or false)
