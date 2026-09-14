@@ -5,10 +5,11 @@
 ## Call Signature
 
 ```ts
-function findParent<A>(
+function findParent<A extends AnyNode>(
    node: AnyNode | null, 
    test: (n: AnyNode) => n is A, 
-   stop?: NodePredicate): A | null;
+   stop?: NodePredicate
+): A | null;
 ```
 
 Find the parent node that satisfies the test function
@@ -39,7 +40,8 @@ The parent node that satisfies the test function or `_` if not found
 function findParent(
    node: AnyNode | null, 
    test: (node: AnyNode) => boolean, 
-   stop?: NodePredicate): AnyNode | null;
+   stop?: NodePredicate
+): AnyNode | null;
 ```
 
 Find the parent node that satisfies the test function or `_` if not found

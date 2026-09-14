@@ -99,7 +99,7 @@ const p11tGroups = {
   groups: ["id", "type", "meta", "unknown"],
 };
 
-export function buildIgnoreConfig(gitignore: string, extra: string[]) {
+export function buildIgnoreConfig(gitignore: string, extra: string[]): Linter.Config[] {
   return [
     // tsl-ignore dx/no-unsafe-as
     includeIgnoreFile(gitignore) as Config,
@@ -107,7 +107,7 @@ export function buildIgnoreConfig(gitignore: string, extra: string[]) {
       ...GLOB_IGNORES,
       ...extra,
     ]),
-  ] as const;
+  ];
 }
 
 export const strictTypeChecked: Linter.Config[] = defineConfig(

@@ -9,31 +9,16 @@ allowBuilds:
   esbuild: true
   msgpackr-extract: true
 minimumReleaseAgeExclude:
-  - "@dprint/android-arm64@0.55.2"
-  - "@dprint/android-x64@0.55.2"
-  - "@dprint/darwin-arm64@0.55.2"
-  - "@dprint/darwin-x64@0.55.2"
-  - "@dprint/linux-arm64-glibc@0.55.2"
-  - "@dprint/linux-arm64-musl@0.55.2"
-  - "@dprint/linux-loong64-glibc@0.55.2"
-  - "@dprint/linux-loong64-musl@0.55.2"
-  - "@dprint/linux-ppc64-glibc@0.55.2"
-  - "@dprint/linux-ppc64-musl@0.55.2"
-  - "@dprint/linux-riscv64-glibc@0.55.2"
-  - "@dprint/linux-x64-glibc@0.55.2"
-  - "@dprint/linux-x64-musl@0.55.2"
-  - "@dprint/win32-arm64@0.55.2"
-  - "@dprint/win32-x64@0.55.2"
-  - dprint@0.55.2
-  - eslint-plugin-unicorn@72.0.0
-  - tsdown@0.22.8
+  - eslint-plugin-jsdoc@64.4.0
 onlyBuiltDependencies:
   - core-js
   - dprint
   - esbuild
   - msgpackr-extract
 overrides:
-  "esbuild": "^0.28.1"
+  "esbuild": "^0.28.2"
   "tslib": "^2.8.1"
-  "typescript": "^6.0.3"
-  "undici": "^8.7.0"
+  # typescript 7 breaks tsl@1.0.30 (its named ESM imports of SyntaxKind/TypeFlags
+  # no longer resolve), so the whole graph is held on 6.0.3 until tsl supports it
+  "typescript": "6.0.3"
+  "undici": "^8.10.2"
