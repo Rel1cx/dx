@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.4] - 2026-09-17
+
+### Added
+
+- **eff**: Added `Pipeable` interface and pipe helpers
+
+### Changed
+
+- Held TypeScript at 6.0.3 across the workspace (tsl 1.0.30 is incompatible with TypeScript 7), documented in `pnpm-workspace.yaml`
+- Updated dependencies including `effect`, `eslint`, `typescript-eslint`, `eslint-plugin-unicorn`, `eslint-plugin-jsdoc`, `vitest`, `tsdown`, `dprint`, and `typedoc-plugin-markdown`
+- Updated CI workflows and GitHub Actions, unified pnpm to 12.4.1
+
 ## [0.13.3] - 2026-07-15
 
 ### Changed
