@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Updated dependencies including `effect`, `typescript-eslint`, `eslint-plugin-de-morgan`, `eslint-plugin-perfectionist`, `eslint-plugin-regexp`, `vitest`, `@types/node`, and `undici` override
+- Updated `setup-uv` GitHub Action to v10.2.0 and unified pnpm to 12.6.0
+- Replaced the unused `zod` entry with `typescript` in `.tazerc.json` exclusions to protect the pinned TypeScript version
+
+## [0.13.6] - 2026-09-20
+
+### Changed
+
+- Migrated dprint plugins to npm specifiers in `dprint.json`
+- Updated dependencies
+
 ## [0.13.5] - 2026-09-17
 
 ### Added
