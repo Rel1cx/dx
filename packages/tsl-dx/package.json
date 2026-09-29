@@ -1,6 +1,6 @@
 {
   "name": "tsl-dx",
-  "version": "0.13.6",
+  "version": "0.13.7",
   "description": "A tsl plugin for better JavaScript/TypeScript DX.",
   "keywords": [
     "tsl",
