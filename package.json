@@ -31,17 +31,17 @@
     "update:version": "tsx ./scripts/update-version.ts"
   },
   "devDependencies": {
-    "@effect/platform-node": "^4.0.0-rc.116",
+    "@effect/platform-node": "^4.0.0-rc.118",
     "@local/configs": "workspace:*",
     "@local/eff": "workspace:*",
     "@textlint-rule/textlint-rule-pattern": "^2.0.2",
     "@textlint/textlint-plugin-markdown": "^15.8.0",
     "@tsconfig/node24": "^24.0.5",
     "@tsconfig/strictest": "^2.0.8",
-    "@types/node": "^26.6.2",
+    "@types/node": "^26.6.3",
     "ansis": "^4.4.0",
     "dprint": "^0.57.4",
-    "effect": "^4.0.0-rc.116",
+    "effect": "^4.0.0-rc.118",
     "publint": "^0.3.24",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
@@ -57,9 +57,9 @@
     "typedoc-plugin-markdown": "^4.13.1",
     "typedoc-plugin-mdn-links": "^5.1.1",
     "typescript": "6.0.3",
-    "vitest": "^5.0.1"
+    "vitest": "^5.0.2"
   },
-  "packageManager": "pnpm@12.5.1",
+  "packageManager": "pnpm@12.6.0",
   "engines": {
     "node": ">=24.0.0"
   }

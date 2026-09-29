@@ -21,4 +21,4 @@ overrides:
   # typescript 7 breaks tsl@1.0.30 (its named ESM imports of SyntaxKind/TypeFlags
   # no longer resolve), so the whole graph is held on 6.0.3 until tsl supports it
   "typescript": "6.0.3"
-  "undici": "^8.10.2"
+  "undici": "^8.11.2"
