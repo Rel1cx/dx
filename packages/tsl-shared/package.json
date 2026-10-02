@@ -41,7 +41,7 @@
     "tsdown": "^0.23.0",
     "tsl": "^1.0.30",
     "typescript": "*",
-    "vitest": "^5.0.2"
+    "vitest": "^5.0.3"
   },
   "peerDependencies": {
     "tsl": "^1.0.30",

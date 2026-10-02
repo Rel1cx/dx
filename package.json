@@ -31,7 +31,7 @@
     "update:version": "tsx ./scripts/update-version.ts"
   },
   "devDependencies": {
-    "@effect/platform-node": "^4.0.0-rc.118",
+    "@effect/platform-node": "^4.0.0",
     "@local/configs": "workspace:*",
     "@local/eff": "workspace:*",
     "@textlint-rule/textlint-rule-pattern": "^2.0.2",
@@ -41,8 +41,8 @@
     "@types/node": "^26.6.3",
     "ansis": "^4.4.0",
     "dprint": "^0.57.4",
-    "effect": "^4.0.0-rc.118",
-    "publint": "^0.3.24",
+    "effect": "^4.0.0",
+    "publint": "^0.3.25",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "sort-package-json": "^4.0.0",
@@ -57,9 +57,9 @@
     "typedoc-plugin-markdown": "^4.13.1",
     "typedoc-plugin-mdn-links": "^5.1.1",
     "typescript": "6.0.3",
-    "vitest": "^5.0.2"
+    "vitest": "^5.0.3"
   },
-  "packageManager": "pnpm@12.6.0",
+  "packageManager": "pnpm@12.8.1",
   "engines": {
     "node": ">=24.0.0"
   }
