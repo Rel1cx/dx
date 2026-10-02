@@ -4,6 +4,8 @@
     "indentWidth": 2,
     "quoteStyle": "preferDouble",
     "quoteProps": "asNeeded",
+    "arguments.preferSingleLine": false,
+    "parameters.preferSingleLine": true,
     "importDeclaration.sortNamedImports": "caseSensitive",
     "exportDeclaration.sortNamedExports": "caseSensitive",
     "module.sortImportDeclarations": "caseSensitive",
@@ -24,8 +26,7 @@
     "**/*-lock.yaml",
     "**/dist",
     "**/node_modules",
-    "**/test/fixtures",
-    "packages/**/docs"
+    "**/test/fixtures"
   ],
   "plugins": [
     "npm:@dprint/typescript@0.96.1",

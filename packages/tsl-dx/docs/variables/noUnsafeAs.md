@@ -10,8 +10,8 @@ Rule to disallow type assertions via `as` except for `as const` and `as unknown`
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
+| Parameter  | Type    |
+| ---------- | ------- |
 | `options?` | `"off"` |
 
 ## Returns

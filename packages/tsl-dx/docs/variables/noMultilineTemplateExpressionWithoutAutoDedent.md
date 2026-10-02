@@ -10,8 +10,8 @@ Rule to enforce the use of a dedent tag for multiline template expressions.
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
+| Parameter  | Type                                                               |
+| ---------- | ------------------------------------------------------------------ |
 | `options?` | `noMultilineTemplateExpressionWithoutAutoDedentOptions` \| `"off"` |
 
 ## Returns

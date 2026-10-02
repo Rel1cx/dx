@@ -101,11 +101,7 @@ assert.strictEqual(f("aaa"), 6);
 ## Call Signature
 
 ```ts
-function flow<A, B, C, D>(
-  ab: (...a: A) => B,
-  bc: (b: B) => C,
-  cd: (c: C) => D,
-): (...a: A) => D;
+function flow<A, B, C, D>(ab: (...a: A) => B, bc: (b: B) => C, cd: (c: C) => D): (...a: A) => D;
 ```
 
 Performs left-to-right function composition. The first argument may have any arity, the remaining arguments must be unary.
@@ -156,12 +152,7 @@ assert.strictEqual(f("aaa"), 6);
 ## Call Signature
 
 ```ts
-function flow<A, B, C, D, E>(
-  ab: (...a: A) => B,
-  bc: (b: B) => C,
-  cd: (c: C) => D,
-  de: (d: D) => E,
-): (...a: A) => E;
+function flow<A, B, C, D, E>(ab: (...a: A) => B, bc: (b: B) => C, cd: (c: C) => D, de: (d: D) => E): (...a: A) => E;
 ```
 
 Performs left-to-right function composition. The first argument may have any arity, the remaining arguments must be unary.
@@ -214,13 +205,7 @@ assert.strictEqual(f("aaa"), 6);
 ## Call Signature
 
 ```ts
-function flow<A, B, C, D, E, F>(
-  ab: (...a: A) => B,
-  bc: (b: B) => C,
-  cd: (c: C) => D,
-  de: (d: D) => E,
-  ef: (e: E) => F,
-): (...a: A) => F;
+function flow<A, B, C, D, E, F>(ab: (...a: A) => B, bc: (b: B) => C, cd: (c: C) => D, de: (d: D) => E, ef: (e: E) => F): (...a: A) => F;
 ```
 
 Performs left-to-right function composition. The first argument may have any arity, the remaining arguments must be unary.
@@ -275,14 +260,7 @@ assert.strictEqual(f("aaa"), 6);
 ## Call Signature
 
 ```ts
-function flow<A, B, C, D, E, F, G>(
-  ab: (...a: A) => B,
-  bc: (b: B) => C,
-  cd: (c: C) => D,
-  de: (d: D) => E,
-  ef: (e: E) => F,
-  fg: (f: F) => G,
-): (...a: A) => G;
+function flow<A, B, C, D, E, F, G>(ab: (...a: A) => B, bc: (b: B) => C, cd: (c: C) => D, de: (d: D) => E, ef: (e: E) => F, fg: (f: F) => G): (...a: A) => G;
 ```
 
 Performs left-to-right function composition. The first argument may have any arity, the remaining arguments must be unary.

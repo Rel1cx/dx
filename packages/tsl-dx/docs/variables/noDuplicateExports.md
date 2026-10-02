@@ -10,8 +10,8 @@ Rule to detect and merge duplicate `export from` statements from the same module
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
+| Parameter  | Type    |
+| ---------- | ------- |
 | `options?` | `"off"` |
 
 ## Returns
@@ -22,11 +22,11 @@ Rule to detect and merge duplicate `export from` statements from the same module
 
 ```ts
 // 🔴
-export { A } from 'module';
-export { B } from 'module';
+export { A } from "module";
+export { B } from "module";
 ```
 
 ```ts
 // 🟢
-export { A, B } from 'module';
+export { A, B } from "module";
 ```

@@ -5,28 +5,24 @@
 ## Call Signature
 
 ```ts
-function findParent<A extends AnyNode>(
-   node: AnyNode | null, 
-   test: (n: AnyNode) => n is A, 
-   stop?: NodePredicate
-): A | null;
+function findParent<A extends AnyNode>(node: AnyNode | null, test: (n: AnyNode) => n is A, stop?: NodePredicate): A | null;
 ```
 
 Find the parent node that satisfies the test function
 
 ### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `A` *extends* `AnyNode` |
+| Type Parameter          |
+| ----------------------- |
+| `A` _extends_ `AnyNode` |
 
 ### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `node` | `AnyNode` \| `null` | The AST node |
-| `test` | (`n`: `AnyNode`) => `n is A` | The test function |
-| `stop?` | `NodePredicate` | The stop function |
+| Parameter | Type                         | Description       |
+| --------- | ---------------------------- | ----------------- |
+| `node`    | `AnyNode` \| `null`          | The AST node      |
+| `test`    | (`n`: `AnyNode`) => `n is A` | The test function |
+| `stop?`   | `NodePredicate`              | The stop function |
 
 ### Returns
 
@@ -37,22 +33,18 @@ The parent node that satisfies the test function or `_` if not found
 ## Call Signature
 
 ```ts
-function findParent(
-   node: AnyNode | null, 
-   test: (node: AnyNode) => boolean, 
-   stop?: NodePredicate
-): AnyNode | null;
+function findParent(node: AnyNode | null, test: (node: AnyNode) => boolean, stop?: NodePredicate): AnyNode | null;
 ```
 
 Find the parent node that satisfies the test function or `_` if not found
 
 ### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `node` | `AnyNode` \| `null` | The AST node |
-| `test` | (`node`: `AnyNode`) => `boolean` | The test function |
-| `stop?` | `NodePredicate` | The stop function |
+| Parameter | Type                             | Description       |
+| --------- | -------------------------------- | ----------------- |
+| `node`    | `AnyNode` \| `null`              | The AST node      |
+| `test`    | (`node`: `AnyNode`) => `boolean` | The test function |
+| `stop?`   | `NodePredicate`                  | The stop function |
 
 ### Returns
 

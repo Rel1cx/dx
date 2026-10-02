@@ -10,9 +10,9 @@ Check if a type is the true literal type
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `type` | `Type` | The type to check |
+| Parameter | Type   | Description       |
+| --------- | ------ | ----------------- |
+| `type`    | `Type` | The type to check |
 
 ## Returns
 

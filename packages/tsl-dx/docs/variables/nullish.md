@@ -10,8 +10,8 @@ Rule to enforce the use of loose equality for nullish checks.
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
+| Parameter  | Type                        |
+| ---------- | --------------------------- |
 | `options?` | `nullishOptions` \| `"off"` |
 
 ## Returns
@@ -22,10 +22,10 @@ Rule to enforce the use of loose equality for nullish checks.
 
 ```ts
 // 🔴
-if (x === undefined) { }
+if (x === undefined) {}
 ```
 
 ```ts
 // 🟢
-if (x == null) { }
+if (x == null) {}
 ```

@@ -10,9 +10,9 @@ Check if a type is a truthy number literal (not 0)
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `type` | `Type` | The type to check |
+| Parameter | Type   | Description       |
+| --------- | ------ | ----------------- |
+| `type`    | `Type` | The type to check |
 
 ## Returns
 

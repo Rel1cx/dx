@@ -16,9 +16,7 @@ const isTypeFlagSet: (type: ts.Type, flag: ts.TypeFlags) => boolean = isFlagSetO
  * @param type The type to check
  * @returns Whether the type is a boolean literal type
  */
-export function isBooleanLiteralType<TType extends ts.Type>(
-  type: TType,
-): type is TType & { intrinsicName: "false" | "true" } {
+export function isBooleanLiteralType<TType extends ts.Type>(type: TType): type is TType & { intrinsicName: "false" | "true" } {
   return isTypeFlagSet(type, ts.TypeFlags.BooleanLiteral);
 }
 

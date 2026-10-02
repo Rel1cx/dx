@@ -193,11 +193,7 @@ The result of applying all functions in sequence to the initial value.
 ## Call Signature
 
 ```ts
-function pipe<A, B, C>(
-  a: A,
-  ab: (a: A) => B,
-  bc: (b: B) => C,
-): C;
+function pipe<A, B, C>(a: A, ab: (a: A) => B, bc: (b: B) => C): C;
 ```
 
 Pipes the value of an expression into a pipeline of functions.
@@ -294,12 +290,7 @@ The result of applying all functions in sequence to the initial value.
 ## Call Signature
 
 ```ts
-function pipe<A, B, C, D>(
-  a: A,
-  ab: (a: A) => B,
-  bc: (b: B) => C,
-  cd: (c: C) => D,
-): D;
+function pipe<A, B, C, D>(a: A, ab: (a: A) => B, bc: (b: B) => C, cd: (c: C) => D): D;
 ```
 
 Pipes the value of an expression into a pipeline of functions.
@@ -398,13 +389,7 @@ The result of applying all functions in sequence to the initial value.
 ## Call Signature
 
 ```ts
-function pipe<A, B, C, D, E>(
-  a: A,
-  ab: (a: A) => B,
-  bc: (b: B) => C,
-  cd: (c: C) => D,
-  de: (d: D) => E,
-): E;
+function pipe<A, B, C, D, E>(a: A, ab: (a: A) => B, bc: (b: B) => C, cd: (c: C) => D, de: (d: D) => E): E;
 ```
 
 Pipes the value of an expression into a pipeline of functions.
@@ -505,14 +490,7 @@ The result of applying all functions in sequence to the initial value.
 ## Call Signature
 
 ```ts
-function pipe<A, B, C, D, E, F>(
-  a: A,
-  ab: (a: A) => B,
-  bc: (b: B) => C,
-  cd: (c: C) => D,
-  de: (d: D) => E,
-  ef: (e: E) => F,
-): F;
+function pipe<A, B, C, D, E, F>(a: A, ab: (a: A) => B, bc: (b: B) => C, cd: (c: C) => D, de: (d: D) => E, ef: (e: E) => F): F;
 ```
 
 Pipes the value of an expression into a pipeline of functions.
@@ -615,15 +593,7 @@ The result of applying all functions in sequence to the initial value.
 ## Call Signature
 
 ```ts
-function pipe<A, B, C, D, E, F, G>(
-  a: A,
-  ab: (a: A) => B,
-  bc: (b: B) => C,
-  cd: (c: C) => D,
-  de: (d: D) => E,
-  ef: (e: E) => F,
-  fg: (f: F) => G,
-): G;
+function pipe<A, B, C, D, E, F, G>(a: A, ab: (a: A) => B, bc: (b: B) => C, cd: (c: C) => D, de: (d: D) => E, ef: (e: E) => F, fg: (f: F) => G): G;
 ```
 
 Pipes the value of an expression into a pipeline of functions.

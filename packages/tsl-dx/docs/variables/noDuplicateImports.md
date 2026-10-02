@@ -10,8 +10,8 @@ Rule to detect and merge duplicate `import from` statements from the same module
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
+| Parameter  | Type    |
+| ---------- | ------- |
 | `options?` | `"off"` |
 
 ## Returns
@@ -22,11 +22,11 @@ Rule to detect and merge duplicate `import from` statements from the same module
 
 ```ts
 // 🔴
-import { A } from 'module';
-import { B } from 'module';
+import { A } from "module";
+import { B } from "module";
 ```
 
 ```ts
 // 🟢
-import { A, B } from 'module';
+import { A, B } from "module";
 ```
