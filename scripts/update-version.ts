@@ -1,5 +1,5 @@
-import * as NodeFileSystem from "@effect/platform-node/NodeFileSystem";
-import * as NodeRuntime from "@effect/platform-node/NodeRuntime";
+import * as NodeRtm from "@effect/platform-node/NodeRuntime";
+import * as NodeSrv from "@effect/platform-node/NodeServices";
 import ansis from "ansis";
 import * as Effect from "effect/Effect";
 import * as FileSystem from "effect/FileSystem";
@@ -45,4 +45,4 @@ const program = Effect.gen(function*() {
   return yield* Effect.all(packageJsonFiles.map(processPackageJson), { concurrency: 8 });
 });
 
-program.pipe(Effect.provide(NodeFileSystem.layer), NodeRuntime.runMain);
+program.pipe(Effect.provide(NodeSrv.layer), NodeRtm.runMain);
