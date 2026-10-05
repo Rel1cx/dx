@@ -1,6 +1,6 @@
 {
   "name": "tsl-shared",
-  "version": "0.13.7",
+  "version": "0.14.0",
   "description": "Shared utilities for tsl.",
   "keywords": [
     "tsl",

@@ -13,8 +13,8 @@ const GLOB_PACKAGE_JSON = [
   "packages/*/package.json",
 ];
 
-function processPackageJson(filename: string) {
-  return Effect.gen(function*() {
+const processPackageJson = Effect.fnUntraced(
+  function*(filename: string) {
     const fs = yield* FileSystem.FileSystem;
     const packageJsonText = yield* fs.readFileString(filename, "utf8");
     const packageJson = JSON.parse(packageJsonText);
@@ -34,10 +34,10 @@ function processPackageJson(filename: string) {
       version: newVersion,
     };
     yield* fs.writeFileString(filename, `${JSON.stringify(packageJsonUpdated, null, 2)}\n`);
-    yield* Effect.log(`Updated ${filename} to version ${newVersion}`);
+    yield* Effect.log(`Updated ${filename} to version ${packageJsonUpdated.version}`);
     return true;
-  });
-}
+  },
+);
 
 const program = Effect.gen(function*() {
   const ignorePatterns = yield* ignores;
