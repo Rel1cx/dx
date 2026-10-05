@@ -8,8 +8,8 @@ allowBuilds:
   dprint: true
   esbuild: true
   msgpackr-extract: true
-minimumReleaseAgeExclude:
-  - eslint-plugin-jsdoc@64.4.0
+trustPolicy: "no-downgrade"
+minimumReleaseAge: 0
 onlyBuiltDependencies:
   - core-js
   - dprint
