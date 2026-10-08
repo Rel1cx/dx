@@ -31,7 +31,7 @@
     "update:version": "tsx ./scripts/update-version.ts"
   },
   "devDependencies": {
-    "@effect/platform-node": "^4.0.0",
+    "@effect/platform-node": "^4.0.2",
     "@local/configs": "workspace:*",
     "@local/eff": "workspace:*",
     "@textlint-rule/textlint-rule-pattern": "^2.0.2",
@@ -41,7 +41,7 @@
     "@types/node": "^26.6.4",
     "ansis": "^4.4.0",
     "dprint": "^0.57.4",
-    "effect": "^4.0.1",
+    "effect": "^4.0.2",
     "publint": "^0.3.25",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
@@ -59,7 +59,7 @@
     "typescript": "6.0.3",
     "vitest": "^5.0.3"
   },
-  "packageManager": "pnpm@12.9.1",
+  "packageManager": "pnpm@12.10.1",
   "engines": {
     "node": ">=24.0.0"
   }
