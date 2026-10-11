@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Updated dependencies including `effect`, `@effect/platform-node`, `typescript-eslint`, `tsdown`, and `@types/node`
+- Updated dprint plugins for JSON, Markdown, and TOML in `dprint.json`
+- Updated `setup-node` GitHub Action to v7.1.0, `setup-uv` to v10.3.0, and unified pnpm to 12.11.2
+
 ## [0.14.0] - 2026-10-05
 
 ### Changed
