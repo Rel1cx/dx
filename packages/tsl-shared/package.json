@@ -32,7 +32,7 @@
     "publish": "node --run build && node --run lint:publish"
   },
   "dependencies": {
-    "ts-pattern": "^5.9.0"
+    "ts-pattern": "^5.9.2"
   },
   "devDependencies": {
     "@local/configs": "workspace:*",
@@ -41,7 +41,7 @@
     "tsdown": "^0.23.1",
     "tsl": "^1.0.30",
     "typescript": "*",
-    "vitest": "^5.0.3"
+    "vitest": "^5.0.4"
   },
   "peerDependencies": {
     "tsl": "^1.0.30",

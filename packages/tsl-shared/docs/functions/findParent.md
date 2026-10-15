@@ -12,9 +12,9 @@ Find the parent node that satisfies the test function
 
 ### Type Parameters
 
-| Type Parameter          |
-| ----------------------- |
-| `A` _extends_ `AnyNode` |
+| Type Parameter                                        |
+| ----------------------------------------------------- |
+| <a id="type-parameter-a"></a> `A` _extends_ `AnyNode` |
 
 ### Parameters
 
