@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.15.0] - 2026-10-17
+
 ### Added
 
 - **tsl-shared**: Added `hasParent`, `findEnclosingTryBlock`, and `hasEnclosingTryBlock` traverse helpers, and `isTypeExpression` and `unwrap` extract helpers with return type narrowing
@@ -23,13 +25,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Synced `.pkgs/configs` with the reference project: `includeIgnoreFile` from `@eslint/config-helpers`, perfectionist head/tail groups, `dce-only` minification in the tsdown base config, and `typedoc-plugin-file-overview`
 - Updated `scripts` to `Fn.pipe`-style effects and a typed `InvalidPackageJsonError`
 - Check workflow now verifies formatting before building
-- Updated dependencies including `effect`, `@effect/platform-node`, `typescript-eslint`, `tsdown`, and `@types/node`
-- Updated dprint plugins for JSON, Markdown, and TOML in `dprint.json`
-- Updated `setup-node` GitHub Action to v7.1.0, `setup-uv` to v10.3.0, and unified pnpm to 12.11.2
+- Updated dependencies including `effect`, `@effect/platform-node`, `vitest`, `typedoc-plugin-markdown`, and `ts-pattern`
 
 ### Removed
 
 - Removed the sentrux architecture gate (`.sentrux` directory and `lint:arch` script)
+
+## [0.14.1] - 2026-10-11
+
+### Changed
+
+- Updated dependencies including `effect`, `@effect/platform-node`, `typescript-eslint`, `tsdown`, and `@types/node`
+- Updated dprint plugins for JSON, Markdown, and TOML in `dprint.json`
+- Updated `setup-node` GitHub Action to v7.1.0, `setup-uv` to v10.3.0, and unified pnpm to 12.11.2
 
 ## [0.14.0] - 2026-10-05
 
