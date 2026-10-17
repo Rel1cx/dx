@@ -72,13 +72,13 @@ test("no-duplicate-import", () => {
           {
             line: 2,
             message: messages.default({ source: "'module'" }),
-            // Cannot merge: conflicting default imports foo vs foo2
+            // Cannot merge: conflicting default imports foo and foo2
             suggestions: [],
           },
           {
             line: 3,
             message: messages.default({ source: "'module'" }),
-            // Cannot merge: conflicting default imports foo vs foo3
+            // Cannot merge: conflicting default imports foo and foo3
             suggestions: [],
           },
         ],

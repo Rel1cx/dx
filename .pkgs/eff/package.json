@@ -9,29 +9,42 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rel1cx/dx.git"
+    "url": "git+https://github.com/Rel1cx/dx.git",
+    "directory": ".pkgs/eff"
   },
   "license": "MIT",
   "author": "Rel1cx<let@ik.me>",
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": "./dist/index.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
     "./package.json": "./package.json"
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "package.json"
+    "dist"
   ],
   "scripts": {
     "build": "tsdown",
     "build:docs": "typedoc",
     "lint:publish": "publint",
     "lint:ts": "tsl",
-    "publish": "node --run build && node --run lint:publish"
+    "publish": "node --run build && node --run lint:publish",
+    "test": "vitest run"
   },
   "devDependencies": {
+    "@local/configs": "workspace:*",
+    "@tsconfig/node24": "^24.0.5",
+    "@types/node": "^26.6.5",
+    "tsdown": "^0.23.1",
     "tsl": "^1.0.30"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   }
 }

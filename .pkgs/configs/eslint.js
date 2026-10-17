@@ -1,4 +1,4 @@
-import { includeIgnoreFile } from "@eslint/compat";
+import { includeIgnoreFile } from "@eslint/config-helpers";
 import stylistic from "@stylistic/eslint-plugin";
 import pluginDeMorgan from "eslint-plugin-de-morgan";
 import { jsdoc } from "eslint-plugin-jsdoc";
@@ -86,12 +86,19 @@ const p11tGroups = {
             elementNamePattern: "^(name$|meta$|title$|description$)",
             groupName: "meta",
         },
+        {
+            elementNamePattern: "^(above|before|first|front|from|head|left|lower|min|open|prev|start|top|up)$",
+            groupName: "head",
+        },
+        {
+            elementNamePattern: "^(below|after|last|back|to|tail|right|upper|max|close|next|end|bottom|down)$",
+            groupName: "tail",
+        },
     ],
-    groups: ["id", "type", "meta", "unknown"],
+    groups: ["id", "type", "meta", "head", "tail", "unknown"],
 };
 export function buildIgnoreConfig(gitignore, extra) {
     return [
-        // tsl-ignore dx/no-unsafe-as
         includeIgnoreFile(gitignore),
         globalIgnores([
             ...GLOB_IGNORES,
@@ -137,16 +144,16 @@ export const strictTypeChecked = defineConfig({ ignores: GLOB_JS }, {
         ["unicorn"]: pluginUnicorn,
     },
     rules: {
-        "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/no-deprecated": "warn",
+        "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/no-unused-vars": ["warn", {
                 args: "all",
                 argsIgnorePattern: "^_",
                 caughtErrors: "all",
                 caughtErrorsIgnorePattern: "^_",
                 destructuredArrayIgnorePattern: "^_",
-                varsIgnorePattern: "^_",
                 ignoreRestSiblings: true,
+                varsIgnorePattern: "^_",
             }],
         "@typescript-eslint/strict-boolean-expressions": ["error", {
                 allowAny: false,
@@ -184,11 +191,11 @@ export const strictTypeChecked = defineConfig({ ignores: GLOB_JS }, {
         "perfectionist/sort-switch-case": "off",
         "perfectionist/sort-union-types": "off",
         "jsdoc/check-param-names": "warn",
-        "jsdoc/check-tag-names": "warn",
+        "jsdoc/check-tag-names": ["warn", { definedTags: ["feature", "sideEffects"] }],
         "jsdoc/informative-docs": "off",
         "jsdoc/lines-before-block": "off",
         "jsdoc/require-jsdoc": "off",
-        "jsdoc/require-param": "warn",
+        "jsdoc/require-param": "off",
         "jsdoc/require-param-description": "warn",
         "jsdoc/require-returns": "off",
         "jsdoc/require-yields": "warn",
@@ -201,6 +208,26 @@ export const strictTypeChecked = defineConfig({ ignores: GLOB_JS }, {
                 tags: templateIndentTags,
             },
         ],
+    },
+}, {
+    files: [
+        ".*/**",
+    ],
+    rules: {
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-unnecessary-type-parameters": "off",
+        "@typescript-eslint/no-unsafe-argument": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-enum-comparison": "off",
+        "@typescript-eslint/no-unsafe-function-type": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
+        "@typescript-eslint/restrict-template-expressions": "off",
+        "@typescript-eslint/unified-signatures": "off",
+        "jsdoc/escape-inline-tags": "off",
+        "prefer-rest-params": "off",
     },
 });
 export const disableTypeChecked = defineConfig({

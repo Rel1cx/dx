@@ -17,8 +17,15 @@ export function buildConfig(cwd: string) {
     entry: ["src/index.ts"],
     fixedExtension: false,
     format: ["esm"],
-    minify: false,
+    minify: "dce-only",
     outDir: "dist",
+    outputOptions: {
+      comments: {
+        annotation: true,
+        jsdoc: false,
+        legal: true,
+      },
+    },
     platform: "node",
     sourcemap: false,
     target: "node22",

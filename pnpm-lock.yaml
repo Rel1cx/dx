@@ -256,12 +256,15 @@ importers:
 
   .pkgs/configs:
     dependencies:
-      '@eslint/compat':
-        specifier: ^2.1.1
-        version: 2.1.1(eslint@10.13.0(supports-color@7.2.0))
+      '@eslint/config-helpers':
+        specifier: ^0.7.0
+        version: 0.7.0
       '@stylistic/eslint-plugin':
         specifier: ^5.10.0
         version: 5.10.0(eslint@10.13.0(supports-color@7.2.0))
+      '@tsconfig/strictest':
+        specifier: ^2.0.8
+        version: 2.0.8
       eslint-plugin-de-morgan:
         specifier: ^2.2.1
         version: 2.2.1(eslint@10.13.0(supports-color@7.2.0))
@@ -281,6 +284,12 @@ importers:
         specifier: ^8.71.2
         version: 8.71.2(eslint@10.13.0(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3)
     devDependencies:
+      '@tsconfig/node24':
+        specifier: ^24.0.5
+        version: 24.0.5
+      '@types/node':
+        specifier: ^26.6.5
+        version: 26.6.5
       eslint:
         specifier: ^10.13.0
         version: 10.13.0(supports-color@7.2.0)
@@ -294,11 +303,14 @@ importers:
         specifier: ^1.0.30
         version: 1.0.30(typescript@6.0.3)
       tsl-dx:
-        specifier: ^0.13.7
-        version: 0.13.7(tsl@1.0.30(typescript@6.0.3))(typescript@6.0.3)
+        specifier: ^0.14.1
+        version: 0.14.1(tsl@1.0.30(typescript@6.0.3))(typescript@6.0.3)
       typedoc:
         specifier: ^0.28.20
         version: 0.28.20(typescript@6.0.3)
+      typedoc-plugin-file-overview:
+        specifier: ^0.2.0
+        version: 0.2.0(typedoc-plugin-markdown@4.14.0(typedoc@0.28.20(typescript@6.0.3)))(typedoc@0.28.20(typescript@6.0.3))
       typedoc-plugin-markdown:
         specifier: ^4.14.0
         version: 4.14.0(typedoc@0.28.20(typescript@6.0.3))
@@ -311,6 +323,18 @@ importers:
 
   .pkgs/eff:
     devDependencies:
+      '@local/configs':
+        specifier: workspace:*
+        version: link:../configs
+      '@tsconfig/node24':
+        specifier: ^24.0.5
+        version: 24.0.5
+      '@types/node':
+        specifier: ^26.6.5
+        version: 26.6.5
+      tsdown:
+        specifier: ^0.23.1
+        version: 0.23.1(publint@0.3.25)(tsx@4.23.15)(typescript@6.0.3)
       tsl:
         specifier: ^1.0.30
         version: 1.0.30(typescript@6.0.3)
@@ -675,15 +699,6 @@ packages:
   '@eslint-community/regexpp@4.12.2':
     resolution: {integrity: sha512-EriSTlt5OC9/7SXkRSCAhfSxxoSUgBm33OH+IkwbdpgoqsSsUg7y3uh+IICI/Qg4BBWr3U2i39RpmycbxMq4ew==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
-
-  '@eslint/compat@2.1.1':
-    resolution: {integrity: sha512-rMcy8GSrwNzcISX/BlTDY/GLB4eCopEuy9woIls3To+15OLxykZrxxq+WUcylCPCQ6F4MujjBM1DX5V1aqI3Vw==}
-    engines: {node: ^20.19.0 || ^22.13.0 || >=24}
-    peerDependencies:
-      eslint: ^8.40 || 9 || 10
-    peerDependenciesMeta:
-      eslint:
-        optional: true
 
   '@eslint/config-array@0.23.5':
     resolution: {integrity: sha512-Y3kKLvC1dvTOT+oGlqNQ1XLqK6D1HU2YXPc52NmAlJZbMMWDzGYXMiPRJ8TYD39muD/OTjlZmNJ4ib7dvSrMBA==}
@@ -1825,6 +1840,10 @@ packages:
   keyv@5.6.0:
     resolution: {integrity: sha512-CYDD3SOtsHtyXeEORYRx2qBtpDJFjRTGXUtmNEMGyzYOKj1TE3tycdlho7kA1Ufx9OYWZzg52QFBGALTirzDSw==}
 
+  kleur@3.0.3:
+    resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
+    engines: {node: '>=6'}
+
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -2140,6 +2159,10 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
+  prompts@2.4.2:
+    resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
+    engines: {node: '>= 6'}
+
   publint@0.3.25:
     resolution: {integrity: sha512-WMMbn/d7JqRlfXQL/JUI4n5skC8cJ5WVr8/wT5mmiYWkUdENkZr1I5rgs2+dQPVRgoJd+JRYtB46MTsuDylw9g==}
     engines: {node: '>=18'}
@@ -2283,6 +2306,9 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
+  sisteransi@1.0.5:
+    resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
+
   slice-ansi@4.0.0:
     resolution: {integrity: sha512-qMCMfhY040cVHT43K9BFygqYbUPFZKHOg7K73mtTWJRb8pyP3fzf4Ixd5SzdEJQ6MRUg/WBnOLxghZtKKurENQ==}
     engines: {node: '>=10'}
@@ -2425,8 +2451,8 @@ packages:
       unrun:
         optional: true
 
-  tsl-dx@0.13.7:
-    resolution: {integrity: sha512-MeNvlHneflsumaCU/JrEKDnjDah0ErU8a8O/th2MIZ8+m38Z3pf6iq/lrSwyK1w5nHHrs7fvWnZFm9tsGf9q8Q==}
+  tsl-dx@0.14.1:
+    resolution: {integrity: sha512-GZu0i9LD65jLnAWCAacoMW0YB4xGGIkxrRdsFWDjx7AlGpBvZGUVrqJ2uVCrTYURcW6BAhAk+PE6uy3m9EgFvw==}
     peerDependencies:
       tsl: ^1.0.30
       typescript: 6.0.3
@@ -2452,6 +2478,13 @@ packages:
   type-fest@4.41.0:
     resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
     engines: {node: '>=16'}
+
+  typedoc-plugin-file-overview@0.2.0:
+    resolution: {integrity: sha512-gVTJvy6D3uwq/5lMEzhfv+Ak1C3g7DKmckZrQ4y5qE3+2UUYiAbKDw5LiRcPOgeI8N09jS4MbLMmjxmmnUESCg==}
+    hasBin: true
+    peerDependencies:
+      typedoc: ^0.28.0
+      typedoc-plugin-markdown: ^4.11.0
 
   typedoc-plugin-markdown@4.14.0:
     resolution: {integrity: sha512-Y2a3oDV9ekrbkk6RBSGH8GyNkh0xIdemIOOTr3tiRN/33nvFGStOs9nw+6Q84gF1XFkcVZrgM4Ckcsf6e/YpKQ==}
@@ -2883,12 +2916,6 @@ snapshots:
       eslint-visitor-keys: 3.4.3
 
   '@eslint-community/regexpp@4.12.2': {}
-
-  '@eslint/compat@2.1.1(eslint@10.13.0(supports-color@7.2.0))':
-    dependencies:
-      '@eslint/core': 1.2.1
-    optionalDependencies:
-      eslint: 10.13.0(supports-color@7.2.0)
 
   '@eslint/config-array@0.23.5(supports-color@7.2.0)':
     dependencies:
@@ -3972,6 +3999,8 @@ snapshots:
     dependencies:
       '@keyv/serialize': 1.1.1
 
+  kleur@3.0.3: {}
+
   levn@0.4.1:
     dependencies:
       prelude-ls: 1.2.1
@@ -4311,6 +4340,11 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
+  prompts@2.4.2:
+    dependencies:
+      kleur: 3.0.3
+      sisteransi: 1.0.5
+
   publint@0.3.25:
     dependencies:
       '@publint/pack': 0.1.7
@@ -4493,6 +4527,8 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
+  sisteransi@1.0.5: {}
+
   slice-ansi@4.0.0:
     dependencies:
       ansi-styles: 4.3.0
@@ -4661,7 +4697,7 @@ snapshots:
       - oxc-resolver
       - vue-tsc
 
-  tsl-dx@0.13.7(tsl@1.0.30(typescript@6.0.3))(typescript@6.0.3):
+  tsl-dx@0.14.1(tsl@1.0.30(typescript@6.0.3))(typescript@6.0.3):
     dependencies:
       ts-pattern: 5.9.2
       tsl: 1.0.30(typescript@6.0.3)
@@ -4687,6 +4723,12 @@ snapshots:
       prelude-ls: 1.2.1
 
   type-fest@4.41.0: {}
+
+  typedoc-plugin-file-overview@0.2.0(typedoc-plugin-markdown@4.14.0(typedoc@0.28.20(typescript@6.0.3)))(typedoc@0.28.20(typescript@6.0.3)):
+    dependencies:
+      prompts: 2.4.2
+      typedoc: 0.28.20(typescript@6.0.3)
+      typedoc-plugin-markdown: 4.14.0(typedoc@0.28.20(typescript@6.0.3))
 
   typedoc-plugin-markdown@4.14.0(typedoc@0.28.20(typescript@6.0.3)):
     dependencies:

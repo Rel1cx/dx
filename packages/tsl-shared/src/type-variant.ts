@@ -21,10 +21,7 @@ import {
   isUnknownType,
 } from "./type-is";
 
-/**
- * Represents the variant classification of a TypeScript type
- * for use in strict boolean expression checking
- */
+/** Represents the variant of a type for boolean expression analysis. */
 export type TypeVariant =
   | "any"
   | "bigint"
@@ -46,10 +43,10 @@ export type TypeVariant =
   | "truthy string";
 
 /**
- * Ported from https://github.com/typescript-eslint/typescript-eslint/blob/eb736bbfc22554694400e6a4f97051d845d32e0b/packages/eslint-plugin/src/rules/strict-boolean-expressions.ts#L826 with some enhancements
  * Get the variants of an array of types.
- * @param types The types to get the variants of
- * @returns The variants of the types
+ * @param types The types to get the variants of.
+ * @returns The variants of the types.
+ * @remarks Ported from https://github.com/typescript-eslint/typescript-eslint/blob/eb736bbfc22554694400e6a4f97051d845d32e0b/packages/eslint-plugin/src/rules/strict-boolean-expressions.ts#L826 with some enhancements.
  * @internal
  */
 export function getTypeVariants(types: ts.Type[]) {
@@ -66,12 +63,16 @@ export function getTypeVariants(types: ts.Type[]) {
   // If incoming type is either "true" or "false", there will be one type
   // object with intrinsicName set accordingly
   // If incoming type is boolean, there will be two type objects with
-  // intrinsicName set "true" and "false" each because of ts-api-utils.unionTypeParts()
+  // intrinsicName set "true" and "false" each because of ts-api-utils.unionConstituents()
   if (booleans.length === 1 && boolean0 != null) {
     if (isFalseLiteralType(boolean0)) {
       variants.add("falsy boolean");
     } else if (isTrueLiteralType(boolean0)) {
       variants.add("truthy boolean");
+    } else {
+      // A single non-literal boolean (e.g. an unsplit 'boolean' union type)
+      // can be either true or false.
+      variants.add("boolean");
     }
   } else if (booleans.length === 2) {
     variants.add("boolean");
@@ -89,7 +90,7 @@ export function getTypeVariants(types: ts.Type[]) {
     const evaluated = match<ts.Type[], TypeVariant>(bigints)
       .when((types) => types.every(isTruthyBigIntType), () => "truthy bigint")
       .when((types) => types.every(isFalsyBigIntType), () => "falsy bigint")
-      .otherwise(() => "bigint");
+      .otherwise(() => "bigint" as const);
     variants.add(evaluated);
   }
   const numbers = types.filter(isNumberType);

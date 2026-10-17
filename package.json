@@ -22,7 +22,6 @@
     "format:check": "dprint check",
     "format:write": "dprint fmt",
     "lint": "node --run lint:publish && node --run lint:ts && node --run lint:text",
-    "lint:arch": "sentrux gate",
     "lint:publish": "pnpm m run lint:publish",
     "lint:text": "textlint '**/*.md' '**/*.mdx'",
     "lint:ts": "pnpm m run lint:ts",

@@ -2,33 +2,21 @@
 
 ## Type Aliases
 
-| Type Alias                                       | Description                                                                                              |
-| ------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| [JsxElementLike](type-aliases/JsxElementLike.md) | -                                                                                                        |
-| [TypeVariant](type-aliases/TypeVariant.md)       | Represents the variant classification of a TypeScript type for use in strict boolean expression checking |
+| Type Alias                                       | Description                                                                        |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| [JsxElementLike](type-aliases/JsxElementLike.md) | Union of JSX element-like node types (element, self-closing element, or fragment). |
+| [TypeExpression](type-aliases/TypeExpression.md) | Union of TypeScript type expression node types — the nodes `unwrap` strips.        |
+| [TypeVariant](type-aliases/TypeVariant.md)       | Represents the variant of a type for boolean expression analysis.                  |
 
 ## Functions
 
-| Function                                                        | Description                                                                                            |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| [findParent](functions/findParent.md)                           | Find the parent node that satisfies the test function                                                  |
-| [getFullyQualifiedNameEx](functions/getFullyQualifiedNameEx.md) | An enhanced version of getFullyQualifiedName that handles cases that original function does not handle |
-| [isAnyType](functions/isAnyType.md)                             | Check if a type is any or a type parameter                                                             |
-| [isBigIntType](functions/isBigIntType.md)                       | Check if a type is a bigint type                                                                       |
-| [isBooleanLiteralType](functions/isBooleanLiteralType.md)       | Check if a type is a boolean literal type (true or false)                                              |
-| [isBooleanType](functions/isBooleanType.md)                     | Check if a type is a boolean type                                                                      |
-| [isEnumType](functions/isEnumType.md)                           | Check if a type is an enum type                                                                        |
-| [isFalseLiteralType](functions/isFalseLiteralType.md)           | Check if a type is the false literal type                                                              |
-| [isFalsyBigIntType](functions/isFalsyBigIntType.md)             | Check if a type is a falsy bigint literal (0n)                                                         |
-| [isFalsyNumberType](functions/isFalsyNumberType.md)             | Check if a type is a falsy number literal (0)                                                          |
-| [isFalsyStringType](functions/isFalsyStringType.md)             | Check if a type is a falsy string literal ("")                                                         |
-| [isNeverType](functions/isNeverType.md)                         | Check if a type is the never type                                                                      |
-| [isNullishType](functions/isNullishType.md)                     | Check if a type is nullish (null, undefined, or void)                                                  |
-| [isNumberType](functions/isNumberType.md)                       | Check if a type is a number type                                                                       |
-| [isObjectType](functions/isObjectType.md)                       | Check if a type is an object type (not a primitive or special type)                                    |
-| [isStringType](functions/isStringType.md)                       | Check if a type is a string type                                                                       |
-| [isTrueLiteralType](functions/isTrueLiteralType.md)             | Check if a type is the true literal type                                                               |
-| [isTruthyBigIntType](functions/isTruthyBigIntType.md)           | Check if a type is a truthy bigint literal (not 0n)                                                    |
-| [isTruthyNumberType](functions/isTruthyNumberType.md)           | Check if a type is a truthy number literal (not 0)                                                     |
-| [isTruthyStringType](functions/isTruthyStringType.md)           | Check if a type is a truthy string literal (not "")                                                    |
-| [isUnknownType](functions/isUnknownType.md)                     | Check if a type is the unknown type                                                                    |
+| Function                                                        | Description                                                                                                                                              |
+| --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [findEnclosingTryBlock](functions/findEnclosingTryBlock.md)     | Find the nearest `TryStatement` whose `try` block (not `catch`/`finally`) encloses the given node.                                                       |
+| [findParent](functions/findParent.md)                           | Walk up the AST from `node` to find the nearest ancestor matching a predicate.                                                                           |
+| [getFullyQualifiedNameEx](functions/getFullyQualifiedNameEx.md) | Get the fully qualified name of a symbol, handling cases that `ts.TypeChecker.getFullyQualifiedName` does not handle (ex: `export as namespace preact`). |
+| [hasEnclosingTryBlock](functions/hasEnclosingTryBlock.md)       | Check whether the given node is enclosed by the `try` block (not `catch`/`finally`) of a `TryStatement`.                                                 |
+| [hasParent](functions/hasParent.md)                             | Check whether `node` has an ancestor matching a predicate.                                                                                               |
+| [isBooleanLiteralType](functions/isBooleanLiteralType.md)       | Check if the type is a boolean literal type.                                                                                                             |
+| [isTypeExpression](functions/isTypeExpression.md)               | Check if a node is a TypeScript type expression (the nodes `unwrap` strips).                                                                             |
+| [unwrap](functions/unwrap.md)                                   | Recursively unwrap TypeScript type expressions to get the underlying expression.                                                                         |
