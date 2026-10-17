@@ -1,13 +1,8 @@
-import { defineConfig } from "tsdown";
+/// <reference types="node" />
+import { buildConfig } from "@local/configs/tsdown.config.base";
+import type { UserConfig } from "tsdown";
 
-export default defineConfig({
-  clean: true,
-  dts: true,
-  exports: true,
-  fixedExtension: false,
-  format: ["esm"],
-  minify: false,
-  outDir: "dist",
+export default {
+  ...buildConfig(process.cwd()),
   platform: "neutral",
-  target: "es2021",
-});
+} satisfies UserConfig;

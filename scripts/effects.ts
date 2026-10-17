@@ -5,24 +5,19 @@ import * as Fn from "effect/Function";
 import { not, or } from "effect/Predicate";
 import * as Str from "effect/String";
 
-export const version = Effect.gen(function*() {
-  const fs = yield* FileSystem.FileSystem;
-  return Fn.pipe(
-    yield* fs.readFileString("VERSION", "utf8"),
-    Str.trim,
-    Str.replace(/^v/, ""),
-  );
-});
+export const version = Fn.pipe(
+  FileSystem.FileSystem,
+  Effect.flatMap((fs) => fs.readFileString("VERSION", "utf8")),
+  Effect.map(Str.trim),
+  Effect.map(Str.replace(/^v/, "")),
+);
 
-export const ignores = Effect.gen(function*() {
-  const fs = yield* FileSystem.FileSystem;
-  const content = yield* fs.readFileString(".gitignore", "utf8");
-  return Fn.pipe(
-    content,
-    Str.split("\n"),
-    Arr.filter(not(or(Str.startsWith("#"), Str.startsWith("!")))),
-    Arr.map(Str.trim),
-    Arr.filter(Str.isNonEmpty),
-    Arr.map((s) => s.replace(/^\//, "")),
-  );
-});
+export const ignores = Fn.pipe(
+  FileSystem.FileSystem,
+  Effect.flatMap((fs) => fs.readFileString(".gitignore", "utf8")),
+  Effect.map(Str.split("\n")),
+  Effect.map(Arr.map(Str.trim)),
+  Effect.map(Arr.filter(not(or(Str.startsWith("#"), Str.startsWith("!"))))),
+  Effect.map(Arr.map(Str.replace(/^\//, ""))),
+  Effect.map(Arr.filter(Str.isNonEmpty)),
+);

@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "description": "Local config bases for use in the workspace",
-  "homepage": "https://github.com/Rel1cx/eslint-react",
+  "homepage": "https://github.com/Rel1cx/dx",
   "bugs": {
-    "url": "https://github.com/Rel1cx/eslint-react/issues"
+    "url": "https://github.com/Rel1cx/dx/issues"
   },
   "license": "MIT",
   "author": "Rel1cx",
@@ -16,6 +16,12 @@
       "types": "./eslint.d.ts",
       "import": "./eslint.js"
     },
+    "./textlint": {
+      "types": "./textlint.d.ts",
+      "import": "./textlint.js"
+    },
+    "./textlint.base.json": "./textlint.base.json",
+    "./tsconfig.base.json": "./tsconfig.base.json",
     "./tsdown.config.base": {
       "types": "./tsdown.config.base.d.ts",
       "import": "./tsdown.config.base.js"
@@ -24,7 +30,6 @@
       "types": "./tsl.config.base.d.ts",
       "import": "./tsl.config.base.js"
     },
-    "./tsconfig.base.json": "./tsconfig.base.json",
     "./typedoc.base.json": "./typedoc.base.json"
   },
   "scripts": {
@@ -33,8 +38,9 @@
     "lint:ts": "tsl"
   },
   "dependencies": {
-    "@eslint/compat": "^2.1.1",
+    "@eslint/config-helpers": "^0.7.0",
     "@stylistic/eslint-plugin": "^5.10.0",
+    "@tsconfig/strictest": "^2.0.8",
     "eslint-plugin-de-morgan": "^2.2.1",
     "eslint-plugin-jsdoc": "^64.5.4",
     "eslint-plugin-perfectionist": "^5.12.1",
@@ -43,12 +49,15 @@
     "typescript-eslint": "^8.71.2"
   },
   "devDependencies": {
-    "eslint": "^10.12.0",
+    "@tsconfig/node24": "^24.0.5",
+    "@types/node": "^26.6.5",
+    "eslint": "^10.13.0",
     "tinyglobby": "^0.2.17",
     "tsdown": "^0.23.1",
     "tsl": "^1.0.30",
-    "tsl-dx": "^0.13.7",
+    "tsl-dx": "^0.14.1",
     "typedoc": "^0.28.20",
+    "typedoc-plugin-file-overview": "^0.2.0",
     "typedoc-plugin-markdown": "^4.14.0",
     "typedoc-plugin-mdn-links": "^5.1.1",
     "typescript": "6.0.3"
@@ -56,7 +65,7 @@
   "peerDependencies": {
     "eslint": "*",
     "tsl": "^1.0.30",
-    "tsl-dx": "^0.13.2",
+    "tsl-dx": "^0.14.0",
     "typedoc": "^0.28.20",
     "typedoc-plugin-markdown": "^4.12.0",
     "typedoc-plugin-mdn-links": "^5.1.1",

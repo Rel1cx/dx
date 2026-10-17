@@ -6,7 +6,7 @@
 function isBooleanLiteralType<TType extends Type>(type: TType): type is TType & { intrinsicName: "false" | "true" };
 ```
 
-Check if a type is a boolean literal type (true or false)
+Check if the type is a boolean literal type.
 
 ## Type Parameters
 
@@ -16,12 +16,12 @@ Check if a type is a boolean literal type (true or false)
 
 ## Parameters
 
-| Parameter | Type    | Description       |
-| --------- | ------- | ----------------- |
-| `type`    | `TType` | The type to check |
+| Parameter | Type    | Description        |
+| --------- | ------- | ------------------ |
+| `type`    | `TType` | The type to check. |
 
 ## Returns
 
 type is TType & \{ intrinsicName: "false" \| "true" \}
 
-Whether the type is a boolean literal type
+`true` if the type is a boolean literal type.

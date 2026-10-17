@@ -2,6 +2,7 @@
   "extends": [
     "@local/configs/typedoc.base.json"
   ],
+  "name": "@local/eff",
   "entryPoints": [
     "src/index.ts"
   ],

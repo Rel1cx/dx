@@ -24,5 +24,4 @@ type TypeVariant =
   | "truthy string";
 ```
 
-Represents the variant classification of a TypeScript type
-for use in strict boolean expression checking
+Represents the variant of a type for boolean expression analysis.
