@@ -1,27 +1,49 @@
-[Public APIs](../README.md) / isArray
+[@local/eff](../README.md) / isArray
 
 # Function: isArray()
 
+## Call Signature
+
 ```ts
-function isArray<T>(data: T | ArrayLike<unknown>): data is NarrowedTo<T, readonly unknown[]>;
+function isArray(data: unknown): data is unknown[];
 ```
 
 A function that checks if the passed parameter is an Array and narrows its type accordingly.
 
-## Type Parameters
+### Parameters
 
-| Type Parameter |
-| -------------- |
-| `T`            |
+| Parameter | Type      | Description            |
+| --------- | --------- | ---------------------- |
+| `data`    | `unknown` | The variable to check. |
 
-## Parameters
+### Returns
 
-| Parameter | Type                            | Description            |
-| --------- | ------------------------------- | ---------------------- |
-| `data`    | `T` \| `ArrayLike`\<`unknown`\> | The variable to check. |
+`data is unknown[]`
 
-## Returns
+True if the passed input is an Array, false otherwise.
 
-`data is NarrowedTo<T, readonly unknown[]>`
+## Call Signature
+
+```ts
+function isArray<T>(data: T): data is Extract<T, readonly any[]>;
+```
+
+A function that checks if the passed parameter is an Array and narrows its type accordingly.
+
+### Type Parameters
+
+| Type Parameter                    |
+| --------------------------------- |
+| <a id="type-parameter-t"></a> `T` |
+
+### Parameters
+
+| Parameter | Type | Description            |
+| --------- | ---- | ---------------------- |
+| `data`    | `T`  | The variable to check. |
+
+### Returns
+
+`data is Extract<T, readonly any[]>`
 
 True if the passed input is an Array, false otherwise.

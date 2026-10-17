@@ -1,4 +1,4 @@
-[Public APIs](../README.md) / Pretty
+[@local/eff](../README.md) / Pretty
 
 # Type Alias: Pretty\<T\>
 
@@ -11,6 +11,6 @@ in IDE tooltips and error messages.
 
 ## Type Parameters
 
-| Type Parameter |
-| -------------- |
-| `T`            |
+| Type Parameter                    |
+| --------------------------------- |
+| <a id="type-parameter-t"></a> `T` |

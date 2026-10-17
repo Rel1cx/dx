@@ -1,44 +1,46 @@
-[Public APIs](../README.md) / flip
+[@local/eff](../README.md) / flip
 
 # Function: flip()
 
 ```ts
-function flip<A, B, C>(f: (...a: A) => (...b: B) => C): (...b: B) => (...a: A) => C;
+function flip<A extends unknown[], B extends unknown[], C>(f: (...a: A) => (...b: B) => C): (...b: B) => (...a: A) => C;
 ```
 
 Reverses the order of arguments for a curried function.
 
-## Type Parameters
+**When to use**
 
-| Type Parameter            |
-| ------------------------- |
-| `A` _extends_ `unknown`[] |
-| `B` _extends_ `unknown`[] |
-| `C`                       |
+Use to adapt a curried function when its argument groups need to be supplied
+in the opposite order.
 
-## Parameters
-
-| Parameter | Type                                  | Description           |
-| --------- | ------------------------------------- | --------------------- |
-| `f`       | (...`a`: `A`) => (...`b`: `B`) => `C` | The function to flip. |
-
-## Returns
-
-A new function with the argument order reversed.
-
-(...`b`: `B`) => (...`a`: `A`) => `C`
-
-## Example
+**Example** (Flipping curried arguments)
 
 ```ts
-import { flip } from "effect/Function";
-import * as assert from "node:assert";
+import { Function } from "effect";
 
 const f = (a: number) => (b: string) => a - b.length;
 
-assert.deepStrictEqual(flip(f)("aaa")(2), -1);
+Function.flip(f)("aaa")(2); // => -1
 ```
+
+## Type Parameters
+
+| Type Parameter                                          |
+| ------------------------------------------------------- |
+| <a id="type-parameter-a"></a> `A` _extends_ `unknown`[] |
+| <a id="type-parameter-b"></a> `B` _extends_ `unknown`[] |
+| <a id="type-parameter-c"></a> `C`                       |
+
+## Parameters
+
+| Parameter | Type                                  |
+| --------- | ------------------------------------- |
+| `f`       | (...`a`: `A`) => (...`b`: `B`) => `C` |
+
+## Returns
+
+(...`b`: `B`) => (...`a`: `A`) => `C`
 
 ## Since
 
-1.0.0
+2.0.0

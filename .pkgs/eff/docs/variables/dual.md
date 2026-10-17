@@ -1,4 +1,4 @@
-[Public APIs](../README.md) / dual
+[@local/eff](../README.md) / dual
 
 # Variable: dual
 
@@ -9,56 +9,54 @@ const dual: {
 };
 ```
 
-Creates a function that can be used in a data-last (aka `pipe`able) or
-data-first style.
+Creates a function that can be called in data-first style or data-last
+(`pipe`-friendly) style.
 
-The first parameter to `dual` is either the arity of the uncurried function
-or a predicate that determines if the function is being used in a data-first
-or data-last style.
+**When to use**
 
-Using the arity is the most common use case, but there are some cases where
-you may want to use a predicate. For example, if you have a function that
-takes an optional argument, you can use a predicate to determine if the
-function is being used in a data-first or data-last style.
+Use to expose one implementation through both direct and `pipe`-friendly
+call styles.
 
-You can pass either the arity of the uncurried function or a predicate
-which determines if the function is being used in a data-first or
-data-last style.
+**Details**
 
-**Example** (Using arity to determine data-first or data-last style)
+Pass either the arity of the uncurried function or a predicate that decides
+whether the current call is data-first. Arity is the common case. Use a
+predicate when optional arguments make arity ambiguous.
+
+**Example** (Selecting data-first or data-last style by arity)
 
 ```ts
-import { dual, pipe } from "effect/Function";
+import { Function, pipe } from "effect";
 
-const sum = dual<
+const sum = Function.dual<
   (that: number) => (self: number) => number,
   (self: number, that: number) => number
 >(2, (self, that) => self + that);
 
-console.log(sum(2, 3)); // 5
-console.log(pipe(2, sum(3))); // 5
+sum(2, 3); // => 5
+pipe(2, sum(3)); // => 5
 ```
 
-**Example** (Using call signatures to define the overloads)
+**Example** (Defining overloads with call signatures)
 
 ```ts
-import { dual, pipe } from "effect/Function";
+import { Function, pipe } from "effect";
 
 const sum: {
   (that: number): (self: number) => number;
   (self: number, that: number): number;
-} = dual(2, (self: number, that: number): number => self + that);
+} = Function.dual(2, (self: number, that: number): number => self + that);
 
-console.log(sum(2, 3)); // 5
-console.log(pipe(2, sum(3))); // 5
+sum(2, 3); // => 5
+pipe(2, sum(3)); // => 5
 ```
 
-**Example** (Using a predicate to determine data-first or data-last style)
+**Example** (Selecting data-first or data-last style with a predicate)
 
 ```ts
-import { dual, pipe } from "effect/Function";
+import { Function, pipe } from "effect";
 
-const sum = dual<
+const sum = Function.dual<
   (that: number) => (self: number) => number,
   (self: number, that: number) => number
 >(
@@ -66,22 +64,81 @@ const sum = dual<
   (self, that) => self + that,
 );
 
-console.log(sum(2, 3)); // 5
-console.log(pipe(2, sum(3))); // 5
+sum(2, 3); // => 5
+pipe(2, sum(3)); // => 5
 ```
 
 ## Call Signature
 
 ```ts
-<DataLast, DataFirst>(arity: Parameters<DataFirst>["length"], body: DataFirst): DataLast & DataFirst;
+<DataLast extends (...args: any[]) => any, DataFirst extends (...args: any[]) => any>(arity: Parameters<DataFirst>["length"], body: DataFirst): DataLast & DataFirst;
+```
+
+Creates a function that can be called in data-first style or data-last
+(`pipe`-friendly) style.
+
+**When to use**
+
+Use to expose one implementation through both direct and `pipe`-friendly
+call styles.
+
+**Details**
+
+Pass either the arity of the uncurried function or a predicate that decides
+whether the current call is data-first. Arity is the common case. Use a
+predicate when optional arguments make arity ambiguous.
+
+**Example** (Selecting data-first or data-last style by arity)
+
+```ts
+import { Function, pipe } from "effect";
+
+const sum = Function.dual<
+  (that: number) => (self: number) => number,
+  (self: number, that: number) => number
+>(2, (self, that) => self + that);
+
+sum(2, 3); // => 5
+pipe(2, sum(3)); // => 5
+```
+
+**Example** (Defining overloads with call signatures)
+
+```ts
+import { Function, pipe } from "effect";
+
+const sum: {
+  (that: number): (self: number) => number;
+  (self: number, that: number): number;
+} = Function.dual(2, (self: number, that: number): number => self + that);
+
+sum(2, 3); // => 5
+pipe(2, sum(3)); // => 5
+```
+
+**Example** (Selecting data-first or data-last style with a predicate)
+
+```ts
+import { Function, pipe } from "effect";
+
+const sum = Function.dual<
+  (that: number) => (self: number) => number,
+  (self: number, that: number) => number
+>(
+  (args) => args.length === 2,
+  (self, that) => self + that,
+);
+
+sum(2, 3); // => 5
+pipe(2, sum(3)); // => 5
 ```
 
 ### Type Parameters
 
-| Type Parameter                                      |
-| --------------------------------------------------- |
-| `DataLast` _extends_ (...`args`: `any`[]) => `any`  |
-| `DataFirst` _extends_ (...`args`: `any`[]) => `any` |
+| Type Parameter                                                                                  |
+| ----------------------------------------------------------------------------------------------- |
+| <a id="type-parameter-__typedatalast"></a> `DataLast` _extends_ (...`args`: `any`[]) => `any`   |
+| <a id="type-parameter-__typedatafirst"></a> `DataFirst` _extends_ (...`args`: `any`[]) => `any` |
 
 ### Parameters
 
@@ -94,18 +151,81 @@ console.log(pipe(2, sum(3))); // 5
 
 `DataLast` & `DataFirst`
 
+### Since
+
+2.0.0
+
 ## Call Signature
 
 ```ts
-<DataLast, DataFirst>(isDataFirst: (args: IArguments) => boolean, body: DataFirst): DataLast & DataFirst;
+<DataLast extends (...args: any[]) => any, DataFirst extends (...args: any[]) => any>(isDataFirst: (args: IArguments) => boolean, body: DataFirst): DataLast & DataFirst;
+```
+
+Creates a function that can be called in data-first style or data-last
+(`pipe`-friendly) style.
+
+**When to use**
+
+Use to expose one implementation through both direct and `pipe`-friendly
+call styles.
+
+**Details**
+
+Pass either the arity of the uncurried function or a predicate that decides
+whether the current call is data-first. Arity is the common case. Use a
+predicate when optional arguments make arity ambiguous.
+
+**Example** (Selecting data-first or data-last style by arity)
+
+```ts
+import { Function, pipe } from "effect";
+
+const sum = Function.dual<
+  (that: number) => (self: number) => number,
+  (self: number, that: number) => number
+>(2, (self, that) => self + that);
+
+sum(2, 3); // => 5
+pipe(2, sum(3)); // => 5
+```
+
+**Example** (Defining overloads with call signatures)
+
+```ts
+import { Function, pipe } from "effect";
+
+const sum: {
+  (that: number): (self: number) => number;
+  (self: number, that: number): number;
+} = Function.dual(2, (self: number, that: number): number => self + that);
+
+sum(2, 3); // => 5
+pipe(2, sum(3)); // => 5
+```
+
+**Example** (Selecting data-first or data-last style with a predicate)
+
+```ts
+import { Function, pipe } from "effect";
+
+const sum = Function.dual<
+  (that: number) => (self: number) => number,
+  (self: number, that: number) => number
+>(
+  (args) => args.length === 2,
+  (self, that) => self + that,
+);
+
+sum(2, 3); // => 5
+pipe(2, sum(3)); // => 5
 ```
 
 ### Type Parameters
 
-| Type Parameter                                      |
-| --------------------------------------------------- |
-| `DataLast` _extends_ (...`args`: `any`[]) => `any`  |
-| `DataFirst` _extends_ (...`args`: `any`[]) => `any` |
+| Type Parameter                                                                                    |
+| ------------------------------------------------------------------------------------------------- |
+| <a id="type-parameter-__typedatalast-1"></a> `DataLast` _extends_ (...`args`: `any`[]) => `any`   |
+| <a id="type-parameter-__typedatafirst-1"></a> `DataFirst` _extends_ (...`args`: `any`[]) => `any` |
 
 ### Parameters
 
@@ -118,14 +238,10 @@ console.log(pipe(2, sum(3))); // 5
 
 `DataLast` & `DataFirst`
 
-## Param
+### Since
 
-The arity of the uncurried function or a predicate that determines if the function is being used in a data-first or data-last style.
-
-## Param
-
-The function to be curried.
+2.0.0
 
 ## Since
 
-1.0.0
+2.0.0

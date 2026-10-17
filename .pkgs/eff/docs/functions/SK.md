@@ -1,0 +1,45 @@
+[@local/eff](../README.md) / SK
+
+# Function: SK()
+
+```ts
+function SK<A, B>(_: A, b: B): B;
+```
+
+Returns the second argument and discards the first. The SK combinator is
+a fundamental combinator in the lambda calculus and the SKI combinator
+calculus.
+
+**When to use**
+
+Use to discard the first argument and return the second argument.
+
+**Example** (Discarding the first argument)
+
+```ts
+import { Function } from "effect";
+
+Function.SK(0, "hello"); // => "hello"
+```
+
+## Type Parameters
+
+| Type Parameter                    |
+| --------------------------------- |
+| <a id="type-parameter-a"></a> `A` |
+| <a id="type-parameter-b"></a> `B` |
+
+## Parameters
+
+| Parameter | Type |
+| --------- | ---- |
+| `_`       | `A`  |
+| `b`       | `B`  |
+
+## Returns
+
+`B`
+
+## Since
+
+2.0.0

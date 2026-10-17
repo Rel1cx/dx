@@ -1,43 +1,48 @@
-[Public APIs](../README.md) / untupled
+[@local/eff](../README.md) / untupled
 
 # Function: untupled()
 
 ```ts
-function untupled<A, B>(f: (a: A) => B): (...a: A) => B;
+function untupled<A extends readonly unknown[], B>(f: (a: A) => B): (...a: A) => B;
 ```
 
-Inverse function of `tupled`.
+Converts a tupled function back to an uncurried function.
+
+**When to use**
+
+Use to adapt a tuple-argument function so it accepts multiple arguments.
+
+**Example** (Converting a tuple to arguments)
+
+```ts
+import { Function } from "effect";
+
+const getFirst = Function.untupled(<A, B>(tuple: [A, B]): A => tuple[0]);
+
+getFirst(1, 2); // => 1
+```
 
 ## Type Parameters
 
-| Type Parameter                     |
-| ---------------------------------- |
-| `A` _extends_ readonly `unknown`[] |
-| `B`                                |
+| Type Parameter                                                   |
+| ---------------------------------------------------------------- |
+| <a id="type-parameter-a"></a> `A` _extends_ readonly `unknown`[] |
+| <a id="type-parameter-b"></a> `B`                                |
 
 ## Parameters
 
-| Parameter | Type              | Description                   |
-| --------- | ----------------- | ----------------------------- |
-| `f`       | (`a`: `A`) => `B` | The function to be converted. |
+| Parameter | Type              |
+| --------- | ----------------- |
+| `f`       | (`a`: `A`) => `B` |
 
 ## Returns
 
-A new function that accepts spread arguments instead of a tuple.
-
 (...`a`: `A`) => `B`
 
-## Example
+## See
 
-```ts
-import { untupled } from "effect/Function";
-import * as assert from "node:assert";
-
-const getFirst = untupled(<A, B>(tuple: [A, B]): A => tuple[0]);
-
-assert.deepStrictEqual(getFirst(1, 2), 1);
-```
+[tupled](tupled.md) for adapting a multi-argument function to one tuple argument
 
 ## Since
 
-1.0.0
+2.0.0

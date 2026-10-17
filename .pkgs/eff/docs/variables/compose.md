@@ -1,4 +1,4 @@
-[Public APIs](../README.md) / compose
+[@local/eff](../README.md) / compose
 
 # Variable: compose
 
@@ -12,18 +12,51 @@ const compose: {
 Composes two functions, `ab` and `bc` into a single function that takes in an argument `a` of type `A` and returns a result of type `C`.
 The result is obtained by first applying the `ab` function to `a` and then applying the `bc` function to the result of `ab`.
 
+**When to use**
+
+Use to compose exactly two unary functions into a reusable unary function.
+
+**Example** (Composing two functions)
+
+```ts
+import { Function } from "effect";
+
+const increment = (n: number) => n + 1;
+const square = (n: number) => n * n;
+
+Function.compose(increment, square)(2); // => 9
+```
+
 ## Call Signature
 
 ```ts
 <B, C>(bc: (b: B) => C): <A>(self: (a: A) => B) => (a: A) => C;
 ```
 
+Composes two functions, `ab` and `bc` into a single function that takes in an argument `a` of type `A` and returns a result of type `C`.
+The result is obtained by first applying the `ab` function to `a` and then applying the `bc` function to the result of `ab`.
+
+**When to use**
+
+Use to compose exactly two unary functions into a reusable unary function.
+
+**Example** (Composing two functions)
+
+```ts
+import { Function } from "effect";
+
+const increment = (n: number) => n + 1;
+const square = (n: number) => n * n;
+
+Function.compose(increment, square)(2); // => 9
+```
+
 ### Type Parameters
 
-| Type Parameter |
-| -------------- |
-| `B`            |
-| `C`            |
+| Type Parameter                          |
+| --------------------------------------- |
+| <a id="type-parameter-__typeb"></a> `B` |
+| <a id="type-parameter-__typec"></a> `C` |
 
 ### Parameters
 
@@ -35,19 +68,46 @@ The result is obtained by first applying the `ab` function to `a` and then apply
 
 \<`A`\>(`self`: (`a`: `A`) => `B`) => (`a`: `A`) => `C`
 
+### See
+
+- [flow](../functions/flow.md) for composing a left-to-right sequence of functions
+- [pipe](../functions/pipe.md) for applying a value through a left-to-right sequence immediately
+
+### Since
+
+2.0.0
+
 ## Call Signature
 
 ```ts
 <A, B, C>(self: (a: A) => B, bc: (b: B) => C): (a: A) => C;
 ```
 
+Composes two functions, `ab` and `bc` into a single function that takes in an argument `a` of type `A` and returns a result of type `C`.
+The result is obtained by first applying the `ab` function to `a` and then applying the `bc` function to the result of `ab`.
+
+**When to use**
+
+Use to compose exactly two unary functions into a reusable unary function.
+
+**Example** (Composing two functions)
+
+```ts
+import { Function } from "effect";
+
+const increment = (n: number) => n + 1;
+const square = (n: number) => n * n;
+
+Function.compose(increment, square)(2); // => 9
+```
+
 ### Type Parameters
 
-| Type Parameter |
-| -------------- |
-| `A`            |
-| `B`            |
-| `C`            |
+| Type Parameter                            |
+| ----------------------------------------- |
+| <a id="type-parameter-__typea"></a> `A`   |
+| <a id="type-parameter-__typeb-1"></a> `B` |
+| <a id="type-parameter-__typec-1"></a> `C` |
 
 ### Parameters
 
@@ -60,30 +120,20 @@ The result is obtained by first applying the `ab` function to `a` and then apply
 
 (`a`: `A`) => `C`
 
-## Param
+### See
 
-The first function to apply (or the composed function in data-last style).
+- [flow](../functions/flow.md) for composing a left-to-right sequence of functions
+- [pipe](../functions/pipe.md) for applying a value through a left-to-right sequence immediately
 
-## Param
+### Since
 
-The second function to apply.
+2.0.0
 
-## Returns
+## See
 
-A composed function that applies both functions in sequence.
-
-## Example
-
-```ts
-import { compose } from "effect/Function";
-import * as assert from "node:assert";
-
-const increment = (n: number) => n + 1;
-const square = (n: number) => n * n;
-
-assert.strictEqual(compose(increment, square)(2), 9);
-```
+- [flow](../functions/flow.md) for composing a left-to-right sequence of functions
+- [pipe](../functions/pipe.md) for applying a value through a left-to-right sequence immediately
 
 ## Since
 
-1.0.0
+2.0.0

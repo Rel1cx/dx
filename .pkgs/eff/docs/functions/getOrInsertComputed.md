@@ -1,21 +1,21 @@
-[Public APIs](../README.md) / getOrInsertComputed
+[@local/eff](../README.md) / getOrInsertComputed
 
 # Function: getOrInsertComputed()
 
 ## Call Signature
 
 ```ts
-function getOrInsertComputed<K, V>(map: WeakMap<K, V>, key: K, callback: (key: K) => V): V;
+function getOrInsertComputed<K extends WeakKey, V>(map: WeakMap<K, V>, key: K, callback: (key: K) => V): V;
 ```
 
 Retrieves a value from a Map or WeakMap if the key exists, or computes and stores a new value if it doesn't.
 
 ### Type Parameters
 
-| Type Parameter          |
-| ----------------------- |
-| `K` _extends_ `WeakKey` |
-| `V`                     |
+| Type Parameter                                        |
+| ----------------------------------------------------- |
+| <a id="type-parameter-k"></a> `K` _extends_ `WeakKey` |
+| <a id="type-parameter-v"></a> `V`                     |
 
 ### Parameters
 
@@ -41,10 +41,10 @@ Retrieves a value from a Map or WeakMap if the key exists, or computes and store
 
 ### Type Parameters
 
-| Type Parameter |
-| -------------- |
-| `K`            |
-| `V`            |
+| Type Parameter                      |
+| ----------------------------------- |
+| <a id="type-parameter-k-1"></a> `K` |
+| <a id="type-parameter-v-1"></a> `V` |
 
 ### Parameters
 
