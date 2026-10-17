@@ -7,11 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **tsl-shared**: Added `hasParent`, `findEnclosingTryBlock`, and `hasEnclosingTryBlock` traverse helpers, and `isTypeExpression` and `unwrap` extract helpers with return type narrowing
+- **tsl-shared**: Added `TypeExpression` type alias for TypeScript type expression nodes
+- **eff**: Added tests for predicate combinators and type guards
+- Added a textlint `tsl` rule in the shared config, applying the documentation wording patterns from `textlint.base.json` to source files
+- Added per-package `vitest.config.ts` with test isolation disabled
+
 ### Changed
 
+- **tsl-shared**: A single non-literal `boolean` type now yields the `boolean` variant in `getTypeVariants`
+- **tsl-shared**: Aligned `type-is`, `type-name`, and `type-variant` docs and internals with the reference implementations, marking internal helpers as `@internal`
+- Replaced `.textlintrc.json` with `.textlintrc.cjs` backed by the shared `textlint.base.json`, so Markdown and source linting share one wording rule set
+- Synced `.pkgs/configs` with the reference project: `includeIgnoreFile` from `@eslint/config-helpers`, perfectionist head/tail groups, `dce-only` minification in the tsdown base config, and `typedoc-plugin-file-overview`
+- Updated `scripts` to `Fn.pipe`-style effects and a typed `InvalidPackageJsonError`
+- Check workflow now verifies formatting before building
 - Updated dependencies including `effect`, `@effect/platform-node`, `typescript-eslint`, `tsdown`, and `@types/node`
 - Updated dprint plugins for JSON, Markdown, and TOML in `dprint.json`
 - Updated `setup-node` GitHub Action to v7.1.0, `setup-uv` to v10.3.0, and unified pnpm to 12.11.2
+
+### Removed
+
+- Removed the sentrux architecture gate (`.sentrux` directory and `lint:arch` script)
 
 ## [0.14.0] - 2026-10-05
 
