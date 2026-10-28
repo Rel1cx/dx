@@ -4,8 +4,10 @@ export default {
   clean: true,
   dts: true,
   entry: ["src/index.ts"],
-  external: ["tsl", "typescript"],
-  inlineOnly: ["@local/eff"],
+  deps: {
+    alwaysBundle: ["@local/eff"],
+    neverBundle: ["tsl", "typescript"],
+  },
   format: ["esm"],
   minify: false,
   outDir: "dist",

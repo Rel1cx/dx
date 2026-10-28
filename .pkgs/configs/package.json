@@ -34,6 +34,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "build:docs": "typedoc",
     "lint:publish": "publint",
     "lint:ts": "tsl"
   },
@@ -41,24 +42,24 @@
     "@eslint/config-helpers": "^0.7.0",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@tsconfig/strictest": "^2.0.8",
-    "eslint-plugin-de-morgan": "^2.2.1",
+    "eslint-plugin-de-morgan": "^2.3.0",
     "eslint-plugin-jsdoc": "^64.5.4",
-    "eslint-plugin-perfectionist": "^5.12.1",
+    "eslint-plugin-perfectionist": "^5.13.0",
     "eslint-plugin-regexp": "^3.3.1",
     "eslint-plugin-unicorn": "^74.0.0",
-    "typescript-eslint": "^8.71.2"
+    "typescript-eslint": "^8.72.1"
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.5",
     "@types/node": "^26.6.5",
     "eslint": "^10.13.0",
     "tinyglobby": "^0.2.17",
-    "tsdown": "^0.23.1",
+    "tsdown": "^0.23.3",
     "tsl": "^1.0.30",
     "tsl-dx": "^0.14.1",
     "typedoc": "^0.28.20",
     "typedoc-plugin-file-overview": "^0.2.0",
-    "typedoc-plugin-markdown": "^4.14.0",
+    "typedoc-plugin-markdown": "^4.14.1",
     "typedoc-plugin-mdn-links": "^5.1.1",
     "typescript": "6.0.3"
   },
