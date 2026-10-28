@@ -5,7 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.15.1] - 2026-10-28
+
+### Added
+
+- Added TypeDoc configuration and generated API documentation for `.pkgs/configs`
+
+### Changed
+
+- **tsl-dx**, **tsl-shared**: Migrated tsdown configs from the removed `inlineOnly` option and deprecated `external` option to `deps.alwaysBundle` and `deps.neverBundle`, fixing the root typecheck
+- Lowered the shared tsdown build target from Node 22 to Node 20
+- Root `build:docs` now builds docs for all workspaces and formats the output with dprint
+- Updated dependencies including `effect`, `@effect/platform-node`, `tsdown`, `typescript-eslint`, `eslint-plugin-de-morgan`, `eslint-plugin-perfectionist`, `typedoc-plugin-markdown`, and `undici`; bumped pnpm to 12.15.0 and `setup-uv` to v10.3.2
 
 ## [0.15.0] - 2026-10-17
 
