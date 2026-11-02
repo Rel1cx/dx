@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- **tsl-shared**: `isObjectType` no longer treats `symbol`-like types as object types
+- **tsl-shared**: `getFullyQualifiedNameEx` no longer duplicates the namespace when the symbol name equals the namespace itself
+
+### Changed
+
+- Updated dependencies including `effect`, `@effect/platform-node`, `vitest`, `tsdown`, `eslint`, `ansis`, `eslint-plugin-regexp`, `@types/node`, and the `tslib` override; bumped pnpm to 12.16.1 and `setup-uv` to v10.3.3
+
 ## [0.15.1] - 2026-10-28
 
 ### Added
