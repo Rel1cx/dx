@@ -41,7 +41,7 @@
     "@local/configs": "workspace:*",
     "@tsconfig/node24": "^24.0.5",
     "@types/node": "^26.6.6",
-    "tsdown": "^0.23.4",
+    "tsdown": "^0.23.7",
     "tsl": "^1.0.30"
   },
   "engines": {

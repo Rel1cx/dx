@@ -48,7 +48,7 @@
     "textlint": "^15.8.0",
     "tinyglobby": "^0.2.17",
     "ts-pattern": "^5.9.2",
-    "tsdown": "^0.23.4",
+    "tsdown": "^0.23.7",
     "tsl": "^1.0.30",
     "tsl-dx": "workspace:*",
     "tsx": "latest",
